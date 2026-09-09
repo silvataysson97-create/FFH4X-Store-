@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FFH4X Store</title>
+<style>
+body{margin:0;background:#09090f;color:#fff;font-family:Arial,sans-serif}
+header{text-align:center;padding:30px 20px;border-bottom:1px solid #252535}
+h1{font-size:34px;margin:0 0 8px}.sub{color:#aaa}
+main{padding:35px 20px;display:flex;justify-content:center}
+.card{width:100%;max-width:430px;background:#13131e;border:1px solid #2d2d40;border-radius:18px;padding:26px}
+.badge{font-size:12px;color:#aaa}.price{font-size:32px;font-weight:bold;margin:20px 0}
+button{width:100%;padding:16px;border:0;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer}
+.note{color:#888;font-size:13px;line-height:1.5;margin-top:15px}
+</style>
+</head>
+<body>
+<header><h1>FFH4X Store</h1><div class="sub">Produtos digitais</div></header>
+<main>
+<section class="card">
+<div class="badge">PRODUTO DIGITAL</div>
+<h2>Proxy Android</h2>
+<p>Produto digital para Android.</p>
+<div class="price">R$ 5,00</div>
+<button onclick="comprar()">Comprar por R$ 5,00</button>
+<div class="note">O checkout será configurado depois com o seu link oficial de pagamento.</div>
+</section>
+</main>
+<script>
+function comprar(){
+  const checkout = "";
+  if (checkout) location.href = checkout;
+  else alert("Checkout ainda não configurado.");
+}
+</script>
+</body>
+</html>
