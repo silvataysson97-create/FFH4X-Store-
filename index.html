@@ -3,306 +3,462 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>FFH4X Store</title>
+<title>Fusion XIT — Loja Demo</title>
 
 <style>
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:
-        radial-gradient(circle at top,#26004d 0%,#0b0312 38%,#050207 100%);
-    color:white;
-    min-height:100vh;
+  background:#050817;
+  color:white;
 }
-
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background:
-        radial-gradient(circle at 15% 20%,#a000ff25,transparent 30%),
-        radial-gradient(circle at 85% 70%,#d000ff18,transparent 30%);
-    z-index:-1;
-}
-
-/* HEADER */
 
 header{
-    padding:35px 15px;
-    text-align:center;
-    background:
-        linear-gradient(180deg,#200034,#0b0312);
-    border-bottom:1px solid #a900ff66;
-    box-shadow:0 0 35px #8c00ff55;
+  padding:22px 16px;
+  background:linear-gradient(135deg,#07102d,#101b4d);
+  text-align:center;
+  border-bottom:1px solid #26315c;
 }
 
-.logo{
-    font-size:38px;
-    font-weight:900;
-    color:#e08aff;
-    text-shadow:
-        0 0 8px #a000ff,
-        0 0 20px #a000ff,
-        0 0 40px #8c00ff;
+header h1{
+  font-size:27px;
 }
 
-.subtitle{
-    margin-top:10px;
-    color:#c9a9d5;
-    font-size:15px;
+header p{
+  color:#9ca8d8;
+  margin-top:7px;
 }
 
-.support{
-    display:inline-block;
-    margin-top:20px;
-    padding:13px 22px;
-    background:linear-gradient(90deg,#6500d9,#b000ff);
-    border-radius:12px;
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    box-shadow:0 0 20px #8c00ff88;
+.banner{
+  margin:15px;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid #29335c;
+  background:#0b1025;
 }
 
-/* CONTAINER */
-
-.container{
-    width:94%;
-    max-width:1150px;
-    margin:25px auto;
+.banner img{
+  width:100%;
+  display:block;
+  max-height:240px;
+  object-fit:cover;
 }
 
-/* BENEFÍCIOS */
-
-.trust{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-bottom:30px;
+.demo{
+  margin:15px;
+  padding:13px;
+  border-radius:14px;
+  background:#151d38;
+  color:#aeb9e5;
+  text-align:center;
+  font-size:13px;
 }
 
-.trust-box{
-    background:#110817;
-    border:1px solid #9d00ff55;
-    border-radius:15px;
-    padding:18px 10px;
-    text-align:center;
-    box-shadow:0 0 18px #7d00ff22;
-}
-
-.trust-box strong{
-    display:block;
-    color:#d979ff;
-    margin-bottom:6px;
-}
-
-/* TITULOS */
-
-.title{
-    color:#df83ff;
-    margin:28px 0 18px;
-    font-size:25px;
-    text-shadow:0 0 12px #9700ff;
-}
-
-/* PRODUTOS */
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  padding:15px;
 }
 
 .card{
-    background:
-        linear-gradient(145deg,#190b24,#09050d);
-    border:1px solid #a500ff55;
-    border-radius:18px;
-    padding:15px;
-    box-shadow:0 0 22px #7800ff22;
-    transition:.2s;
+  background:#0c1229;
+  border:1px solid #252e52;
+  border-radius:18px;
+  padding:12px;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#c000ff;
-    box-shadow:0 0 28px #8f00ff66;
+.icon{
+  height:95px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:43px;
+  background:linear-gradient(135deg,#111b40,#17245a);
+  margin-bottom:11px;
 }
 
-.image{
-    height:140px;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:55px;
-
-    background:
-        radial-gradient(circle,#b500ff55,transparent 45%),
-        linear-gradient(135deg,#300052,#09000e);
-
-    border:1px solid #b000ff55;
-    margin-bottom:15px;
+.card h2{
+  font-size:17px;
+  margin-bottom:6px;
 }
 
-.card h3{
-    font-size:19px;
-    margin-bottom:8px;
+.desc{
+  color:#7884ad;
+  font-size:12px;
+  min-height:30px;
 }
 
-.description{
-    color:#aa98b2;
-    font-size:13px;
-    min-height:38px;
-    line-height:1.4;
+.stars{
+  color:#20e6ed;
+  margin:8px 0;
+  font-size:13px;
 }
 
 .price{
-    margin:12px 0 8px;
-    color:#dc75ff;
-    font-size:23px;
-    font-weight:bold;
-}
-
-.stock{
-    font-size:13px;
-    margin-bottom:13px;
-}
-
-.stock-ok{
-    color:#55ff91;
-}
-
-.stock-out{
-    color:#ff4c6d;
+  font-size:19px;
+  font-weight:bold;
+  margin:8px 0 12px;
 }
 
 .buy{
-    width:100%;
-    border:0;
-    border-radius:11px;
-    padding:13px;
-    background:linear-gradient(90deg,#6800dc,#b000ff);
-    color:white;
-    font-weight:bold;
-    font-size:15px;
-    cursor:pointer;
-    box-shadow:0 0 15px #8500ff55;
+  width:100%;
+  border:0;
+  padding:12px;
+  border-radius:12px;
+  background:#2864ed;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.buy:hover{
-    box-shadow:0 0 25px #a000ff99;
+.buy:active{
+  transform:scale(.97);
 }
 
-.buy:disabled{
-    background:#29212d;
-    color:#777;
-    box-shadow:none;
-    cursor:not-allowed;
+.features{
+  padding:15px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
 }
 
-/* PIX */
-
-#checkout{
-    display:none;
-    margin:40px 0;
-    padding:28px 18px;
-    text-align:center;
-    border-radius:20px;
-
-    background:
-        linear-gradient(145deg,#1b0826,#09050d);
-
-    border:2px solid #a900ff;
-    box-shadow:
-        0 0 20px #9d00ff55,
-        inset 0 0 20px #7300ff18;
+.feature{
+  background:#0c1229;
+  border:1px solid #252e52;
+  padding:17px;
+  border-radius:15px;
 }
 
-#checkout.show{
-    display:block;
+.feature b{
+  display:block;
+  margin-bottom:7px;
 }
 
-.pix-title{
-    color:#e28bff;
-    font-size:26px;
-    margin-bottom:10px;
-    text-shadow:0 0 12px #9900ff;
+.feature span{
+  color:#7884ad;
+  font-size:13px;
 }
-
-.selected{
-    margin:15px auto;
-    color:#d2bfd9;
-}
-
-.selected strong{
-    color:#e083ff;
-}
-
-.pix-box{
-    max-width:520px;
-    margin:20px auto;
-    padding:20px;
-    background:#060309;
-    border:1px solid #a400ff66;
-    border-radius:15px;
-}
-
-.pix-label{
-    color:#9e91a4;
-    font-size:13px;
-    margin-bottom:8px;
-}
-
-.pix-key{
-    font-size:21px;
-    font-weight:bold;
-    word-break:break-all;
-    margin-bottom:15px;
-}
-
-.copy{
-    border:0;
-    padding:12px 20px;
-    border-radius:10px;
-    background:#8d00ff;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.whatsapp{
-    display:inline-block;
-    margin-top:15px;
-    padding:13px 20px;
-    border-radius:10px;
-    background:#19b957;
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.warning{
-    color:#918795;
-    font-size:12px;
-    margin-top:18px;
-}
-
-/* FOOTER */
 
 footer{
-    text-align:center;
-    padding:35px 15px;
-   
+  text-align:center;
+  padding:25px;
+  color:#68749e;
+  font-size:12px;
+}
+
+/* carrinho */
+.cart{
+  position:fixed;
+  right:16px;
+  bottom:18px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:0;
+  background:#2864ed;
+  color:white;
+  font-size:24px;
+  box-shadow:0 8px 30px rgba(0,0,0,.5);
+}
+
+#count{
+  position:absolute;
+  top:-4px;
+  right:-2px;
+  background:#ff334f;
+  width:21px;
+  height:21px;
+  border-radius:50%;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* janela */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal-box{
+  width:100%;
+  max-width:390px;
+  background:#0c1229;
+  border:1px solid #303b68;
+  border-radius:20px;
+  padding:22px;
+}
+
+.modal-box h2{
+  margin-bottom:15px;
+}
+
+.modal-box p{
+  color:#9aa6d0;
+  line-height:1.5;
+}
+
+.close{
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:12px;
+  background:#202a4c;
+  color:white;
+}
+
+@media(max-width:360px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🔥 FUSION XIT</h1>
+  <p>Loja de produtos digitais — DEMONSTRAÇÃO</p>
+</header>
+
+<div class="banner">
+  <img src="loja.png" alt="Imagem da loja">
+</div>
+
+<div class="demo">
+  ⚠️ <b>LOJA DE SIMULAÇÃO</b><br>
+  Todos os produtos abaixo são demonstrativos e não possuem funções de cheat.
+</div>
+
+<section class="grid" id="products"></section>
+
+<section class="features">
+
+  <div class="feature">
+    🛡️ <b>Compra segura</b>
+    <span>Ambiente protegido do início ao fim.</span>
+  </div>
+
+  <div class="feature">
+    💳 <b>Pagamento protegido</b>
+    <span>Área de pagamento somente demonstrativa.</span>
+  </div>
+
+  <div class="feature">
+    🎧 <b>Suporte ao cliente</b>
+    <span>Atendimento rápido quando precisar.</span>
+  </div>
+
+  <div class="feature">
+    ✅ <b>Garantia</b>
+    <span>Garantia demonstrativa de 7 dias.</span>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Fusion XIT — Loja de demonstração
+</footer>
+
+<button class="cart" onclick="openCart()">
+  🛒
+  <span id="count">0</span>
+</button>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h2 id="modalTitle">Carrinho</h2>
+    <p id="modalText"></p>
+    <button class="close" onclick="closeModal()">Fechar</button>
+  </div>
+</div>
+
+<script>
+
+const products = [
+
+ {
+  icon:"🟢",
+  name:"Painel Neon",
+  desc:"Painel digital demonstrativo",
+  price:"R$ 25,00"
+ },
+
+ {
+  icon:"🔵",
+  name:"Painel Boot",
+  desc:"Painel digital demonstrativo",
+  price:"R$ 25,00"
+ },
+
+ {
+  icon:"🟣",
+  name:"Painel VIP",
+  desc:"Produto digital demonstrativo",
+  price:"R$ 35,00"
+ },
+
+ {
+  icon:"🟠",
+  name:"Painel Pro",
+  desc:"Produto digital demonstrativo",
+  price:"R$ 40,00"
+ },
+
+ {
+  icon:"😈",
+  name:"Painel HS",
+  desc:"Simulação de painel",
+  price:"R$ 45,00"
+ },
+
+ {
+  icon:"🍷",
+  name:"Como criar XIT",
+  desc:"Curso digital demonstrativo",
+  price:"R$ 80,00"
+ },
+
+ {
+  icon:"😶‍🌫️",
+  name:"HS Peito Android",
+  desc:"Simulação com holograma",
+  price:"R$ 30,00"
+ },
+
+ {
+  icon:"😶‍🌫️",
+  name:"HS Peito iOS",
+  desc:"Simulação para iOS",
+  price:"R$ 30,00"
+ },
+
+ {
+  icon:"😈",
+  name:"Proxy Android",
+  desc:"Produto demonstrativo",
+  price:"R$ 25,00"
+ },
+
+ {
+  icon:"🗿",
+  name:"Proxy iOS",
+  desc:"Produto demonstrativo",
+  price:"R$ 25,00"
+ },
+
+ {
+  icon:"🟡",
+  name:"Licença 7 dias",
+  desc:"Licença demonstrativa",
+  price:"R$ 15,00"
+ },
+
+ {
+  icon:"🟡",
+  name:"Licença 30 dias",
+  desc:"Licença demonstrativa",
+  price:"R$ 40,00"
+ }
+
+];
+
+let cart = [];
+
+const container = document.getElementById("products");
+
+products.forEach((p,index)=>{
+
+  const card = document.createElement("div");
+
+  card.className="card";
+
+  card.innerHTML=`
+
+    <div class="icon">${p.icon}</div>
+
+    <h2>${p.name}</h2>
+
+    <div class="desc">${p.desc}</div>
+
+    <div class="stars">★★★★★ <span style="color:#7884ad">4.8</span></div>
+
+    <div class="price">${p.price}</div>
+
+    <button class="buy" onclick="addCart(${index})">
+      🛒 Comprar
+    </button>
+
+  `;
+
+  container.appendChild(card);
+
+});
+
+function addCart(index){
+
+  cart.push(products[index]);
+
+  document.getElementById("count").innerText=cart.length;
+
+  document.getElementById("modalTitle").innerText="Produto adicionado!";
+
+  document.getElementById("modalText").innerText=
+    products[index].name +
+    " foi adicionado ao carrinho de demonstração.";
+
+  document.getElementById("modal").style.display="flex";
+}
+
+function openCart(){
+
+  document.getElementById("modalTitle").innerText="🛒 Carrinho";
+
+  if(cart.length===0){
+
+    document.getElementById("modalText").innerText=
+      "Seu carrinho está vazio.";
+
+  }else{
+
+    let text="Produtos selecionados:\\n\\n";
+
+    cart.forEach((p,i)=>{
+      text += (i+1)+". "+p.name+" — "+p.price+"\\n";
+    });
+
+    text +=
+      "\\n💳 Pagamento de demonstração.\\n"+
+      "Nenhuma cobrança real será realizada.";
+
+    document.getElementById("modalText").innerText=text;
+  }
+
+  document.getElementById("modal").style.display="flex";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
