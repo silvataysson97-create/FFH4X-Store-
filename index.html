@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050817">
-
 <title>Fusion XIT — Loja</title>
 
 <style>
@@ -120,7 +118,7 @@ header p{
   padding:12px;
   border-radius:12px;
   background:#2864ed;
-  color:white;
+  color:#fff;
   font-size:15px;
   font-weight:bold;
   cursor:pointer;
@@ -129,6 +127,48 @@ header p{
 .buy:active{
   transform:scale(.97);
 }
+
+/* CARRINHO */
+
+.cart-area{
+  display:none;
+  margin:15px;
+  padding:18px;
+  background:#0c1229;
+  border:1px solid #303b68;
+  border-radius:18px;
+}
+
+.cart-area h2{
+  margin-bottom:14px;
+}
+
+.cart-list{
+  color:#c5cce5;
+  line-height:1.7;
+  white-space:pre-line;
+  margin-bottom:15px;
+}
+
+.total{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.pix-button{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:12px;
+  background:#168b55;
+  color:#fff;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* PIX */
 
 .pix{
   display:none;
@@ -174,6 +214,8 @@ header p{
   cursor:pointer;
 }
 
+/* RECURSOS */
+
 .features{
   padding:15px;
   display:grid;
@@ -206,6 +248,8 @@ footer{
   font-size:12px;
 }
 
+/* BOTÃO CARRINHO */
+
 .cart{
   position:fixed;
   right:16px;
@@ -215,10 +259,11 @@ footer{
   border-radius:50%;
   border:0;
   background:#2864ed;
-  color:white;
+  color:#fff;
   font-size:24px;
   box-shadow:0 8px 30px rgba(0,0,0,.5);
   cursor:pointer;
+  z-index:20;
 }
 
 #count{
@@ -235,6 +280,8 @@ footer{
   justify-content:center;
 }
 
+/* MODAL */
+
 .modal{
   display:none;
   position:fixed;
@@ -249,22 +296,20 @@ footer{
 .modal-box{
   width:100%;
   max-width:390px;
-  max-height:85vh;
-  overflow:auto;
   background:#0c1229;
   border:1px solid #303b68;
   border-radius:20px;
   padding:22px;
+  text-align:center;
 }
 
 .modal-box h2{
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 
 .modal-box p{
   color:#9aa6d0;
-  line-height:1.6;
-  white-space:pre-line;
+  line-height:1.5;
 }
 
 .close{
@@ -274,9 +319,111 @@ footer{
   border:0;
   border-radius:12px;
   background:#202a4c;
-  color:white;
+  color:#fff;
   font-size:15px;
+}
+
+/* PAINEL DO DONO */
+
+.owner-button{
+  display:block;
+  margin:15px;
+  width:calc(100% - 30px);
+  padding:13px;
+  border:1px solid #394a83;
+  border-radius:12px;
+  background:#111a39;
+  color:#fff;
+  font-weight:bold;
   cursor:pointer;
+}
+
+.owner{
+  display:none;
+  margin:15px;
+  padding:18px;
+  background:#0c1229;
+  border:1px solid #394a83;
+  border-radius:18px;
+}
+
+.owner h2{
+  margin-bottom:8px;
+}
+
+.owner-info{
+  color:#8995bd;
+  font-size:12px;
+  line-height:1.5;
+  margin-bottom:15px;
+}
+
+.owner-product{
+  background:#080d20;
+  border:1px solid #252e52;
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:12px;
+}
+
+.owner-product strong{
+  display:block;
+  margin-bottom:10px;
+}
+
+.owner-product input{
+  width:100%;
+  padding:11px;
+  margin-bottom:8px;
+  border-radius:9px;
+  border:1px solid #303b68;
+  background:#050817;
+  color:#fff;
+}
+
+.owner-actions{
+  display:flex;
+  gap:8px;
+}
+
+.save-product{
+  flex:1;
+  padding:10px;
+  border:0;
+  border-radius:9px;
+  background:#168b55;
+  color:#fff;
+  font-weight:bold;
+}
+
+.delete-product{
+  padding:10px;
+  border:0;
+  border-radius:9px;
+  background:#a51d35;
+  color:#fff;
+  font-weight:bold;
+}
+
+.add-product{
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:10px;
+  background:#2864ed;
+  color:#fff;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.logout{
+  width:100%;
+  padding:11px;
+  margin-top:10px;
+  border:0;
+  border-radius:10px;
+  background:#202a4c;
+  color:#fff;
 }
 
 @media(max-width:360px){
@@ -305,19 +452,66 @@ footer{
 
 <div class="demo">
   ⚠️ <b>LOJA DE SIMULAÇÃO</b><br>
-  Os produtos relacionados a XIT, HS e Proxy são demonstrativos
-  e não possuem funções de cheat.
+  Os produtos relacionados a XIT, HS e Proxy são demonstrativos e não possuem funções de cheat.
 </div>
 
+<!-- PRODUTOS -->
 <section class="grid" id="products"></section>
 
+<!-- BOTÃO DONO -->
+<button class="owner-button" onclick="openOwner()">
+  🔐 Área do Dono
+</button>
+
+<!-- PAINEL DO DONO -->
+<section class="owner" id="ownerArea">
+
+  <h2>⚙️ Painel do Dono</h2>
+
+  <div class="owner-info">
+    Aqui você pode alterar os produtos diretamente pelo celular.
+    As alterações ficam salvas neste navegador.
+  </div>
+
+  <div id="ownerProducts"></div>
+
+  <button class="add-product" onclick="addProduct()">
+    ➕ Adicionar produto
+  </button>
+
+  <button class="logout" onclick="closeOwner()">
+    🚪 Fechar painel
+  </button>
+
+</section>
+
+<!-- CARRINHO -->
+<section class="cart-area" id="cartArea">
+
+  <h2>🛒 Meu carrinho</h2>
+
+  <div class="cart-list" id="cartList">
+    Seu carrinho está vazio.
+  </div>
+
+  <div class="total" id="total">
+    Total: R$ 0,00
+  </div>
+
+  <button class="pix-button" onclick="showPix()">
+    💳 Pagar via Pix
+  </button>
+
+</section>
+
+<!-- PIX -->
 <section class="pix" id="pixArea">
 
   <h2>💳 Pagamento via Pix</h2>
 
   <p>
-    Produto selecionado:
-    <b id="selectedProduct">Nenhum</b>
+    Total da compra:
+    <b id="pixTotal">R$ 0,00</b>
   </p>
 
   <input
@@ -331,12 +525,12 @@ footer{
   </button>
 
   <p style="margin-top:12px">
-    Faça o pagamento usando sua instituição financeira.
-    A confirmação deste pagamento é manual.
+    A confirmação do pagamento é manual.
   </p>
 
 </section>
 
+<!-- RECURSOS -->
 <section class="features">
 
   <div class="feature">
@@ -348,7 +542,7 @@ footer{
   <div class="feature">
     💳
     <b>Pagamento Pix</b>
-    <span>Pagamento via chave Pix.</span>
+    <span>Pagamento manual.</span>
   </div>
 
   <div class="feature">
@@ -360,7 +554,7 @@ footer{
   <div class="feature">
     ✅
     <b>Garantia</b>
-    <span>Garantia demonstrativa de 7 dias.</span>
+    <span>Garantia demonstrativa.</span>
   </div>
 
 </section>
@@ -369,21 +563,29 @@ footer{
   © 2026 Fusion XIT — Loja de demonstração
 </footer>
 
-<button class="cart" onclick="openCart()" aria-label="Abrir carrinho">
+<!-- BOTÃO CARRINHO -->
+<button class="cart"
+        onclick="openCart()"
+        aria-label="Abrir carrinho">
   🛒
   <span id="count">0</span>
 </button>
 
+<!-- MODAL -->
 <div class="modal" id="modal">
 
   <div class="modal-box">
 
-    <h2 id="modalTitle">🛒 Carrinho</h2>
+    <h2 id="modalTitle">
+      Produto adicionado!
+    </h2>
 
-    <p id="modalText"></p>
+    <p id="modalText">
+      O produto foi adicionado ao carrinho.
+    </p>
 
     <button class="close" onclick="closeModal()">
-      Fechar
+      Continuar comprando
     </button>
 
   </div>
@@ -392,150 +594,351 @@ footer{
 
 <script>
 
+/* =========================
+   CONFIGURAÇÕES
+========================= */
+
 const PIX_KEY = "05942249261";
 
-const products = [
+/*
+  TROQUE A SENHA AQUI SE QUISER
+*/
+const OWNER_PASSWORD = "1234";
+
+
+/* =========================
+   PRODUTOS INICIAIS
+========================= */
+
+const defaultProducts = [
 
   {
     icon:"🟢",
     name:"Painel Neon",
     desc:"Painel digital demonstrativo",
-    price:"R$ 25,00"
+    price:5
   },
 
   {
     icon:"🔵",
     name:"Painel Boot",
     desc:"Painel digital demonstrativo",
-    price:"R$ 25,00"
+    price:5
   },
 
   {
     icon:"🟣",
     name:"Painel VIP",
     desc:"Produto digital demonstrativo",
-    price:"R$ 35,00"
+    price:7
   },
 
   {
     icon:"🟠",
     name:"Painel Pro",
     desc:"Produto digital demonstrativo",
-    price:"R$ 40,00"
+    price:10
   },
 
   {
     icon:"😈",
     name:"Painel HS",
     desc:"Simulação de painel",
-    price:"R$ 45,00"
+    price:8
   },
 
   {
     icon:"🍷",
     name:"Como criar XIT",
     desc:"Conteúdo digital demonstrativo",
-    price:"R$ 80,00"
+    price:12
   },
 
   {
     icon:"😶‍🌫️",
     name:"HS Peito Android",
     desc:"Simulação com holograma",
-    price:"R$ 30,00"
+    price:6
   },
 
   {
     icon:"😶‍🌫️",
     name:"HS Peito iOS",
     desc:"Simulação para iOS",
-    price:"R$ 30,00"
+    price:6
   },
 
   {
     icon:"😈",
     name:"Proxy Android",
     desc:"Produto demonstrativo",
-    price:"R$ 25,00"
+    price:5
   },
 
   {
     icon:"🗿",
     name:"Proxy iOS",
     desc:"Produto demonstrativo",
-    price:"R$ 25,00"
+    price:5
   },
 
   {
     icon:"🟡",
     name:"Licença 7 dias",
     desc:"Licença demonstrativa",
-    price:"R$ 15,00"
+    price:3
   },
 
   {
     icon:"🟡",
     name:"Licença 30 dias",
     desc:"Licença demonstrativa",
-    price:"R$ 40,00"
+    price:8
   }
 
 ];
 
+
+/* =========================
+   CARREGAR PRODUTOS
+========================= */
+
+let products =
+  JSON.parse(localStorage.getItem("fusionProducts")) ||
+  defaultProducts;
+
 let cart = [];
 
-const container = document.getElementById("products");
 
-products.forEach((product,index)=>{
+/* =========================
+   FORMATAÇÃO DE PREÇO
+========================= */
 
-  const card = document.createElement("div");
+function money(value){
 
-  card.className = "card";
+  return Number(value).toLocaleString(
+    "pt-BR",
+    {
+      style:"currency",
+      currency:"BRL"
+    }
+  );
 
-  card.innerHTML = `
+}
 
-    <div class="icon">${product.icon}</div>
 
-    <h2>${product.name}</h2>
+/* =========================
+   MOSTRAR PRODUTOS
+========================= */
 
-    <div class="desc">${product.desc}</div>
+function renderProducts(){
 
-    <div class="stars">
-      ★★★★★
-      <span style="color:#7884ad">4.8</span>
-    </div>
+  const container =
+    document.getElementById("products");
 
-    <div class="price">${product.price}</div>
+  container.innerHTML = "";
 
-    <button class="buy" onclick="addCart(${index})">
-      🛒 Comprar
-    </button>
+  products.forEach((product,index)=>{
 
-  `;
+    const card =
+      document.createElement("div");
 
-  container.appendChild(card);
+    card.className = "card";
 
-});
+    card.innerHTML = `
+
+      <div class="icon">
+        ${product.icon}
+      </div>
+
+      <h2>
+        ${product.name}
+      </h2>
+
+      <div class="desc">
+        ${product.desc}
+      </div>
+
+      <div class="stars">
+        ★★★★★
+        <span style="color:#7884ad">
+          4.8
+        </span>
+      </div>
+
+      <div class="price">
+        ${money(product.price)}
+      </div>
+
+      <button
+        class="buy"
+        onclick="addCart(${index})">
+        🛒 Comprar
+      </button>
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+/* =========================
+   ADICIONAR AO CARRINHO
+========================= */
 
 function addCart(index){
 
-  const product = products[index];
+  const product =
+    products[index];
 
   cart.push(product);
 
-  document.getElementById("count").innerText = cart.length;
+  updateCart();
 
-  document.getElementById("selectedProduct").innerText =
-    product.name + " — " + product.price;
+  document.getElementById(
+    "modalTitle"
+  ).innerText =
+    "✅ Produto adicionado!";
 
-  document.getElementById("pixArea").style.display = "block";
+  document.getElementById(
+    "modalText"
+  ).innerText =
+    product.name +
+    " foi adicionado ao seu carrinho.";
 
-  document.getElementById("pixArea").scrollIntoView({
+  document.getElementById(
+    "modal"
+  ).style.display = "flex";
+
+}
+
+
+/* =========================
+   ATUALIZAR CARRINHO
+========================= */
+
+function updateCart(){
+
+  document.getElementById(
+    "count"
+  ).innerText = cart.length;
+
+  if(cart.length === 0){
+
+    document.getElementById(
+      "cartList"
+    ).innerText =
+      "Seu carrinho está vazio.";
+
+    document.getElementById(
+      "total"
+    ).innerText =
+      "Total: R$ 0,00";
+
+    return;
+
+  }
+
+  let text = "";
+  let total = 0;
+
+  cart.forEach((product,index)=>{
+
+    text +=
+      (index + 1) +
+      ". " +
+      product.name +
+      " — " +
+      money(product.price) +
+      "\n";
+
+    total += Number(product.price);
+
+  });
+
+  document.getElementById(
+    "cartList"
+  ).innerText = text;
+
+  document.getElementById(
+    "total"
+  ).innerText =
+    "Total: " + money(total);
+
+}
+
+
+/* =========================
+   ABRIR CARRINHO
+========================= */
+
+function openCart(){
+
+  updateCart();
+
+  const area =
+    document.getElementById("cartArea");
+
+  area.style.display = "block";
+
+  area.scrollIntoView({
     behavior:"smooth",
     block:"center"
   });
 
 }
+
+
+/* =========================
+   PAGAMENTO PIX
+========================= */
+
+function showPix(){
+
+  if(cart.length === 0){
+
+    alert(
+      "🛒 Seu carrinho está vazio."
+    );
+
+    return;
+
+  }
+
+  let total = 0;
+
+  cart.forEach(product=>{
+    total += Number(product.price);
+  });
+
+  document.getElementById(
+    "pixTotal"
+  ).innerText = money(total);
+
+  document.getElementById(
+    "pixKey"
+  ).value = PIX_KEY;
+
+  document.getElementById(
+    "pixArea"
+  ).style.display = "block";
+
+  document.getElementById(
+    "pixArea"
+  ).scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+}
+
+
+/* =========================
+   COPIAR PIX
+========================= */
 
 function copiarPix(){
 
@@ -543,76 +946,328 @@ function copiarPix(){
 
   if(navigator.clipboard){
 
-    navigator.clipboard.writeText(chave)
+    navigator.clipboard
+      .writeText(chave)
       .then(()=>{
-        alert("✅ Chave Pix copiada!");
+
+        alert(
+          "✅ Chave Pix copiada!"
+        );
+
       })
       .catch(()=>{
-        alert("Chave Pix: " + chave);
+
+        alert(
+          "Chave Pix: " + chave
+        );
+
       });
 
   }else{
 
-    alert("Chave Pix: " + chave);
+    alert(
+      "Chave Pix: " + chave
+    );
 
   }
 
 }
 
-function openCart(){
 
-  document.getElementById("modalTitle").innerText =
-    "🛒 Carrinho";
-
-  if(cart.length === 0){
-
-    document.getElementById("modalText").innerText =
-      "Seu carrinho está vazio.";
-
-  }else{
-
-    let text = "Produtos selecionados:\n\n";
-
-    cart.forEach((product,index)=>{
-
-      text +=
-        (index + 1) +
-        ". " +
-        product.name +
-        " — " +
-        product.price +
-        "\n";
-
-    });
-
-    text +=
-      "\n💳 Pagamento via Pix.\n" +
-      "Chave: " +
-      PIX_KEY +
-      "\n\n" +
-      "A confirmação do pagamento é manual.";
-
-    document.getElementById("modalText").innerText = text;
-
-  }
-
-  document.getElementById("modal").style.display = "flex";
-
-}
+/* =========================
+   MODAL
+========================= */
 
 function closeModal(){
 
-  document.getElementById("modal").style.display = "none";
+  document.getElementById(
+    "modal"
+  ).style.display = "none";
 
 }
 
-document.getElementById("modal").addEventListener("click",function(event){
 
-  if(event.target === this){
-    closeModal();
+document.getElementById(
+  "modal"
+).addEventListener(
+  "click",
+  function(event){
+
+    if(event.target === this){
+
+      closeModal();
+
+    }
+
+  }
+);
+
+
+/* =========================
+   PAINEL DO DONO
+========================= */
+
+function openOwner(){
+
+  const senha =
+    prompt(
+      "🔐 Digite a senha do dono:"
+    );
+
+  if(senha !== OWNER_PASSWORD){
+
+    alert(
+      "❌ Senha incorreta."
+    );
+
+    return;
+
   }
 
-});
+  document.getElementById(
+    "ownerArea"
+  ).style.display = "block";
+
+  renderOwner();
+
+  document.getElementById(
+    "ownerArea"
+  ).scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+}
+
+
+/* =========================
+   FECHAR PAINEL
+========================= */
+
+function closeOwner(){
+
+  document.getElementById(
+    "ownerArea"
+  ).style.display = "none";
+
+}
+
+
+/* =========================
+   MOSTRAR EDITOR
+========================= */
+
+function renderOwner(){
+
+  const area =
+    document.getElementById(
+      "ownerProducts"
+    );
+
+  area.innerHTML = "";
+
+  products.forEach((product,index)=>{
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "owner-product";
+
+    div.innerHTML = `
+
+      <strong>
+        ${product.icon}
+        Produto ${index + 1}
+      </strong>
+
+      <input
+        id="name-${index}"
+        value="${product.name}"
+        placeholder="Nome do produto">
+
+      <input
+        id="desc-${index}"
+        value="${product.desc}"
+        placeholder="Descrição">
+
+      <input
+        id="price-${index}"
+        type="number"
+        step="0.01"
+        min="0"
+        value="${product.price}"
+        placeholder="Preço">
+
+      <div class="owner-actions">
+
+        <button
+          class="save-product"
+          onclick="saveProduct(${index})">
+          💾 Salvar
+        </button>
+
+        <button
+          class="delete-product"
+          onclick="deleteProduct(${index})">
+          🗑️ Excluir
+        </button>
+
+      </div>
+
+    `;
+
+    area.appendChild(div);
+
+  });
+
+}
+
+
+/* =========================
+   SALVAR PRODUTO
+========================= */
+
+function saveProduct(index){
+
+  const name =
+    document.getElementById(
+      "name-" + index
+    ).value.trim();
+
+  const desc =
+    document.getElementById(
+      "desc-" + index
+    ).value.trim();
+
+  const price =
+    Number(
+      document.getElementById(
+        "price-" + index
+      ).value
+    );
+
+  if(!name){
+
+    alert(
+      "Digite um nome para o produto."
+    );
+
+    return;
+
+  }
+
+  if(isNaN(price) || price < 0){
+
+    alert(
+      "Digite um preço válido."
+    );
+
+    return;
+
+  }
+
+  products[index].name =
+    name;
+
+  products[index].desc =
+    desc;
+
+  products[index].price =
+    price;
+
+  localStorage.setItem(
+    "fusionProducts",
+    JSON.stringify(products)
+  );
+
+  renderProducts();
+
+  renderOwner();
+
+  alert(
+    "✅ Produto atualizado!"
+  );
+
+}
+
+
+/* =========================
+   EXCLUIR PRODUTO
+========================= */
+
+function deleteProduct(index){
+
+  const confirmar =
+    confirm(
+      "Tem certeza que deseja excluir este produto?"
+    );
+
+  if(!confirmar){
+
+    return;
+
+  }
+
+  products.splice(index,1);
+
+  localStorage.setItem(
+    "fusionProducts",
+    JSON.stringify(products)
+  );
+
+  renderProducts();
+
+  renderOwner();
+
+  alert(
+    "🗑️ Produto excluído!"
+  );
+
+}
+
+
+/* =========================
+   ADICIONAR PRODUTO
+========================= */
+
+function addProduct(){
+
+  products.push({
+
+    icon:"🆕",
+
+    name:"Novo produto",
+
+    desc:"Descrição do produto",
+
+    price:5
+
+  });
+
+  localStorage.setItem(
+    "fusionProducts",
+    JSON.stringify(products)
+  );
+
+  renderProducts();
+
+  renderOwner();
+
+  alert(
+    "✅ Novo produto criado!"
+  );
+
+}
+
+
+/* =========================
+   INICIAR LOJA
+========================= */
+
+renderProducts();
+
+updateCart();
 
 </script>
 
