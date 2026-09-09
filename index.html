@@ -3,116 +3,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FUSION XIT STORE</title>
+<title>FFH4X STORE</title>
 
 <style>
 *{box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#02050a;
-  color:#fff;
+    margin:0;
+    background:#07070b;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 header{
-  text-align:center;
-  padding:25px 15px;
-  background:#071321;
-  border-bottom:1px solid #16446b;
+    padding:35px 20px;
+    text-align:center;
+    background:
+      radial-gradient(circle at top,#35105c 0,#120b1d 42%,#07070b 75%);
+    border-bottom:1px solid #30213c;
 }
 
-header h1{
-  margin:0;
-  color:#00e6ad;
+.logo{
+    margin:0;
+    font-size:42px;
+    color:#c66cff;
+    text-shadow:0 0 10px #9b36ff,0 0 30px #7622c5;
+}
+
+.subtitle{
+    color:#aaa;
+    margin:8px 0 0;
 }
 
 .container{
-  width:92%;
-  max-width:650px;
-  margin:25px auto;
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.topbar h2{
+    margin:0;
+}
+
+.btn{
+    border:0;
+    border-radius:10px;
+    padding:12px 17px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn-admin{
+    background:#21192b;
+    color:#fff;
+    border:1px solid #4a315e;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-top:20px;
+}
+
+.card{
+    background:linear-gradient(145deg,#121119,#0d0d13);
+    border:1px solid #30243a;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 8px 30px #0008;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    border-color:#8738b5;
+    box-shadow:0 0 25px #7e27a633;
+}
+
+.icon{
+    height:100px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:55px;
+    background:#0a0a0f;
+    border-radius:13px;
+    margin-bottom:14px;
+}
+
+.card h3{
+    margin:8px 0;
+    font-size:20px;
+}
+
+.description{
+    color:#999;
+    min-height:38px;
+    font-size:14px;
+}
+
+.stock{
+    color:#9d9da8;
+    font-size:13px;
+}
+
+.price{
+    font-size:25px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.buy{
+    width:100%;
+    background:linear-gradient(90deg,#8d35ff,#d23cff);
+    color:#fff;
+}
+
+.buy:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.notice{
+    margin-top:25px;
+    text-align:center;
+    color:#777;
+    font-size:12px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#000c;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    z-index:20;
 }
 
 .box{
-  background:#07101b;
-  border:1px solid #17334e;
-  border-radius:20px;
-  padding:20px;
-  margin-bottom:20px;
+    width:min(560px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#111118;
+    border:1px solid #49305b;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 0 40px #000;
 }
 
-.produto{
-  border:1px solid #183a59;
-  border-radius:16px;
-  padding:18px;
-  margin-bottom:15px;
-}
-
-.preco{
-  color:#00e6ad;
-  font-size:25px;
-  font-weight:bold;
-}
-
-button{
-  width:100%;
-  border:0;
-  border-radius:14px;
-  padding:15px;
-  margin-top:10px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.comprar{
-  background:#075cae;
-  color:white;
-}
-
-.pagar{
-  background:#00a982;
-  color:white;
-}
-
-.remover{
-  width:auto;
-  padding:7px 11px;
-  background:#9d2020;
-  color:white;
-  margin:0;
-}
-
-.copiar{
-  background:#00a982;
-  color:white;
-}
-
-#pagamento{
-  display:none;
+.close{
+    float:right;
+    background:#29232e;
+    color:#fff;
 }
 
 .pix{
-  background:#02070d;
-  border:1px solid #185075;
-  border-radius:16px;
-  padding:18px;
-  text-align:center;
+    background:#08080c;
+    border:1px solid #34283e;
+    padding:15px;
+    border-radius:10px;
+    font-size:20px;
+    word-break:break-all;
+    margin:12px 0;
 }
 
-.chave{
-  background:#071321;
-  padding:16px;
-  border-radius:12px;
-  color:#00e6ad;
-  font-weight:bold;
-  word-break:break-all;
+input,textarea{
+    width:100%;
+    padding:12px;
+    margin:5px 0 12px;
+    border-radius:9px;
+    border:1px solid #3a3043;
+    background:#08080d;
+    color:#fff;
+    outline:none;
 }
 
-.sucesso{
-  color:#00e6ad;
-  font-weight:bold;
-  min-height:20px;
+input:focus,textarea:focus{
+    border-color:#a23cff;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.admin-product{
+    padding:15px 0;
+    border-top:1px solid #2a2430;
+}
+
+.admin-product strong{
+    display:block;
+    margin-bottom:8px;
+}
+
+.small-btn{
+    background:#29222f;
+    color:#fff;
+    margin-right:5px;
+}
+
+.delete{
+    background:#541e2b;
+}
+
+footer{
+    text-align:center;
+    color:#666;
+    padding:35px 20px;
 }
 </style>
 </head>
@@ -120,270 +230,764 @@ button{
 <body>
 
 <header>
-  <h1>⚡ FUSION XIT STORE</h1>
-  <p>Loja oficial</p>
+    <h1 class="logo">FFH4X STORE</h1>
+    <p class="subtitle">Loja digital • catálogo online</p>
 </header>
 
 <div class="container">
 
-  <!-- PRODUTOS -->
-  <div class="box">
-
-    <h2>🛍️ Produtos</h2>
-
-    <div class="produto">
-      <h3>Licença 7 Dias</h3>
-      <p>Produto digital</p>
-      <div class="preco">R$ 3,00</div>
-
-      <button class="comprar"
-        onclick="adicionar('Licença 7 Dias',3)">
-        🛒 Comprar
-      </button>
+    <div class="topbar">
+        <h2>🔥 Produtos</h2>
+        <button class="btn btn-admin" onclick="abrirAdmin()">
+            ⚙️ Painel ADM
+        </button>
     </div>
 
-    <div class="produto">
-      <h3>Licença 30 Dias</h3>
-      <p>Produto digital</p>
-      <div class="preco">R$ 5,00</div>
+    <div id="products" class="grid"></div>
 
-      <button class="comprar"
-        onclick="adicionar('Licença 30 Dias',5)">
-        🛒 Comprar
-      </button>
+    <div class="notice">
+        Os nomes dos itens relacionados a jogos são apresentados apenas como
+        produtos de catálogo/demonstração. Esta página não implementa alteração,
+        exploração ou modificação de jogos.
     </div>
 
-  </div>
+</div>
+
+<footer>
+    FFH4X STORE © 2026
+</footer>
 
 
-  <!-- CARRINHO -->
-  <div class="box">
+<!-- PAGAMENTO -->
 
-    <h2>🛒 Carrinho</h2>
+<div id="paymentModal" class="modal">
 
-    <div id="carrinho">
-      <p>Seu carrinho está vazio.</p>
-    </div>
+    <div class="box">
 
-    <hr>
+        <button class="btn close" onclick="fechar('paymentModal')">
+            Fechar
+        </button>
 
-    <h2>
-      Total:
-      <span id="total">R$ 0,00</span>
-    </h2>
+        <h2>💳 Pagamento Pix</h2>
 
-    <button class="pagar" onclick="abrirPagamento()">
-      💳 Continuar para pagamento
-    </button>
+        <p id="paymentProduct"></p>
 
-  </div>
+        <p>
+            Copie a chave Pix abaixo e faça o pagamento pelo seu banco.
+        </p>
 
+        <div class="pix" id="pixKey">
+            05942249261
+        </div>
 
-  <!-- PAGAMENTO -->
-  <div class="box" id="pagamento">
+        <button class="btn buy" onclick="copiarPix()">
+            📋 COPIAR CHAVE PIX
+        </button>
 
-    <h2>💠 Pagamento via Pix</h2>
-
-    <p>Valor da compra:</p>
-
-    <h1 id="valor" class="preco">
-      R$ 0,00
-    </h1>
-
-    <div class="pix">
-
-      <h3>🔑 Chave Pix</h3>
-
-      <div class="chave" id="chave">
-        05942249261
-      </div>
-
-      <button class="copiar" onclick="copiarPix()">
-        📋 COPIAR CHAVE PIX
-      </button>
-
-      <p id="mensagem" class="sucesso"></p>
+        <p id="copyMessage"></p>
 
     </div>
 
-    <p>
-      Depois de pagar, envie o comprovante para o vendedor.
-    </p>
+</div>
 
-  </div>
+
+<!-- PAINEL ADM -->
+
+<div id="adminModal" class="modal">
+
+    <div class="box">
+
+        <button class="btn close" onclick="fechar('adminModal')">
+            Fechar
+        </button>
+
+        <h2>⚙️ Painel ADM</h2>
+
+        <p style="color:#999;font-size:13px">
+            Aqui você pode editar os produtos, preços, estoque e chave Pix.
+        </p>
+
+        <h3>Adicionar produto</h3>
+
+        <input id="newName" placeholder="Nome do produto">
+
+        <div class="form-grid">
+            <input id="newPrice" type="number" step="0.01" placeholder="Preço">
+            <input id="newStock" type="number" placeholder="Estoque">
+        </div>
+
+        <button class="btn buy" onclick="adicionarProduto()">
+            + ADICIONAR PRODUTO
+        </button>
+
+        <h3 style="margin-top:25px">
+            Produtos
+        </h3>
+
+        <div id="adminProducts"></div>
+
+        <h3 style="margin-top:25px">
+            Chave Pix
+        </h3>
+
+        <input id="adminPix" placeholder="Chave Pix">
+
+        <button class="btn buy" onclick="salvarPix()">
+            💾 SALVAR CHAVE PIX
+        </button>
+
+    </div>
 
 </div>
 
 
 <script>
 
-let produtos = [];
+/* =========================
+   PRODUTOS INICIAIS
+========================= */
 
-/* ADICIONAR */
-function adicionar(nome,preco){
+const produtosPadrao = [
 
-  produtos.push({
-    nome:nome,
-    preco:preco
-  });
+    {
+        id:1,
+        nome:"Aimbot",
+        preco:10,
+        estoque:10,
+        descricao:"Produto de catálogo/demonstração."
+    },
 
-  atualizar();
+    {
+        id:2,
+        nome:"Auto-Aim",
+        preco:10,
+        estoque:10,
+        descricao:"Produto de catálogo/demonstração."
+    },
+
+    {
+        id:3,
+        nome:"Wallhack",
+        preco:22,
+        estoque:12,
+        descricao:"Produto de catálogo/demonstração."
+    },
+
+    {
+        id:4,
+        nome:"Speed Hack",
+        preco:10,
+        estoque:10,
+        descricao:"Produto de catálogo/demonstração."
+    },
+
+    {
+        id:5,
+        nome:"Regedit",
+        preco:10,
+        estoque:10,
+        descricao:"Produto de catálogo/demonstração."
+    },
+
+    {
+        id:6,
+        nome:"Proxy",
+        preco:10,
+        estoque:10,
+        descricao:"Produto de catálogo/demonstração."
+    },
+
+    {
+        id:7,
+        nome:"No Recoil",
+        preco:20,
+        estoque:14,
+        descricao:"Produto de catálogo/demonstração."
+    },
+
+    {
+        id:8,
+        nome:"Painel HS",
+        preco:10,
+        estoque:10,
+        descricao:"Painel visual de demonstração."
+    },
+
+    {
+        id:9,
+        nome:"Painel PRO",
+        preco:10,
+        estoque:10,
+        descricao:"Painel visual de demonstração."
+    },
+
+    {
+        id:10,
+        nome:"Painel Boot",
+        preco:10,
+        estoque:10,
+        descricao:"Painel visual de demonstração."
+    },
+
+    {
+        id:11,
+        nome:"Painel Neon",
+        preco:9.90,
+        estoque:10,
+        descricao:"Painel visual com tema neon."
+    }
+
+];
+
+
+/* =========================
+   CARREGAR DADOS
+========================= */
+
+let produtos =
+    JSON.parse(localStorage.getItem("ffh4x_produtos")) ||
+    produtosPadrao;
+
+let chavePix =
+    localStorage.getItem("ffh4x_pix") ||
+    "05942249261";
+
+
+/* =========================
+   FORMATAR PREÇO
+========================= */
+
+function dinheiro(valor){
+
+    return Number(valor).toLocaleString(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL"
+        }
+    );
 
 }
 
 
-/* ATUALIZAR CARRINHO */
-function atualizar(){
+/* =========================
+   ESCAPAR HTML
+========================= */
 
-  const area =
-    document.getElementById("carrinho");
+function escapar(texto){
 
-  if(produtos.length === 0){
-
-    area.innerHTML =
-      "<p>Seu carrinho está vazio.</p>";
-
-    document.getElementById("total")
-      .innerText = "R$ 0,00";
-
-    return;
-  }
-
-  let html = "";
-  let total = 0;
-
-  produtos.forEach(function(item,index){
-
-    total += item.preco;
-
-    html += `
-      <div style="
-        display:flex;
-        align-items:center;
-        gap:10px;
-        margin:12px 0;
-      ">
-
-        <span style="flex:1">
-          ${item.nome}
-        </span>
-
-        <b>
-          R$ ${item.preco.toFixed(2).replace(".",",")}
-        </b>
-
-        <button
-          class="remover"
-          onclick="remover(${index})">
-          X
-        </button>
-
-      </div>
-    `;
-  });
-
-  area.innerHTML = html;
-
-  document.getElementById("total")
-    .innerText =
-    "R$ " + total.toFixed(2).replace(".",",");
-}
-
-
-/* REMOVER */
-function remover(index){
-
-  produtos.splice(index,1);
-
-  atualizar();
+    return String(texto)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
 
-/* ABRIR PAGAMENTO */
-function abrirPagamento(){
+/* =========================
+   MOSTRAR PRODUTOS
+========================= */
 
-  if(produtos.length === 0){
+function renderizarProdutos(){
 
-    alert("Adicione um produto ao carrinho primeiro.");
+    const area =
+        document.getElementById("products");
 
-    return;
-  }
+    area.innerHTML = "";
 
-  let total = 0;
+    produtos.forEach(produto => {
 
-  produtos.forEach(function(item){
-    total += item.preco;
-  });
+        const card =
+            document.createElement("article");
 
-  document.getElementById("valor")
-    .innerText =
-    "R$ " + total.toFixed(2).replace(".",",");
+        card.className = "card";
 
-  document.getElementById("pagamento")
-    .style.display = "block";
+        card.innerHTML = `
 
-  document.getElementById("pagamento")
-    .scrollIntoView({
-      behavior:"smooth"
+            <div class="icon">🎮</div>
+
+            <h3>
+                ${escapar(produto.nome)}
+            </h3>
+
+            <p class="description">
+                ${escapar(produto.descricao)}
+            </p>
+
+            <p class="stock">
+                ${
+                    produto.estoque > 0
+                    ? produto.estoque + " em estoque"
+                    : "Sem estoque"
+                }
+            </p>
+
+            <div class="price">
+                ${dinheiro(produto.preco)}
+            </div>
+
+            <button
+                class="btn buy"
+                ${produto.estoque <= 0 ? "disabled" : ""}
+                onclick="comprar(${produto.id})"
+            >
+                ${
+                    produto.estoque > 0
+                    ? "COMPRAR"
+                    : "SEM ESTOQUE"
+                }
+            </button>
+
+        `;
+
+        area.appendChild(card);
+
     });
 
 }
 
 
-/* COPIAR PIX */
+/* =========================
+   COMPRAR
+========================= */
+
+function comprar(id){
+
+    const produto =
+        produtos.find(p => p.id === id);
+
+    if(!produto) return;
+
+    if(produto.estoque <= 0){
+
+        alert("Produto sem estoque.");
+
+        return;
+
+    }
+
+    document.getElementById("paymentProduct")
+        .textContent =
+        produto.nome +
+        " • " +
+        dinheiro(produto.preco);
+
+    document.getElementById("pixKey")
+        .textContent = chavePix;
+
+    document.getElementById("copyMessage")
+        .textContent = "";
+
+    document.getElementById("paymentModal")
+        .style.display = "flex";
+
+}
+
+
+/* =========================
+   COPIAR PIX
+========================= */
+
 function copiarPix(){
 
-  const chave =
-    document.getElementById("chave")
-      .innerText.trim();
+    const mensagem =
+        document.getElementById("copyMessage");
 
-  if(navigator.clipboard){
+    if(navigator.clipboard){
 
-    navigator.clipboard.writeText(chave)
-      .then(function(){
+        navigator.clipboard.writeText(chavePix)
+        .then(() => {
 
-        document.getElementById("mensagem")
-          .innerText =
-          "✅ Chave Pix copiada!";
+            mensagem.textContent =
+                "✅ Chave Pix copiada!";
 
-      })
-      .catch(function(){
+        })
+        .catch(() => {
 
-        copiarAlternativo(chave);
+            copiarManual();
 
-      });
+        });
 
-  }else{
+    }else{
 
-    copiarAlternativo(chave);
+        copiarManual();
 
-  }
+    }
 
 }
 
 
-/* COPIAR ALTERNATIVO */
-function copiarAlternativo(chave){
+function copiarManual(){
 
-  const campo =
-    document.createElement("textarea");
+    const campo =
+        document.createElement("textarea");
 
-  campo.value = chave;
+    campo.value = chavePix;
 
-  document.body.appendChild(campo);
+    document.body.appendChild(campo);
 
-  campo.select();
+    campo.select();
 
-  document.execCommand("copy");
+    document.execCommand("copy");
 
-  document.body.removeChild(campo);
+    campo.remove();
 
-  document.getElementById("mensagem")
-    .innerText =
-    "✅ Chave Pix copiada!";
+    document.getElementById("copyMessage")
+        .textContent =
+        "✅ Chave Pix copiada!";
 
 }
+
+
+/* =========================
+   ABRIR ADM
+========================= */
+
+function abrirAdmin(){
+
+    document.getElementById("adminPix")
+        .value = chavePix;
+
+    renderizarAdmin();
+
+    document.getElementById("adminModal")
+        .style.display = "flex";
+
+}
+
+
+/* =========================
+   RENDERIZAR ADM
+========================= */
+
+function renderizarAdmin(){
+
+    const area =
+        document.getElementById("adminProducts");
+
+    area.innerHTML = "";
+
+    produtos.forEach(produto => {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "admin-product";
+
+        div.innerHTML = `
+
+            <strong>
+                ${escapar(produto.nome)}
+            </strong>
+
+            <input
+                id="name_${produto.id}"
+                value="${escapar(produto.nome)}"
+                placeholder="Nome"
+            >
+
+            <div class="form-grid">
+
+                <input
+                    id="price_${produto.id}"
+                    type="number"
+                    step="0.01"
+                    value="${produto.preco}"
+                    placeholder="Preço"
+                >
+
+                <input
+                    id="stock_${produto.id}"
+                    type="number"
+                    value="${produto.estoque}"
+                    placeholder="Estoque"
+                >
+
+            </div>
+
+            <textarea
+                id="desc_${produto.id}"
+                placeholder="Descrição"
+            >${escapar(produto.descricao)}</textarea>
+
+            <button
+                class="btn small-btn"
+                onclick="salvarProduto(${produto.id})"
+            >
+                💾 Salvar
+            </button>
+
+            <button
+                class="btn small-btn delete"
+                onclick="excluirProduto(${produto.id})"
+            >
+                🗑 Excluir
+            </button>
+
+        `;
+
+        area.appendChild(div);
+
+    });
+
+}
+
+
+/* =========================
+   SALVAR PRODUTO
+========================= */
+
+function salvarProduto(id){
+
+    const produto =
+        produtos.find(p => p.id === id);
+
+    if(!produto) return;
+
+    const nome =
+        document.getElementById(
+            "name_" + id
+        ).value.trim();
+
+    const preco =
+        Number(
+            document.getElementById(
+                "price_" + id
+            ).value
+        );
+
+    const estoque =
+        Number(
+            document.getElementById(
+                "stock_" + id
+            ).value
+        );
+
+    const descricao =
+        document.getElementById(
+            "desc_" + id
+        ).value.trim();
+
+    if(!nome){
+
+        alert("Digite o nome do produto.");
+
+        return;
+
+    }
+
+    produto.nome = nome;
+
+    produto.preco =
+        Number.isFinite(preco)
+        ? preco
+        : 0;
+
+    produto.estoque =
+        Number.isFinite(estoque)
+        ? Math.max(0,estoque)
+        : 0;
+
+    produto.descricao =
+        descricao ||
+        "Produto de catálogo/demonstração.";
+
+    salvarDados();
+
+    renderizarProdutos();
+
+    renderizarAdmin();
+
+}
+
+
+/* =========================
+   ADICIONAR PRODUTO
+========================= */
+
+function adicionarProduto(){
+
+    const nome =
+        document.getElementById(
+            "newName"
+        ).value.trim();
+
+    const preco =
+        Number(
+            document.getElementById(
+                "newPrice"
+            ).value
+        );
+
+    const estoque =
+        Number(
+            document.getElementById(
+                "newStock"
+            ).value
+        );
+
+    if(!nome){
+
+        alert("Digite o nome do produto.");
+
+        return;
+
+    }
+
+    if(!Number.isFinite(preco)){
+
+        alert("Digite um preço válido.");
+
+        return;
+
+    }
+
+    produtos.push({
+
+        id:Date.now(),
+
+        nome:nome,
+
+        preco:preco,
+
+        estoque:
+            Number.isFinite(estoque)
+            ? Math.max(0,estoque)
+            : 0,
+
+        descricao:
+            "Produto de catálogo/demonstração."
+
+    });
+
+    salvarDados();
+
+    renderizarProdutos();
+
+    renderizarAdmin();
+
+    document.getElementById("newName").value = "";
+
+    document.getElementById("newPrice").value = "";
+
+    document.getElementById("newStock").value = "";
+
+}
+
+
+/* =========================
+   EXCLUIR
+========================= */
+
+function excluirProduto(id){
+
+    if(!confirm("Excluir este produto?")){
+
+        return;
+
+    }
+
+    produtos =
+        produtos.filter(
+            p => p.id !== id
+        );
+
+    salvarDados();
+
+    renderizarProdutos();
+
+    renderizarAdmin();
+
+}
+
+
+/* =========================
+   SALVAR PIX
+========================= */
+
+function salvarPix(){
+
+    const novaChave =
+        document.getElementById(
+            "adminPix"
+        ).value.trim();
+
+    if(!novaChave){
+
+        alert("Digite uma chave Pix.");
+
+        return;
+
+    }
+
+    chavePix = novaChave;
+
+    localStorage.setItem(
+        "ffh4x_pix",
+        chavePix
+    );
+
+    document.getElementById("pixKey")
+        .textContent = chavePix;
+
+    alert("✅ Chave Pix salva.");
+
+}
+
+
+/* =========================
+   SALVAR TUDO
+========================= */
+
+function salvarDados(){
+
+    localStorage.setItem(
+        "ffh4x_produtos",
+        JSON.stringify(produtos)
+    );
+
+}
+
+
+/* =========================
+   FECHAR MODAL
+========================= */
+
+function fechar(id){
+
+    document.getElementById(id)
+        .style.display = "none";
+
+}
+
+
+/* =========================
+   FECHAR CLICANDO FORA
+========================= */
+
+window.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target.classList.contains("modal")
+        ){
+
+            event.target.style.display = "none";
+
+        }
+
+    }
+);
+
+
+/* =========================
+   INICIAR
+========================= */
+
+renderizarProdutos();
 
 </script>
 
