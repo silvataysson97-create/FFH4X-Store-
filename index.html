@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050817">
-<title>Fusion XIT — Loja</title>
+<title>Fusion XIT Store</title>
 
 <style>
 *{
@@ -15,441 +14,263 @@
 }
 
 body{
-  background:#050817;
+  background:#050b18;
   color:#fff;
   min-height:100vh;
 }
 
 header{
-  padding:22px 16px;
+  background:linear-gradient(135deg,#07152f,#102d63);
+  padding:22px 15px;
   text-align:center;
-  background:linear-gradient(135deg,#07102d,#101b4d);
-  border-bottom:1px solid #26315c;
+  border-bottom:1px solid #1d4fa3;
 }
 
-header h1{
+.logo{
   font-size:28px;
+  font-weight:bold;
+  color:#00aaff;
+  text-shadow:0 0 12px #008cff;
+  cursor:pointer;
+  user-select:none;
 }
 
-header p{
-  margin-top:7px;
-  color:#9ca8d8;
-}
-
-.banner{
-  margin:15px;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid #29335c;
-  background:#0b1025;
-}
-
-.banner img{
-  display:block;
-  width:100%;
-  max-height:240px;
-  object-fit:cover;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  padding:15px;
-}
-
-.card{
-  background:#0c1229;
-  border:1px solid #252e52;
-  border-radius:18px;
-  padding:12px;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
-}
-
-.icon{
-  height:105px;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:44px;
-  background:linear-gradient(135deg,#111b40,#17245a);
-  margin-bottom:11px;
-}
-
-.card h2{
-  font-size:17px;
-  margin-bottom:6px;
-}
-
-.desc{
-  color:#7884ad;
-  font-size:12px;
-  min-height:30px;
-  line-height:1.4;
-}
-
-.stars{
-  color:#20e6ed;
-  margin:8px 0;
+.subtitle{
+  margin-top:6px;
+  color:#a9c7ef;
   font-size:13px;
 }
 
-.price{
-  font-size:19px;
-  font-weight:bold;
-  margin:8px 0 6px;
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:15px;
 }
 
-.stock{
-  font-size:12px;
-  color:#76d69b;
+.cart-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.cart-btn{
+  background:#087cff;
+  border:0;
+  color:#fff;
+  padding:11px 15px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.products{
+  display:grid;
+  gap:12px;
+}
+
+.card{
+  background:#0b1428;
+  border:1px solid #183866;
+  border-radius:14px;
+  padding:15px;
+  box-shadow:0 0 12px rgba(0,120,255,.12);
+}
+
+.card h3{
+  color:#fff;
+  margin-bottom:7px;
+}
+
+.card p{
+  color:#a9b8d0;
+  font-size:13px;
+  line-height:1.4;
   margin-bottom:10px;
 }
 
-.stock.empty{
-  color:#ff6479;
+.price{
+  color:#00d084;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.stock{
+  color:#8da5c7;
+  font-size:12px;
+  margin:5px 0 10px;
 }
 
 .buy{
   width:100%;
   border:0;
+  background:#087cff;
+  color:white;
   padding:12px;
-  border-radius:12px;
-  background:#2864ed;
-  color:#fff;
-  font-size:15px;
+  border-radius:9px;
   font-weight:bold;
   cursor:pointer;
 }
 
 .buy:disabled{
-  background:#3b4052;
-  color:#999;
+  background:#333b49;
   cursor:not-allowed;
 }
 
-.buy:active:not(:disabled){
-  transform:scale(.97);
-}
-
-.info-small{
-  margin:0 15px 15px;
-  padding:9px 12px;
-  border-radius:10px;
-  background:#0b1025;
-  border:1px solid #202b4c;
-  color:#7884ad;
-  font-size:11px;
+.notice{
+  margin-top:15px;
   text-align:center;
+  color:#8295b5;
+  font-size:11px;
 }
 
-/* PAINEL DO DONO */
+.section{
+  background:#0b1428;
+  border:1px solid #183866;
+  border-radius:14px;
+  padding:15px;
+  margin-top:15px;
+}
 
-.owner-button{
-  display:block;
-  margin:15px;
-  width:calc(100% - 30px);
-  padding:13px;
-  border:1px solid #394a83;
-  border-radius:12px;
-  background:#111a39;
-  color:#fff;
+.section h2{
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 0;
+  border-bottom:1px solid #1b2c49;
+  font-size:14px;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  margin-top:12px;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.pix-box{
+  background:#061b17;
+  border:1px solid #00a878;
+  border-radius:10px;
+  padding:12px;
+  margin-top:10px;
+}
+
+.pix-key{
+  word-break:break-all;
+  color:#00d084;
+  margin:8px 0;
+  font-weight:bold;
+}
+
+.copy-btn{
+  width:100%;
+  background:#00a878;
+  color:white;
+  border:0;
+  padding:10px;
+  border-radius:8px;
   font-weight:bold;
   cursor:pointer;
 }
 
-.owner{
+.hidden{
   display:none;
-  margin:15px;
-  padding:18px;
-  background:#0c1229;
-  border:1px solid #394a83;
-  border-radius:18px;
 }
 
-.owner h2{
-  margin-bottom:8px;
+/* PAINEL DO DONO */
+#ownerPanel{
+  position:fixed;
+  inset:0;
+  background:#040914;
+  z-index:9999;
+  overflow:auto;
+  padding:15px;
 }
 
-.owner-info{
-  color:#8995bd;
-  font-size:12px;
-  line-height:1.5;
+.owner-content{
+  max-width:600px;
+  margin:auto;
+}
+
+.owner-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   margin-bottom:15px;
 }
 
-.owner-product{
-  background:#080d20;
-  border:1px solid #252e52;
-  border-radius:14px;
+.close-owner{
+  background:#e53935;
+  border:0;
+  color:white;
+  padding:9px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.owner-card{
+  background:#0b1428;
+  border:1px solid #214574;
+  border-radius:12px;
   padding:14px;
   margin-bottom:12px;
 }
 
-.owner-product strong{
-  display:block;
-  margin-bottom:10px;
-}
-
-.owner-product input{
+.owner-card input,
+.owner-card textarea{
   width:100%;
+  background:#07101f;
+  color:white;
+  border:1px solid #29496f;
+  padding:10px;
+  border-radius:8px;
+  margin:6px 0 10px;
+}
+
+.owner-card textarea{
+  min-height:70px;
+  resize:vertical;
+}
+
+.owner-save{
+  width:100%;
+  background:#00a878;
+  color:#fff;
+  border:0;
   padding:11px;
-  margin-bottom:8px;
-  border-radius:9px;
-  border:1px solid #303b68;
-  background:#050817;
-  color:#fff;
-}
-
-.owner-actions{
-  display:flex;
-  gap:8px;
-}
-
-.save-product{
-  flex:1;
-  padding:10px;
-  border:0;
-  border-radius:9px;
-  background:#168b55;
-  color:#fff;
+  border-radius:8px;
   font-weight:bold;
+  cursor:pointer;
 }
 
-.delete-product{
-  padding:10px;
-  border:0;
-  border-radius:9px;
-  background:#a51d35;
+.owner-delete{
+  width:100%;
+  background:#d93636;
   color:#fff;
-  font-weight:bold;
+  border:0;
+  padding:10px;
+  border-radius:8px;
+  margin-top:8px;
+  cursor:pointer;
 }
 
 .add-product{
   width:100%;
+  background:#087cff;
+  color:#fff;
+  border:0;
   padding:12px;
-  border:0;
-  border-radius:10px;
-  background:#2864ed;
-  color:#fff;
+  border-radius:9px;
   font-weight:bold;
-  margin-top:5px;
-}
-
-.logout{
-  width:100%;
-  padding:11px;
-  margin-top:10px;
-  border:0;
-  border-radius:10px;
-  background:#202a4c;
-  color:#fff;
-}
-
-/* CARRINHO */
-
-.cart-area{
-  display:none;
-  margin:15px;
-  padding:18px;
-  background:#0c1229;
-  border:1px solid #303b68;
-  border-radius:18px;
-}
-
-.cart-area h2{
-  margin-bottom:14px;
-}
-
-.cart-list{
-  color:#c5cce5;
-  line-height:1.7;
-  white-space:pre-line;
+  cursor:pointer;
   margin-bottom:15px;
-}
-
-.total{
-  font-size:19px;
-  font-weight:bold;
-  margin-bottom:15px;
-}
-
-.pix-button{
-  width:100%;
-  padding:13px;
-  border:0;
-  border-radius:12px;
-  background:#168b55;
-  color:#fff;
-  font-size:15px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-/* PIX */
-
-.pix{
-  display:none;
-  margin:15px;
-  padding:18px;
-  background:#0c1229;
-  border:1px solid #29335c;
-  border-radius:18px;
-  text-align:center;
-}
-
-.pix h2{
-  margin-bottom:10px;
-}
-
-.pix p{
-  color:#9ca8d8;
-  font-size:13px;
-  line-height:1.5;
-  margin-bottom:12px;
-}
-
-.pix input{
-  width:100%;
-  padding:13px;
-  border-radius:10px;
-  border:1px solid #303b68;
-  background:#050817;
-  color:#fff;
-  text-align:center;
-  margin-bottom:10px;
-  font-size:16px;
-}
-
-.pix button{
-  width:100%;
-  padding:12px;
-  border:0;
-  border-radius:10px;
-  background:#168b55;
-  color:#fff;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-/* RECURSOS */
-
-.features{
-  padding:15px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.feature{
-  background:#0c1229;
-  border:1px solid #252e52;
-  padding:17px;
-  border-radius:15px;
-}
-
-.feature b{
-  display:block;
-  margin-bottom:7px;
-}
-
-.feature span{
-  color:#7884ad;
-  font-size:13px;
-  line-height:1.4;
-}
-
-footer{
-  text-align:center;
-  padding:25px;
-  color:#68749e;
-  font-size:12px;
-}
-
-/* CARRINHO FLUTUANTE */
-
-.cart{
-  position:fixed;
-  right:16px;
-  bottom:18px;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  border:0;
-  background:#2864ed;
-  color:#fff;
-  font-size:24px;
-  box-shadow:0 8px 30px rgba(0,0,0,.5);
-  cursor:pointer;
-  z-index:20;
-}
-
-#count{
-  position:absolute;
-  top:-4px;
-  right:-2px;
-  background:#ff334f;
-  width:21px;
-  height:21px;
-  border-radius:50%;
-  font-size:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* MODAL */
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.78);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:100;
-}
-
-.modal-box{
-  width:100%;
-  max-width:390px;
-  background:#0c1229;
-  border:1px solid #303b68;
-  border-radius:20px;
-  padding:22px;
-  text-align:center;
-}
-
-.modal-box h2{
-  margin-bottom:12px;
-}
-
-.modal-box p{
-  color:#9aa6d0;
-  line-height:1.5;
-}
-
-.close{
-  margin-top:15px;
-  width:100%;
-  padding:12px;
-  border:0;
-  border-radius:12px;
-  background:#202a4c;
-  color:#fff;
-  font-size:15px;
-}
-
-@media(max-width:360px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .features{
-    grid-template-columns:1fr;
-  }
 }
 </style>
 </head>
@@ -457,154 +278,81 @@ footer{
 <body>
 
 <header>
-  <h1>🔥 FUSION XIT</h1>
-  <p>Loja de produtos digitais</p>
+  <!-- TOQUE 5 VEZES AQUI PARA ABRIR A ÁREA DO DONO -->
+  <div class="logo" id="secretLogo">⚡ FUSION XIT</div>
+  <div class="subtitle">Produtos digitais</div>
 </header>
 
-<div class="banner">
-  <img src="loja.png"
-       alt="Imagem da loja"
-       onerror="this.style.display='none'">
-</div>
+<div class="container">
 
-<section class="grid" id="products"></section>
-
-<div class="info-small">
-  ℹ️ Produtos digitais demonstrativos. Confira os detalhes antes da compra.
-</div>
-
-<!-- PAINEL DO DONO -->
-
-<button class="owner-button" onclick="openOwner()">
-  🔐 Área do Dono
-</button>
-
-<section class="owner" id="ownerArea">
-
-  <h2>⚙️ Painel do Dono</h2>
-
-  <div class="owner-info">
-    Edite nome, descrição, preço e estoque diretamente pelo celular.
-    As alterações ficam salvas neste navegador.
+  <div class="cart-top">
+    <strong>🛒 Loja</strong>
+    <button class="cart-btn" onclick="openCart()">
+      Carrinho (<span id="cartCount">0</span>)
+    </button>
   </div>
 
-  <div id="ownerProducts"></div>
+  <div class="products" id="products"></div>
 
-  <button class="add-product" onclick="addProduct()">
-    ➕ Adicionar produto
-  </button>
-
-  <button class="logout" onclick="closeOwner()">
-    🚪 Fechar painel
-  </button>
-
-</section>
-
-<!-- CARRINHO -->
-
-<section class="cart-area" id="cartArea">
-
-  <h2>🛒 Meu carrinho</h2>
-
-  <div class="cart-list" id="cartList">
-    Seu carrinho está vazio.
+  <div class="notice">
+    ℹ️ Produtos digitais demonstrativos. Confira os detalhes antes da compra.
   </div>
 
-  <div class="total" id="total">
-    Total: R$ 0,00
+  <div class="section hidden" id="cartSection">
+    <h2>🛒 Seu carrinho</h2>
+
+    <div id="cartItems"></div>
+
+    <div class="total">
+      <span>Total</span>
+      <span id="cartTotal">R$ 0,00</span>
+    </div>
+
+    <button class="buy" style="margin-top:12px" onclick="showPix()">
+      💳 Pagar via Pix
+    </button>
   </div>
 
-  <button class="pix-button" onclick="showPix()">
-    💳 Pagar via Pix
-  </button>
+  <div class="section hidden" id="pixSection">
+    <h2>💚 Pagamento via Pix</h2>
 
-</section>
-
-<!-- PIX -->
-
-<section class="pix" id="pixArea">
-
-  <h2>💳 Pagamento via Pix</h2>
-
-  <p>
-    Total da compra:
-    <b id="pixTotal">R$ 0,00</b>
-  </p>
-
-  <input
-    id="pixKey"
-    value="05942249261"
-    readonly
-  >
-
-  <button onclick="copiarPix()">
-    📋 Copiar chave Pix
-  </button>
-
-  <p style="margin-top:12px">
-    A confirmação do pagamento é manual.
-  </p>
-
-</section>
-
-<section class="features">
-
-  <div class="feature">
-    🛡️
-    <b>Compra segura</b>
-    <span>Área demonstrativa da loja.</span>
-  </div>
-
-  <div class="feature">
-    💳
-    <b>Pagamento Pix</b>
-    <span>Pagamento manual.</span>
-  </div>
-
-  <div class="feature">
-    🎧
-    <b>Suporte</b>
-    <span>Atendimento ao cliente.</span>
-  </div>
-
-  <div class="feature">
-    📦
-    <b>Estoque</b>
-    <span>Controle de estoque dos produtos.</span>
-  </div>
-
-</section>
-
-<footer>
-  © 2026 Fusion XIT — Loja de demonstração
-</footer>
-
-<button class="cart"
-        onclick="openCart()"
-        aria-label="Abrir carrinho">
-
-  🛒
-  <span id="count">0</span>
-
-</button>
-
-<!-- MODAL -->
-
-<div class="modal" id="modal">
-
-  <div class="modal-box">
-
-    <h2 id="modalTitle">
-      Produto adicionado!
-    </h2>
-
-    <p id="modalText">
-      O produto foi adicionado ao carrinho.
+    <p style="color:#9db0cc;font-size:13px">
+      Copie a chave Pix abaixo para realizar o pagamento.
     </p>
 
-    <button class="close" onclick="closeModal()">
-      Continuar comprando
+    <div class="pix-box">
+      <div>Chave Pix:</div>
+
+      <div class="pix-key" id="pixKey">
+        05942249261
+      </div>
+
+      <button class="copy-btn" onclick="copyPix()">
+        📋 Copiar chave Pix
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- PAINEL DO DONO: NÃO APARECE NA LOJA -->
+<div id="ownerPanel" class="hidden">
+
+  <div class="owner-content">
+
+    <div class="owner-header">
+      <h2>🔐 Área do Dono</h2>
+
+      <button class="close-owner" onclick="closeOwner()">
+        Fechar
+      </button>
+    </div>
+
+    <button class="add-product" onclick="addProduct()">
+      ➕ Adicionar produto
     </button>
+
+    <div id="ownerProducts"></div>
 
   </div>
 
@@ -612,108 +360,101 @@ footer{
 
 <script>
 
-/* CONFIGURAÇÕES */
+/* =========================
+   CONFIGURAÇÕES
+========================= */
 
-const PIX_KEY = "05942249261";
 const OWNER_PASSWORD = "1234";
 
+const PIX_KEY = "05942249261";
 
-/* PRODUTOS INICIAIS */
+
+/* =========================
+   PRODUTOS
+========================= */
 
 const defaultProducts = [
 
   {
-    icon:"🟢",
-    name:"Painel Neon",
-    desc:"Painel digital demonstrativo",
+    name:"🟢 Painel Neon",
+    description:"Painel digital demonstrativo.",
     price:5,
     stock:10
   },
 
   {
-    icon:"🔵",
-    name:"Painel Boot",
-    desc:"Painel digital demonstrativo",
+    name:"🔵 Painel Boot",
+    description:"Painel digital demonstrativo.",
     price:5,
     stock:10
   },
 
   {
-    icon:"🟣",
-    name:"Painel VIP",
-    desc:"Produto digital demonstrativo",
+    name:"🟣 Painel VIP",
+    description:"Painel digital demonstrativo.",
     price:7,
     stock:10
   },
 
   {
-    icon:"🟠",
-    name:"Painel Pro",
-    desc:"Produto digital demonstrativo",
+    name:"🟠 Painel Pro",
+    description:"Painel digital demonstrativo.",
     price:10,
     stock:10
   },
 
   {
-    icon:"😈",
-    name:"Painel HS",
-    desc:"Simulação de painel",
+    name:"😈 Painel HS",
+    description:"Painel digital demonstrativo.",
     price:8,
     stock:10
   },
 
   {
-    icon:"🍷",
-    name:"Como criar XIT",
-    desc:"Conteúdo digital demonstrativo",
+    name:"🍷 Como criar XIT",
+    description:"Conteúdo/tutorial demonstrativo.",
     price:12,
     stock:10
   },
 
   {
-    icon:"😶‍🌫️",
-    name:"HS Peito Android",
-    desc:"Simulação com holograma",
+    name:"😶‍🌫️ HS Peito Android",
+    description:"Produto digital demonstrativo.",
     price:6,
     stock:10
   },
 
   {
-    icon:"😶‍🌫️",
-    name:"HS Peito iOS",
-    desc:"Simulação para iOS",
+    name:"😶‍🌫️ HS Peito iOS",
+    description:"Produto digital demonstrativo.",
     price:6,
     stock:10
   },
 
   {
-    icon:"😈",
-    name:"Proxy Android",
-    desc:"Produto demonstrativo",
+    name:"😈 Proxy Android",
+    description:"Produto digital demonstrativo.",
     price:5,
     stock:10
   },
 
   {
-    icon:"🗿",
-    name:"Proxy iOS",
-    desc:"Produto demonstrativo",
+    name:"🗿 Proxy iOS",
+    description:"Produto digital demonstrativo.",
     price:5,
     stock:10
   },
 
   {
-    icon:"🟡",
-    name:"Licença 7 dias",
-    desc:"Licença demonstrativa",
+    name:"🟡 Licença 7 dias",
+    description:"Licença digital demonstrativa.",
     price:3,
     stock:10
   },
 
   {
-    icon:"🟡",
-    name:"Licença 30 dias",
-    desc:"Licença demonstrativa",
+    name:"🟡 Licença 30 dias",
+    description:"Licença digital demonstrativa.",
     price:8,
     stock:10
   }
@@ -721,23 +462,32 @@ const defaultProducts = [
 ];
 
 
-/* CARREGAR */
-
 let products =
-  JSON.parse(
-    localStorage.getItem("fusionProducts")
-  ) || defaultProducts;
+  JSON.parse(localStorage.getItem("fusionProducts"))
+  || defaultProducts;
 
-products.forEach(product=>{
-  if(typeof product.stock !== "number"){
-    product.stock = 10;
-  }
-});
-
-let cart = [];
+let cart =
+  JSON.parse(localStorage.getItem("fusionCart"))
+  || [];
 
 
-/* SALVAR */
+/* =========================
+   FORMATAR PREÇO
+========================= */
+
+function money(value){
+
+  return Number(value).toLocaleString("pt-BR",{
+    style:"currency",
+    currency:"BRL"
+  });
+
+}
+
+
+/* =========================
+   SALVAR
+========================= */
 
 function saveProducts(){
 
@@ -748,30 +498,26 @@ function saveProducts(){
 
 }
 
+function saveCart(){
 
-/* DINHEIRO */
-
-function money(value){
-
-  return Number(value).toLocaleString(
-    "pt-BR",
-    {
-      style:"currency",
-      currency:"BRL"
-    }
+  localStorage.setItem(
+    "fusionCart",
+    JSON.stringify(cart)
   );
 
 }
 
 
-/* MOSTRAR PRODUTOS */
+/* =========================
+   MOSTRAR PRODUTOS
+========================= */
 
 function renderProducts(){
 
-  const container =
+  const area =
     document.getElementById("products");
 
-  container.innerHTML = "";
+  area.innerHTML = "";
 
   products.forEach((product,index)=>{
 
@@ -780,85 +526,57 @@ function renderProducts(){
 
     card.className = "card";
 
-    const semEstoque =
+    const soldOut =
       Number(product.stock) <= 0;
 
     card.innerHTML = `
 
-      <div class="icon">
-        ${product.icon}
-      </div>
+      <h3>${escapeHTML(product.name)}</h3>
 
-      <h2>
-        ${product.name}
-      </h2>
-
-      <div class="desc">
-        ${product.desc}
-      </div>
-
-      <div class="stars">
-        ★★★★★
-        <span style="color:#7884ad">
-          4.8
-        </span>
-      </div>
+      <p>
+        ${escapeHTML(product.description)}
+      </p>
 
       <div class="price">
         ${money(product.price)}
       </div>
 
-      <div class="stock ${semEstoque ? "empty" : ""}">
-        ${
-          semEstoque
-          ? "❌ Esgotado"
-          : "📦 Estoque: " + product.stock
-        }
+      <div class="stock">
+        Estoque: ${product.stock}
       </div>
 
       <button
         class="buy"
-        ${semEstoque ? "disabled" : ""}
-        onclick="addCart(${index})">
+        ${soldOut ? "disabled" : ""}
+        onclick="buyProduct(${index})">
 
-        ${
-          semEstoque
-          ? "❌ Esgotado"
-          : "🛒 Comprar"
-        }
+        ${soldOut ? "❌ Esgotado" : "🛒 Comprar"}
 
       </button>
 
     `;
 
-    container.appendChild(card);
+    area.appendChild(card);
 
   });
+
+  updateCartCount();
 
 }
 
 
-/* COMPRAR */
+/* =========================
+   COMPRAR
+========================= */
 
-function addCart(index){
+function buyProduct(index){
 
   const product =
     products[index];
 
-  if(Number(product.stock) <= 0){
-
-    alert(
-      "❌ Este produto está esgotado."
-    );
-
+  if(!product || Number(product.stock) <= 0){
     return;
   }
-
-  /*
-    Reserva uma unidade no carrinho.
-  */
-
-  product.stock--;
 
   cart.push({
     name:product.name,
@@ -866,266 +584,220 @@ function addCart(index){
     productIndex:index
   });
 
+  /*
+    O estoque é reduzido ao adicionar
+    ao carrinho.
+  */
+
+  product.stock =
+    Number(product.stock) - 1;
+
   saveProducts();
+  saveCart();
+
   renderProducts();
-  updateCart();
 
-  document.getElementById(
-    "modalTitle"
-  ).innerText =
-    "✅ Produto adicionado!";
+  alert("✅ Produto adicionado ao carrinho!");
 
-  document.getElementById(
-    "modalText"
-  ).innerText =
-    product.name +
-    " foi adicionado ao seu carrinho.";
-
-  document.getElementById(
-    "modal"
-  ).style.display = "flex";
+  openCart();
 
 }
 
 
-/* CARRINHO */
+/* =========================
+   CARRINHO
+========================= */
 
-function updateCart(){
+function updateCartCount(){
 
-  document.getElementById(
-    "count"
-  ).innerText =
+  document.getElementById("cartCount").textContent =
     cart.length;
 
-  if(cart.length === 0){
-
-    document.getElementById(
-      "cartList"
-    ).innerText =
-      "Seu carrinho está vazio.";
-
-    document.getElementById(
-      "total"
-    ).innerText =
-      "Total: R$ 0,00";
-
-    return;
-  }
-
-  let text = "";
-  let total = 0;
-
-  cart.forEach((product,index)=>{
-
-    text +=
-      (index + 1) +
-      ". " +
-      product.name +
-      " — " +
-      money(product.price) +
-      "\n";
-
-    total += Number(product.price);
-
-  });
-
-  document.getElementById(
-    "cartList"
-  ).innerText = text;
-
-  document.getElementById(
-    "total"
-  ).innerText =
-    "Total: " + money(total);
-
 }
 
-
-/* ABRIR CARRINHO */
 
 function openCart(){
 
-  updateCart();
+  const section =
+    document.getElementById("cartSection");
 
-  const area =
-    document.getElementById("cartArea");
+  section.classList.remove("hidden");
 
-  area.style.display =
-    "block";
+  renderCart();
 
-  area.scrollIntoView({
-    behavior:"smooth",
-    block:"center"
+  section.scrollIntoView({
+    behavior:"smooth"
   });
 
 }
 
 
-/* PIX */
+function renderCart(){
+
+  const area =
+    document.getElementById("cartItems");
+
+  area.innerHTML = "";
+
+  let total = 0;
+
+  if(cart.length === 0){
+
+    area.innerHTML =
+      `<p style="color:#8fa4c2">
+        Seu carrinho está vazio.
+      </p>`;
+
+  }
+
+  cart.forEach((item,index)=>{
+
+    total += Number(item.price);
+
+    const div =
+      document.createElement("div");
+
+    div.className = "cart-item";
+
+    div.innerHTML = `
+
+      <span>
+        ${escapeHTML(item.name)}
+      </span>
+
+      <span>
+        ${money(item.price)}
+      </span>
+
+    `;
+
+    area.appendChild(div);
+
+  });
+
+  document.getElementById("cartTotal").textContent =
+    money(total);
+
+  updateCartCount();
+
+}
+
+
+/* =========================
+   PIX
+========================= */
 
 function showPix(){
 
   if(cart.length === 0){
 
-    alert(
-      "🛒 Seu carrinho está vazio."
-    );
+    alert("🛒 Adicione um produto ao carrinho primeiro.");
 
     return;
   }
 
-  let total = 0;
+  const pix =
+    document.getElementById("pixSection");
 
-  cart.forEach(product=>{
-    total += Number(product.price);
-  });
+  pix.classList.remove("hidden");
 
-  document.getElementById(
-    "pixTotal"
-  ).innerText =
-    money(total);
-
-  document.getElementById(
-    "pixKey"
-  ).value =
-    PIX_KEY;
-
-  document.getElementById(
-    "pixArea"
-  ).style.display =
-    "block";
-
-  document.getElementById(
-    "pixArea"
-  ).scrollIntoView({
-    behavior:"smooth",
-    block:"center"
+  pix.scrollIntoView({
+    behavior:"smooth"
   });
 
 }
 
 
-/* COPIAR PIX */
+function copyPix(){
 
-function copiarPix(){
+  navigator.clipboard.writeText(PIX_KEY)
+    .then(()=>{
 
-  const chave =
-    PIX_KEY;
+      alert("✅ Chave Pix copiada!");
 
-  if(navigator.clipboard){
+    })
+    .catch(()=>{
 
-    navigator.clipboard
-      .writeText(chave)
-      .then(()=>{
+      alert(
+        "Copie manualmente a chave: " +
+        PIX_KEY
+      );
 
-        alert(
-          "✅ Chave Pix copiada!"
-        );
-
-      })
-      .catch(()=>{
-
-        alert(
-          "Chave Pix: " +
-          chave
-        );
-
-      });
-
-  }else{
-
-    alert(
-      "Chave Pix: " +
-      chave
-    );
-
-  }
+    });
 
 }
-
-
-/* MODAL */
-
-function closeModal(){
-
-  document.getElementById(
-    "modal"
-  ).style.display =
-    "none";
-
-}
-
-document.getElementById(
-  "modal"
-).addEventListener(
-  "click",
-  function(event){
-
-    if(event.target === this){
-
-      closeModal();
-
-    }
-
-  }
-);
 
 
 /* =========================
-   PAINEL DO DONO
+   ÁREA SECRETA DO DONO
 ========================= */
+
+let logoClicks = 0;
+let clickTimer = null;
+
+
+document.getElementById("secretLogo")
+.addEventListener("click",function(){
+
+  logoClicks++;
+
+  clearTimeout(clickTimer);
+
+  clickTimer =
+    setTimeout(()=>{
+      logoClicks = 0;
+    },1500);
+
+
+  if(logoClicks >= 5){
+
+    logoClicks = 0;
+
+    openOwner();
+
+  }
+
+});
+
 
 function openOwner(){
 
-  const senha =
-    prompt(
-      "🔐 Digite a senha do dono:"
-    );
+  const password =
+    prompt("🔐 Digite a senha do dono:");
 
-  if(senha !== OWNER_PASSWORD){
+  if(password !== OWNER_PASSWORD){
 
-    alert(
-      "❌ Senha incorreta."
-    );
+    alert("❌ Senha incorreta.");
 
     return;
   }
 
-  document.getElementById(
-    "ownerArea"
-  ).style.display =
-    "block";
+  document
+    .getElementById("ownerPanel")
+    .classList.remove("hidden");
 
   renderOwner();
-
-  document.getElementById(
-    "ownerArea"
-  ).scrollIntoView({
-    behavior:"smooth",
-    block:"center"
-  });
 
 }
 
 
 function closeOwner(){
 
-  document.getElementById(
-    "ownerArea"
-  ).style.display =
-    "none";
+  document
+    .getElementById("ownerPanel")
+    .classList.add("hidden");
 
 }
 
 
-/* EDITOR */
+/* =========================
+   PAINEL DO DONO
+========================= */
 
 function renderOwner(){
 
   const area =
-    document.getElementById(
-      "ownerProducts"
-    );
+    document.getElementById("ownerProducts");
 
   area.innerHTML = "";
 
@@ -1134,57 +806,57 @@ function renderOwner(){
     const div =
       document.createElement("div");
 
-    div.className =
-      "owner-product";
+    div.className = "owner-card";
 
     div.innerHTML = `
 
       <strong>
-        ${product.icon}
         Produto ${index + 1}
       </strong>
 
-      <input
-        id="name-${index}"
-        value="${product.name}"
-        placeholder="Nome do produto">
+      <label>Nome</label>
 
       <input
-        id="desc-${index}"
-        value="${product.desc}"
-        placeholder="Descrição">
+        id="name-${index}"
+        value="${escapeAttribute(product.name)}">
+
+      <label>Descrição</label>
+
+      <textarea
+        id="desc-${index}">${escapeHTML(product.description)}</textarea>
+
+      <label>Preço</label>
 
       <input
         id="price-${index}"
         type="number"
         step="0.01"
         min="0"
-        value="${product.price}"
-        placeholder="Preço">
+        value="${Number(product.price)}">
+
+      <label>Estoque</label>
 
       <input
         id="stock-${index}"
         type="number"
         min="0"
-        step="1"
-        value="${product.stock}"
-        placeholder="Estoque">
+        value="${Number(product.stock)}">
 
-      <div class="owner-actions">
+      <button
+        class="owner-save"
+        onclick="saveProduct(${index})">
 
-        <button
-          class="save-product"
-          onclick="saveProduct(${index})">
-          💾 Salvar
-        </button>
+        💾 Salvar alterações
 
-        <button
-          class="delete-product"
-          onclick="deleteProduct(${index})">
-          🗑️ Excluir
-        </button>
+      </button>
 
-      </div>
+      <button
+        class="owner-delete"
+        onclick="deleteProduct(${index})">
+
+        🗑️ Excluir produto
+
+      </button>
 
     `;
 
@@ -1195,133 +867,80 @@ function renderOwner(){
 }
 
 
-/* SALVAR */
+/* =========================
+   SALVAR PRODUTO
+========================= */
 
 function saveProduct(index){
 
   const name =
     document.getElementById(
-      "name-" + index
+      `name-${index}`
     ).value.trim();
 
-  const desc =
+  const description =
     document.getElementById(
-      "desc-" + index
+      `desc-${index}`
     ).value.trim();
 
   const price =
     Number(
       document.getElementById(
-        "price-" + index
+        `price-${index}`
       ).value
     );
 
   const stock =
     Number(
       document.getElementById(
-        "stock-" + index
+        `stock-${index}`
       ).value
     );
 
+
   if(!name){
 
-    alert(
-      "Digite um nome para o produto."
-    );
+    alert("Digite o nome do produto.");
 
     return;
   }
 
-  if(
-    isNaN(price) ||
-    price < 0
-  ){
 
-    alert(
-      "Digite um preço válido."
-    );
+  products[index] = {
 
-    return;
-  }
+    name:name,
 
-  if(
-    isNaN(stock) ||
-    stock < 0 ||
-    !Number.isInteger(stock)
-  ){
+    description:description,
 
-    alert(
-      "O estoque deve ser um número inteiro maior ou igual a zero."
-    );
+    price:isNaN(price) ? 0 : price,
 
-    return;
-  }
+    stock:isNaN(stock) ? 0 : Math.max(0,stock)
 
-  products[index].name =
-    name;
+  };
 
-  products[index].desc =
-    desc;
-
-  products[index].price =
-    price;
-
-  products[index].stock =
-    stock;
 
   saveProducts();
 
   renderProducts();
+
   renderOwner();
 
-  alert(
-    "✅ Produto atualizado!"
-  );
+  alert("✅ Produto atualizado!");
 
 }
 
 
-/* EXCLUIR */
-
-function deleteProduct(index){
-
-  const confirmar =
-    confirm(
-      "Tem certeza que deseja excluir este produto?"
-    );
-
-  if(!confirmar){
-    return;
-  }
-
-  products.splice(
-    index,
-    1
-  );
-
-  saveProducts();
-
-  renderProducts();
-  renderOwner();
-
-  alert(
-    "🗑️ Produto excluído!"
-  );
-
-}
-
-
-/* ADICIONAR */
+/* =========================
+   ADICIONAR PRODUTO
+========================= */
 
 function addProduct(){
 
   products.push({
 
-    icon:"🆕",
+    name:"🆕 Novo produto",
 
-    name:"Novo produto",
-
-    desc:"Descrição do produto",
+    description:"Descrição do produto.",
 
     price:5,
 
@@ -1332,19 +951,69 @@ function addProduct(){
   saveProducts();
 
   renderProducts();
-  renderOwner();
 
-  alert(
-    "✅ Novo produto criado com 10 unidades!"
-  );
+  renderOwner();
 
 }
 
 
-/* INICIAR */
+/* =========================
+   EXCLUIR PRODUTO
+========================= */
+
+function deleteProduct(index){
+
+  if(!confirm(
+    "Tem certeza que deseja excluir este produto?"
+  )){
+
+    return;
+  }
+
+  products.splice(index,1);
+
+  saveProducts();
+
+  renderProducts();
+
+  renderOwner();
+
+}
+
+
+/* =========================
+   SEGURANÇA DE TEXTO
+========================= */
+
+function escapeHTML(text){
+
+  return String(text ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttribute(text){
+
+  return escapeHTML(text);
+
+}
+
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
+document.getElementById("pixKey").textContent =
+  PIX_KEY;
 
 renderProducts();
-updateCart();
+
+renderCart();
 
 </script>
 
