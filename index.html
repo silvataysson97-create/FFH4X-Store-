@@ -6,243 +6,167 @@
 <title>FFH4X STORE</title>
 
 <style>
-*{
-    box-sizing:border-box;
-}
-
+*{box-sizing:border-box}
 body{
-    margin:0;
-    background:#07070b;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+margin:0;
+background:#07070b;
+color:#fff;
+font-family:Arial,Helvetica,sans-serif
 }
-
 header{
-    padding:35px 20px;
-    text-align:center;
-    background:
-        radial-gradient(circle at top,#35105c 0,#120b1d 42%,#07070b 75%);
-    border-bottom:1px solid #30213c;
+padding:35px 20px;
+text-align:center;
+background:radial-gradient(circle at top,#35105c,#120b1d 45%,#07070b 80%);
+border-bottom:1px solid #30213c
 }
-
 .logo{
-    margin:0;
-    font-size:42px;
-    color:#c66cff;
-    text-shadow:
-        0 0 10px #9b36ff,
-        0 0 30px #7622c5;
+margin:0;
+font-size:42px;
+color:#c66cff;
+text-shadow:0 0 10px #9b36ff,0 0 30px #7622c5
 }
-
-.subtitle{
-    color:#aaa;
-    margin:8px 0 0;
-}
-
+.subtitle{color:#aaa}
 .container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
+max-width:1100px;
+margin:auto;
+padding:20px
 }
-
 .topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+flex-wrap:wrap
 }
-
-.topbar h2{
-    margin:0;
-}
-
-.btn{
-    border:0;
-    border-radius:10px;
-    padding:12px 17px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.btn-admin{
-    background:#21192b;
-    color:#fff;
-    border:1px solid #4a315e;
-}
-
 .grid{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(220px,1fr));
-    gap:18px;
-    margin-top:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+margin-top:20px
 }
-
 .card{
-    background:
-        linear-gradient(145deg,#121119,#0d0d13);
-    border:1px solid #30243a;
-    border-radius:18px;
-    padding:18px;
-    box-shadow:0 8px 30px #0008;
-    transition:.2s;
+background:linear-gradient(145deg,#121119,#0d0d13);
+border:1px solid #30243a;
+border-radius:18px;
+padding:18px;
+box-shadow:0 8px 30px #0008
 }
-
-.card:hover{
-    transform:translateY(-3px);
-    border-color:#8738b5;
-    box-shadow:0 0 25px #7e27a633;
-}
-
 .icon{
-    height:100px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:55px;
-    background:#0a0a0f;
-    border-radius:13px;
-    margin-bottom:14px;
+height:100px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:55px;
+background:#0a0a0f;
+border-radius:13px
 }
-
-.card h3{
-    margin:8px 0;
-    font-size:20px;
-}
-
+.card h3{font-size:20px}
 .description{
-    color:#999;
-    min-height:38px;
-    font-size:14px;
+color:#999;
+min-height:38px;
+font-size:14px
 }
-
 .stock{
-    color:#9d9da8;
-    font-size:13px;
+color:#aaa;
+font-size:13px
 }
-
 .price{
-    font-size:25px;
-    font-weight:bold;
-    margin:15px 0;
+font-size:25px;
+font-weight:bold;
+margin:15px 0
 }
-
+button{
+border:0;
+border-radius:10px;
+padding:12px 17px;
+cursor:pointer;
+font-weight:bold
+}
 .buy{
-    width:100%;
-    background:
-        linear-gradient(90deg,#8d35ff,#d23cff);
-    color:#fff;
+width:100%;
+background:linear-gradient(90deg,#8d35ff,#d23cff);
+color:white
 }
-
 .buy:disabled{
-    opacity:.45;
-    cursor:not-allowed;
+opacity:.45;
+cursor:not-allowed
 }
-
-.notice{
-    margin-top:25px;
-    text-align:center;
-    color:#777;
-    font-size:12px;
+.admin{
+background:#21192b;
+color:white;
+border:1px solid #4a315e
 }
-
 .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:#000c;
-    align-items:center;
-    justify-content:center;
-    padding:18px;
-    z-index:20;
+display:none;
+position:fixed;
+inset:0;
+background:#000c;
+align-items:center;
+justify-content:center;
+padding:18px;
+z-index:20
 }
-
 .box{
-    width:min(560px,100%);
-    max-height:90vh;
-    overflow:auto;
-    background:#111118;
-    border:1px solid #49305b;
-    border-radius:18px;
-    padding:22px;
-    box-shadow:0 0 40px #000;
+width:min(560px,100%);
+max-height:90vh;
+overflow:auto;
+background:#111118;
+border:1px solid #49305b;
+border-radius:18px;
+padding:22px;
+box-shadow:0 0 40px #000
 }
-
 .close{
-    float:right;
-    background:#29232e;
-    color:#fff;
+float:right;
+background:#29232e;
+color:white
 }
-
+input,textarea{
+width:100%;
+padding:12px;
+margin:6px 0 12px;
+border-radius:9px;
+border:1px solid #3a3043;
+background:#08080d;
+color:white
+}
+.grid2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
+}
 .pix{
-    background:#08080c;
-    border:1px solid #34283e;
-    padding:15px;
-    border-radius:10px;
-    font-size:20px;
-    word-break:break-all;
-    margin:12px 0;
+background:#08080c;
+border:1px solid #34283e;
+padding:15px;
+border-radius:10px;
+font-size:20px;
+word-break:break-all
 }
-
-input,
-textarea{
-    width:100%;
-    padding:12px;
-    margin:5px 0 12px;
-    border-radius:9px;
-    border:1px solid #3a3043;
-    background:#08080d;
-    color:#fff;
-    outline:none;
-}
-
-input:focus,
-textarea:focus{
-    border-color:#a23cff;
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-}
-
 .admin-product{
-    padding:15px 0;
-    border-top:1px solid #2a2430;
+padding:15px 0;
+border-top:1px solid #2a2430
 }
-
-.admin-product strong{
-    display:block;
-    margin-bottom:8px;
+.small{
+background:#29222f;
+color:white;
+margin-right:5px
 }
-
-.small-btn{
-    background:#29222f;
-    color:#fff;
-    margin-right:5px;
-}
-
-.delete{
-    background:#541e2b;
-}
-
+.delete{background:#541e2b}
 .error{
-    color:#ff657d;
-    font-size:14px;
-    min-height:20px;
+color:#ff657d;
+min-height:20px
 }
-
-.success{
-    color:#6dffae;
-    font-size:14px;
+.notice{
+text-align:center;
+color:#777;
+font-size:12px;
+margin-top:25px
 }
-
 footer{
-    text-align:center;
-    color:#666;
-    padding:35px 20px;
+text-align:center;
+color:#666;
+padding:35px
 }
 </style>
 </head>
@@ -250,1130 +174,875 @@ footer{
 <body>
 
 <header>
-
-    <h1 class="logo">
-        FFH4X STORE
-    </h1>
-
-    <p class="subtitle">
-        Loja digital • catálogo online
-    </p>
-
+<h1 class="logo">FFH4X STORE</h1>
+<p class="subtitle">Loja digital • catálogo online</p>
 </header>
-
 
 <div class="container">
 
-    <div class="topbar">
+<div class="topbar">
+<h2>🔥 Produtos</h2>
 
-        <h2>
-            🔥 Produtos
-        </h2>
+<button class="admin" onclick="abrirLogin()">
+⚙️ PAINEL ADM
+</button>
+</div>
 
-        <button
-            class="btn btn-admin"
-            onclick="abrirLoginADM()"
-        >
-            ⚙️ Painel ADM
-        </button>
+<div id="products" class="grid"></div>
 
-    </div>
-
-
-    <div id="products" class="grid"></div>
-
-
-    <div class="notice">
-        Os nomes dos itens relacionados a jogos são
-        apresentados apenas como produtos de
-        catálogo/demonstração. Esta página não implementa
-        alteração, exploração ou modificação de jogos.
-    </div>
+<p class="notice">
+Catálogo demonstrativo. Esta página não implementa
+cheats, exploração ou alteração de jogos.
+</p>
 
 </div>
 
-
 <footer>
-    FFH4X STORE © 2026
+FFH4X STORE © 2026
 </footer>
 
 
-<!-- =========================
-     PAGAMENTO PIX
-========================= -->
+<!-- PAGAMENTO -->
 
-<div
-    id="paymentModal"
-    class="modal"
->
+<div id="paymentModal" class="modal">
 
-    <div class="box">
+<div class="box">
 
-        <button
-            class="btn close"
-            onclick="fechar('paymentModal')"
-        >
-            Fechar
-        </button>
+<button class="close" onclick="fechar('paymentModal')">
+Fechar
+</button>
 
-        <h2>
-            💳 Pagamento Pix
-        </h2>
+<h2>💳 Pagamento Pix</h2>
 
-        <p id="paymentProduct"></p>
+<p id="paymentProduct"></p>
 
-        <p>
-            Copie a chave Pix abaixo e faça o pagamento
-            pelo seu banco.
-        </p>
+<p>Copie a chave Pix abaixo:</p>
 
-        <div
-            class="pix"
-            id="pixKey"
-        >
-            05942249261
-        </div>
+<div class="pix" id="pixKey">
+05942249261
+</div>
 
-        <button
-            class="btn buy"
-            onclick="copiarPix()"
-        >
-            📋 COPIAR CHAVE PIX
-        </button>
+<br>
 
-        <p id="copyMessage"></p>
+<button class="buy" onclick="copiarPix()">
+📋 COPIAR CHAVE PIX
+</button>
 
-    </div>
+<p id="copyMessage"></p>
 
+</div>
 </div>
 
 
-<!-- =========================
-     LOGIN ADM
-========================= -->
+<!-- LOGIN ADM -->
 
-<div
-    id="loginModal"
-    class="modal"
+<div id="loginModal" class="modal">
+
+<div class="box">
+
+<button class="close" onclick="fechar('loginModal')">
+Fechar
+</button>
+
+<h2>🔐 Acesso ADM</h2>
+
+<p style="color:#aaa">
+Digite a senha do administrador.
+</p>
+
+<input
+id="adminPassword"
+type="password"
+placeholder="Senha do ADM"
+onkeydown="enterLogin(event)"
 >
 
-    <div class="box">
+<p id="loginError" class="error"></p>
 
-        <button
-            class="btn close"
-            onclick="fechar('loginModal')"
-        >
-            Fechar
-        </button>
+<button class="buy" onclick="entrarADM()">
+🔓 ENTRAR
+</button>
 
-        <h2>
-            🔐 Acesso ADM
-        </h2>
-
-        <p style="color:#999">
-            Digite a senha para entrar no painel.
-        </p>
-
-        <input
-            id="adminPassword"
-            type="password"
-            placeholder="Senha do ADM"
-            onkeydown="teclaLogin(event)"
-        >
-
-        <p
-            id="loginError"
-            class="error"
-        ></p>
-
-        <button
-            class="btn buy"
-            onclick="entrarADM()"
-        >
-            🔓 ENTRAR NO ADM
-        </button>
-
-    </div>
-
+</div>
 </div>
 
 
-<!-- =========================
-     PAINEL ADM
-========================= -->
+<!-- PAINEL ADM -->
 
-<div
-    id="adminModal"
-    class="modal"
+<div id="adminModal" class="modal">
+
+<div class="box">
+
+<button class="close" onclick="fechar('adminModal')">
+Fechar
+</button>
+
+<h2>⚙️ Painel ADM</h2>
+
+<p style="color:#aaa;font-size:13px">
+Edite produtos, preços, estoque e Pix.
+</p>
+
+<h3>➕ Adicionar produto</h3>
+
+<input
+id="newName"
+placeholder="Nome do produto"
 >
 
-    <div class="box">
+<div class="grid2">
 
-        <button
-            class="btn close"
-            onclick="fechar('adminModal')"
-        >
-            Fechar
-        </button>
+<input
+id="newPrice"
+type="number"
+step="0.01"
+placeholder="Preço"
+>
 
-        <h2>
-            ⚙️ Painel ADM
-        </h2>
+<input
+id="newStock"
+type="number"
+placeholder="Estoque"
+>
 
-        <p style="color:#999;font-size:13px">
-            Você pode editar produtos, preços, estoque
-            e chave Pix.
-        </p>
+</div>
 
+<button class="buy" onclick="adicionarProduto()">
++ ADICIONAR PRODUTO
+</button>
 
-        <h3>
-            ➕ Adicionar produto
-        </h3>
+<h3>📦 Produtos</h3>
 
-        <input
-            id="newName"
-            placeholder="Nome do produto"
-        >
+<div id="adminProducts"></div>
 
-        <div class="form-grid">
+<h3>💳 Chave Pix</h3>
 
-            <input
-                id="newPrice"
-                type="number"
-                step="0.01"
-                placeholder="Preço"
-            >
+<input
+id="adminPix"
+placeholder="Chave Pix"
+>
 
-            <input
-                id="newStock"
-                type="number"
-                placeholder="Estoque"
-            >
+<button class="buy" onclick="salvarPix()">
+💾 SALVAR PIX
+</button>
 
-        </div>
-
-        <button
-            class="btn buy"
-            onclick="adicionarProduto()"
-        >
-            + ADICIONAR PRODUTO
-        </button>
-
-
-        <h3 style="margin-top:25px">
-            📦 Produtos
-        </h3>
-
-        <div id="adminProducts"></div>
-
-
-        <h3 style="margin-top:25px">
-            💳 Chave Pix
-        </h3>
-
-        <input
-            id="adminPix"
-            placeholder="Chave Pix"
-        >
-
-        <button
-            class="btn buy"
-            onclick="salvarPix()"
-        >
-            💾 SALVAR CHAVE PIX
-        </button>
-
-
-        <p
-            style="
-                color:#777;
-                font-size:12px;
-                margin-top:20px;
-            "
-        >
-            As alterações deste painel ficam salvas
-            neste navegador.
-        </p>
-
-    </div>
-
+</div>
 </div>
 
 
 <script>
 
-/* =====================================================
+/* ================================
    SENHA DO ADM
-===================================================== */
+================================ */
 
 const SENHA_ADM = "FFH4X2026";
 
 
-/* =====================================================
-   PRODUTOS PADRÃO
-===================================================== */
+/* ================================
+   PRODUTOS
+================================ */
 
 const produtosPadrao = [
 
-    {
-        id:1,
-        nome:"Aimbot",
-        preco:10,
-        estoque:10,
-        descricao:
-            "Produto de catálogo/demonstração."
-    },
+{
+id:1,
+nome:"Aimbot",
+preco:10,
+estoque:10,
+descricao:"Produto de catálogo/demonstração."
+},
 
-    {
-        id:2,
-        nome:"Auto-Aim",
-        preco:10,
-        estoque:10,
-        descricao:
-            "Produto de catálogo/demonstração."
-    },
+{
+id:2,
+nome:"Auto-Aim",
+preco:10,
+estoque:10,
+descricao:"Produto de catálogo/demonstração."
+},
 
-    {
-        id:3,
-        nome:"Wallhack",
-        preco:22,
-        estoque:12,
-        descricao:
-            "Produto de catálogo/demonstração."
-    },
+{
+id:3,
+nome:"Wallhack",
+preco:22,
+estoque:12,
+descricao:"Produto de catálogo/demonstração."
+},
 
-    {
-        id:4,
-        nome:"Speed Hack",
-        preco:10,
-        estoque:10,
-        descricao:
-            "Produto de catálogo/demonstração."
-    },
+{
+id:4,
+nome:"Speed Hack",
+preco:10,
+estoque:10,
+descricao:"Produto de catálogo/demonstração."
+},
 
-    {
-        id:5,
-        nome:"Regedit",
-        preco:10,
-        estoque:10,
-        descricao:
-            "Produto de catálogo/demonstração."
-    },
+{
+id:5,
+nome:"Regedit",
+preco:10,
+estoque:10,
+descricao:"Produto de catálogo/demonstração."
+},
 
-    {
-        id:6,
-        nome:"Proxy",
-        preco:10,
-        estoque:10,
-        descricao:
-            "Produto de catálogo/demonstração."
-    },
+{
+id:6,
+nome:"Proxy",
+preco:10,
+estoque:10,
+descricao:"Produto de catálogo/demonstração."
+},
 
-    {
-        id:7,
-        nome:"No Recoil",
-        preco:20,
-        estoque:14,
-        descricao:
-            "Produto de catálogo/demonstração."
-    },
+{
+id:7,
+nome:"No Recoil",
+preco:20,
+estoque:14,
+descricao:"Produto de catálogo/demonstração."
+},
 
-    {
-        id:8,
-        nome:"Painel HS",
-        preco:10,
-        estoque:10,
-        descricao:
-            "Painel visual de demonstração."
-    },
+{
+id:8,
+nome:"Painel HS",
+preco:10,
+estoque:10,
+descricao:"Painel visual de demonstração."
+},
 
-    {
-        id:9,
-        nome:"Painel PRO",
-        preco:10,
-        estoque:10,
-        descricao:
-            "Painel visual de demonstração."
-    },
+{
+id:9,
+nome:"Painel PRO",
+preco:10,
+estoque:10,
+descricao:"Painel visual de demonstração."
+},
 
-    {
-        id:10,
-        nome:"Painel Boot",
-        preco:10,
-        estoque:10,
-        descricao:
-            "Painel visual de demonstração."
-    },
+{
+id:10,
+nome:"Painel Boot",
+preco:10,
+estoque:10,
+descricao:"Painel visual de demonstração."
+},
 
-    {
-        id:11,
-        nome:"Painel Neon",
-        preco:9.90,
-        estoque:10,
-        descricao:
-            "Painel visual com tema neon."
-    }
+{
+id:11,
+nome:"Painel Neon",
+preco:9.90,
+estoque:10,
+descricao:"Painel visual com tema neon."
+}
 
 ];
 
 
-/* =====================================================
-   CARREGAR PRODUTOS
-===================================================== */
+/* ================================
+   CARREGAR
+================================ */
 
 let produtos =
-    JSON.parse(
-        localStorage.getItem(
-            "ffh4x_produtos"
-        )
-    ) || produtosPadrao;
-
-
-/* =====================================================
-   CARREGAR PIX
-===================================================== */
+JSON.parse(
+localStorage.getItem("ffh4x_produtos")
+) || produtosPadrao;
 
 let chavePix =
-    localStorage.getItem(
-        "ffh4x_pix"
-    ) || "05942249261";
+localStorage.getItem("ffh4x_pix")
+|| "05942249261";
 
 
-/* =====================================================
-   FORMATAR DINHEIRO
-===================================================== */
+/* ================================
+   DINHEIRO
+================================ */
 
 function dinheiro(valor){
 
-    return Number(valor).toLocaleString(
-        "pt-BR",
-        {
-            style:"currency",
-            currency:"BRL"
-        }
-    );
+return Number(valor).toLocaleString(
+"pt-BR",
+{
+style:"currency",
+currency:"BRL"
+}
+);
 
 }
 
 
-/* =====================================================
-   ESCAPAR HTML
-===================================================== */
+/* ================================
+   SEGURANÇA HTML
+================================ */
 
 function escapar(texto){
 
-    return String(texto)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+return String(texto)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
 
-/* =====================================================
-   RENDERIZAR PRODUTOS
-===================================================== */
+/* ================================
+   LOJA
+================================ */
 
 function renderizarProdutos(){
 
-    const area =
-        document.getElementById(
-            "products"
-        );
+const area =
+document.getElementById("products");
 
-    area.innerHTML = "";
+area.innerHTML="";
 
+produtos.forEach(p=>{
 
-    produtos.forEach(produto => {
+const card =
+document.createElement("article");
 
-        const card =
-            document.createElement(
-                "article"
-            );
+card.className="card";
 
-        card.className = "card";
+card.innerHTML=`
 
+<div class="icon">🎮</div>
 
-        card.innerHTML = `
+<h3>${escapar(p.nome)}</h3>
 
-            <div class="icon">
-                🎮
-            </div>
+<p class="description">
+${escapar(p.descricao)}
+</p>
 
-            <h3>
-                ${escapar(produto.nome)}
-            </h3>
+<p class="stock">
+${
+p.estoque > 0
+? p.estoque+" em estoque"
+: "Sem estoque"
+}
+</p>
 
-            <p class="description">
-                ${escapar(produto.descricao)}
-            </p>
+<div class="price">
+${dinheiro(p.preco)}
+</div>
 
-            <p class="stock">
-                ${
-                    produto.estoque > 0
-                    ? produto.estoque +
-                      " em estoque"
-                    : "Sem estoque"
-                }
-            </p>
+<button
+class="buy"
+${p.estoque<=0?"disabled":""}
+onclick="comprar(${p.id})"
+>
+${
+p.estoque>0
+?"COMPRAR"
+:"SEM ESTOQUE"
+}
+</button>
 
-            <div class="price">
-                ${dinheiro(produto.preco)}
-            </div>
+`;
 
-            <button
-                class="btn buy"
-                ${
-                    produto.estoque <= 0
-                    ? "disabled"
-                    : ""
-                }
-                onclick="
-                    comprar(${produto.id})
-                "
-            >
-                ${
-                    produto.estoque > 0
-                    ? "COMPRAR"
-                    : "SEM ESTOQUE"
-                }
-            </button>
+area.appendChild(card);
 
-        `;
-
-
-        area.appendChild(card);
-
-    });
+});
 
 }
 
 
-/* =====================================================
+/* ================================
    COMPRAR
-===================================================== */
+================================ */
 
 function comprar(id){
 
-    const produto =
-        produtos.find(
-            p => p.id === id
-        );
+const produto =
+produtos.find(p=>p.id===id);
 
+if(!produto)return;
 
-    if(!produto){
+if(produto.estoque<=0){
 
-        return;
+alert("Produto sem estoque.");
 
-    }
+return;
 
+}
 
-    if(produto.estoque <= 0){
+document.getElementById(
+"paymentProduct"
+).textContent =
+produto.nome+
+" • "+
+dinheiro(produto.preco);
 
-        alert(
-            "Produto sem estoque."
-        );
+document.getElementById(
+"pixKey"
+).textContent =
+chavePix;
 
-        return;
+document.getElementById(
+"copyMessage"
+).textContent="";
 
-    }
-
-
-    document.getElementById(
-        "paymentProduct"
-    ).textContent =
-        produto.nome +
-        " • " +
-        dinheiro(
-            produto.preco
-        );
-
-
-    document.getElementById(
-        "pixKey"
-    ).textContent =
-        chavePix;
-
-
-    document.getElementById(
-        "copyMessage"
-    ).textContent = "";
-
-
-    document.getElementById(
-        "paymentModal"
-    ).style.display = "flex";
+document.getElementById(
+"paymentModal"
+).style.display="flex";
 
 }
 
 
-/* =====================================================
+/* ================================
    COPIAR PIX
-===================================================== */
+================================ */
 
 function copiarPix(){
 
-    const mensagem =
-        document.getElementById(
-            "copyMessage"
-        );
+if(navigator.clipboard){
 
+navigator.clipboard.writeText(chavePix)
+.then(()=>{
 
-    if(
-        navigator.clipboard &&
-        navigator.clipboard.writeText
-    ){
+document.getElementById(
+"copyMessage"
+).textContent=
+"✅ Chave Pix copiada!";
 
-        navigator.clipboard
-            .writeText(chavePix)
-            .then(() => {
+})
+.catch(copiarManual);
 
-                mensagem.textContent =
-                    "✅ Chave Pix copiada!";
+}else{
 
-            })
-            .catch(() => {
-
-                copiarManual();
-
-            });
-
-    }else{
-
-        copiarManual();
-
-    }
+copiarManual();
 
 }
 
+}
 
-/* =====================================================
-   COPIAR MANUALMENTE
-===================================================== */
 
 function copiarManual(){
 
-    const campo =
-        document.createElement(
-            "textarea"
-        );
+const campo =
+document.createElement("textarea");
 
+campo.value=chavePix;
 
-    campo.value = chavePix;
+document.body.appendChild(campo);
 
-    document.body.appendChild(
-        campo
-    );
+campo.select();
 
-    campo.select();
+document.execCommand("copy");
 
-    document.execCommand(
-        "copy"
-    );
+campo.remove();
 
-    campo.remove();
-
-
-    document.getElementById(
-        "copyMessage"
-    ).textContent =
-        "✅ Chave Pix copiada!";
+document.getElementById(
+"copyMessage"
+).textContent=
+"✅ Chave Pix copiada!";
 
 }
 
 
-/* =====================================================
-   ABRIR LOGIN
-===================================================== */
+/* ================================
+   LOGIN
+================================ */
 
-function abrirLoginADM(){
+function abrirLogin(){
 
-    document.getElementById(
-        "adminPassword"
-    ).value = "";
+document.getElementById(
+"adminPassword"
+).value="";
 
-    document.getElementById(
-        "loginError"
-    ).textContent = "";
+document.getElementById(
+"loginError"
+).textContent="";
 
+document.getElementById(
+"loginModal"
+).style.display="flex";
 
-    document.getElementById(
-        "loginModal"
-    ).style.display = "flex";
+setTimeout(()=>{
 
+document.getElementById(
+"adminPassword"
+).focus();
 
-    setTimeout(() => {
-
-        document.getElementById(
-            "adminPassword"
-        ).focus();
-
-    },100);
+},100);
 
 }
 
 
-/* =====================================================
-   TECLA ENTER NO LOGIN
-===================================================== */
+function enterLogin(event){
 
-function teclaLogin(event){
+if(event.key==="Enter"){
 
-    if(event.key === "Enter"){
-
-        entrarADM();
-
-    }
+entrarADM();
 
 }
 
+}
 
-/* =====================================================
-   ENTRAR NO ADM
-===================================================== */
 
 function entrarADM(){
 
-    const senha =
-        document.getElementById(
-            "adminPassword"
-        ).value;
+const senha =
+document.getElementById(
+"adminPassword"
+).value;
 
+if(senha===SENHA_ADM){
 
-    if(senha === SENHA_ADM){
+document.getElementById(
+"loginModal"
+).style.display="none";
 
-        document.getElementById(
-            "loginModal"
-        ).style.display = "none";
+document.getElementById(
+"adminPix"
+).value=chavePix;
 
+renderizarAdmin();
 
-        document.getElementById(
-            "adminPix"
-        ).value = chavePix;
+document.getElementById(
+"adminModal"
+).style.display="flex";
 
+}else{
 
-        renderizarAdmin();
+document.getElementById(
+"loginError"
+).textContent=
+"❌ Senha incorreta.";
 
-
-        document.getElementById(
-            "adminModal"
-        ).style.display = "flex";
-
-
-    }else{
-
-        document.getElementById(
-            "loginError"
-        ).textContent =
-            "❌ Senha incorreta.";
-
-    }
+}
 
 }
 
 
-/* =====================================================
-   RENDERIZAR PRODUTOS NO ADM
-===================================================== */
+/* ================================
+   ADM
+================================ */
 
 function renderizarAdmin(){
 
-    const area =
-        document.getElementById(
-            "adminProducts"
-        );
+const area =
+document.getElementById(
+"adminProducts"
+);
 
+area.innerHTML="";
 
-    area.innerHTML = "";
+produtos.forEach(p=>{
 
+const div =
+document.createElement("div");
 
-    produtos.forEach(produto => {
+div.className="admin-product";
 
-        const div =
-            document.createElement(
-                "div"
-            );
+div.innerHTML=`
 
-        div.className =
-            "admin-product";
+<strong>
+${escapar(p.nome)}
+</strong>
 
+<input
+id="name_${p.id}"
+value="${escapar(p.nome)}"
+placeholder="Nome"
+>
 
-        div.innerHTML = `
+<div class="grid2">
 
-            <strong>
-                ${escapar(produto.nome)}
-            </strong>
+<input
+id="price_${p.id}"
+type="number"
+step="0.01"
+value="${p.preco}"
+placeholder="Preço"
+>
 
-            <input
-                id="name_${produto.id}"
-                value="${escapar(produto.nome)}"
-                placeholder="Nome"
-            >
+<input
+id="stock_${p.id}"
+type="number"
+value="${p.estoque}"
+placeholder="Estoque"
+>
 
-            <div class="form-grid">
+</div>
 
-                <input
-                    id="price_${produto.id}"
-                    type="number"
-                    step="0.01"
-                    value="${produto.preco}"
-                    placeholder="Preço"
-                >
+<textarea
+id="desc_${p.id}"
+placeholder="Descrição"
+>${escapar(p.descricao)}</textarea>
 
-                <input
-                    id="stock_${produto.id}"
-                    type="number"
-                    value="${produto.estoque}"
-                    placeholder="Estoque"
-                >
+<button
+class="small"
+onclick="salvarProduto(${p.id})"
+>
+💾 Salvar
+</button>
 
-            </div>
+<button
+class="small delete"
+onclick="excluirProduto(${p.id})"
+>
+🗑 Excluir
+</button>
 
-            <textarea
-                id="desc_${produto.id}"
-                placeholder="Descrição"
-            >${escapar(produto.descricao)}</textarea>
+`;
 
-            <button
-                class="btn small-btn"
-                onclick="
-                    salvarProduto(${produto.id})
-                "
-            >
-                💾 Salvar
-            </button>
+area.appendChild(div);
 
-            <button
-                class="btn small-btn delete"
-                onclick="
-                    excluirProduto(${produto.id})
-                "
-            >
-                🗑 Excluir
-            </button>
-
-        `;
-
-
-        area.appendChild(div);
-
-    });
+});
 
 }
 
 
-/* =====================================================
+/* ================================
    SALVAR PRODUTO
-===================================================== */
+================================ */
 
 function salvarProduto(id){
 
-    const produto =
-        produtos.find(
-            p => p.id === id
-        );
+const p =
+produtos.find(x=>x.id===id);
 
+if(!p)return;
 
-    if(!produto){
+const nome =
+document.getElementById(
+"name_"+id
+).value.trim();
 
-        return;
+const preco =
+Number(
+document.getElementById(
+"price_"+id
+).value
+);
 
-    }
+const estoque =
+Number(
+document.getElementById(
+"stock_"+id
+).value
+);
 
+const descricao =
+document.getElementById(
+"desc_"+id
+).value.trim();
 
-    const nome =
-        document.getElementById(
-            "name_" + id
-        ).value.trim();
+if(!nome){
 
+alert("Digite o nome.");
 
-    const preco =
-        Number(
-            document.getElementById(
-                "price_" + id
-            ).value
-        );
+return;
 
+}
 
-    const estoque =
-        Number(
-            document.getElementById(
-                "stock_" + id
-            ).value
-        );
+p.nome=nome;
 
+p.preco=
+Number.isFinite(preco)
+? preco
+: 0;
 
-    const descricao =
-        document.getElementById(
-            "desc_" + id
-        ).value.trim();
+p.estoque=
+Number.isFinite(estoque)
+? Math.max(0,estoque)
+: 0;
 
+p.descricao=
+descricao ||
+"Produto de catálogo/demonstração.";
 
-    if(!nome){
+salvarDados();
 
-        alert(
-            "Digite o nome do produto."
-        );
+renderizarProdutos();
 
-        return;
-
-    }
-
-
-    produto.nome = nome;
-
-
-    produto.preco =
-        Number.isFinite(preco)
-        ? preco
-        : 0;
-
-
-    produto.estoque =
-        Number.isFinite(estoque)
-        ? Math.max(0,estoque)
-        : 0;
-
-
-    produto.descricao =
-        descricao ||
-        "Produto de catálogo/demonstração.";
-
-
-    salvarDados();
-
-    renderizarProdutos();
-
-    renderizarAdmin();
+renderizarAdmin();
 
 }
 
 
-/* =====================================================
-   ADICIONAR PRODUTO
-===================================================== */
+/* ================================
+   ADICIONAR
+================================ */
 
 function adicionarProduto(){
 
-    const nome =
-        document.getElementById(
-            "newName"
-        ).value.trim();
+const nome =
+document.getElementById(
+"newName"
+).value.trim();
 
+const preco =
+Number(
+document.getElementById(
+"newPrice"
+).value
+);
 
-    const preco =
-        Number(
-            document.getElementById(
-                "newPrice"
-            ).value
-        );
+const estoque =
+Number(
+document.getElementById(
+"newStock"
+).value
+);
 
+if(!nome){
 
-    const estoque =
-        Number(
-            document.getElementById(
-                "newStock"
-            ).value
-        );
+alert("Digite o nome.");
 
+return;
 
-    if(!nome){
+}
 
-        alert(
-            "Digite o nome do produto."
-        );
+if(!Number.isFinite(preco)){
 
-        return;
+alert("Digite um preço válido.");
 
-    }
+return;
 
+}
 
-    if(!Number.isFinite(preco)){
+produtos.push({
 
-        alert(
-            "Digite um preço válido."
-        );
+id:Date.now(),
 
-        return;
+nome:nome,
 
-    }
+preco:preco,
 
+estoque:
+Number.isFinite(estoque)
+? Math.max(0,estoque)
+: 0,
 
-    produtos.push({
+descricao:
+"Produto de catálogo/demonstração."
 
-        id:Date.now(),
+});
 
-        nome:nome,
+salvarDados();
 
-        preco:preco,
+renderizarProdutos();
 
-        estoque:
-            Number.isFinite(estoque)
-            ? Math.max(0,estoque)
-            : 0,
+renderizarAdmin();
 
-        descricao:
-            "Produto de catálogo/demonstração."
+document.getElementById(
+"newName"
+).value="";
 
-    });
+document.getElementById(
+"newPrice"
+).value="";
 
-
-    salvarDados();
-
-    renderizarProdutos();
-
-    renderizarAdmin();
-
-
-    document.getElementById(
-        "newName"
-    ).value = "";
-
-
-    document.getElementById(
-        "newPrice"
-    ).value = "";
-
-
-    document.getElementById(
-        "newStock"
-    ).value = "";
+document.getElementById(
+"newStock"
+).value="";
 
 }
 
 
-/* =====================================================
-   EXCLUIR PRODUTO
-===================================================== */
+/* ================================
+   EXCLUIR
+================================ */
 
 function excluirProduto(id){
 
-    if(
-        !confirm(
-            "Excluir este produto?"
-        )
-    ){
+if(!confirm(
+"Excluir este produto?"
+))return;
 
-        return;
+produtos =
+produtos.filter(
+p=>p.id!==id
+);
 
-    }
+salvarDados();
 
+renderizarProdutos();
 
-    produtos =
-        produtos.filter(
-            p => p.id !== id
-        );
-
-
-    salvarDados();
-
-    renderizarProdutos();
-
-    renderizarAdmin();
+renderizarAdmin();
 
 }
 
 
-/* =====================================================
-   SALVAR PIX
-===================================================== */
+/* ================================
+   PIX
+================================ */
 
 function salvarPix(){
 
-    const novaChave =
-        document.getElementById(
-            "adminPix"
-        ).value.trim();
+const novaChave =
+document.getElementById(
+"adminPix"
+).value.trim();
 
+if(!novaChave){
 
-    if(!novaChave){
+alert("Digite uma chave Pix.");
 
-        alert(
-            "Digite uma chave Pix."
-        );
+return;
 
-        return;
+}
 
-    }
+chavePix=novaChave;
 
+localStorage.setItem(
+"ffh4x_pix",
+chavePix
+);
 
-    chavePix = novaChave;
+document.getElementById(
+"pixKey"
+).textContent=chavePix;
 
-
-    localStorage.setItem(
-        "ffh4x_pix",
-        chavePix
-    );
-
-
-    document.getElementById(
-        "pixKey"
-    ).textContent =
-        chavePix;
-
-
-    alert(
-        "✅ Chave Pix salva."
-    );
+alert("✅ Chave Pix salva.");
 
 }
 
 
-/* =====================================================
-   SALVAR PRODUTOS
-===================================================== */
+/* ================================
+   SALVAR
+================================ */
 
 function salvarDados(){
 
-    localStorage.setItem(
-        "ffh4x_produtos",
-        JSON.stringify(produtos)
-    );
+localStorage.setItem(
+"ffh4x_produtos",
+JSON.stringify(produtos)
+);
 
 }
 
 
-/* =====================================================
-   FECHAR JANELAS
-===================================================== */
+/* ================================
+   FECHAR
+================================ */
 
 function fechar(id){
 
-    document.getElementById(
-        id
-    ).style.display = "none";
+document.getElementById(
+id
+).style.display="none";
 
 }
 
 
-/* =====================================================
-   FECHAR CLICANDO FORA
-===================================================== */
-
 window.addEventListener(
-    "click",
-    function(event){
+"click",
+function(e){
 
-        if(
-            event.target.classList.contains(
-                "modal"
-            )
-        ){
+if(
+e.target.classList.contains("modal")
+){
 
-            event.target.style.display =
-                "none";
+e.target.style.display="none";
 
-        }
+}
 
-    }
-);
+});
 
 
-/* =====================================================
-   INICIAR LOJA
-===================================================== */
+/* ================================
+   INICIAR
+================================ */
 
 renderizarProdutos();
 
