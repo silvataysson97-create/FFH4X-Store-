@@ -1,101 +1,391 @@
-function continuarPagamento() {
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FUSION XIT STORE</title>
 
-    if (carrinho.length === 0) {
-        alert("🛒 Seu carrinho está vazio.");
-        return;
-    }
+<style>
+*{box-sizing:border-box}
 
-    let total = 0;
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#02050a;
+  color:#fff;
+}
 
-    carrinho.forEach(function(produto) {
-        total += produto.preco;
-    });
+header{
+  text-align:center;
+  padding:25px 15px;
+  background:#071321;
+  border-bottom:1px solid #16446b;
+}
 
-    const chavePix = "05942249261";
+header h1{
+  margin:0;
+  color:#00e6ad;
+}
 
-    const pagamento = document.getElementById("pagamentoPix");
+.container{
+  width:92%;
+  max-width:650px;
+  margin:25px auto;
+}
 
-    pagamento.innerHTML = `
-        <div style="
-            background:#07111d;
-            border:1px solid #17436b;
-            border-radius:20px;
-            padding:22px;
-            margin-top:20px;
-        ">
+.box{
+  background:#07101b;
+  border:1px solid #17334e;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:20px;
+}
 
-            <h2>💠 Pagamento via Pix</h2>
+.produto{
+  border:1px solid #183a59;
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:15px;
+}
 
-            <p>Valor da compra:</p>
+.preco{
+  color:#00e6ad;
+  font-size:25px;
+  font-weight:bold;
+}
 
-            <h1 style="color:#00e6ad;">
-                R$ ${total.toFixed(2).replace(".", ",")}
-            </h1>
+button{
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:15px;
+  margin-top:10px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
 
-            <p>🔑 Chave Pix:</p>
+.comprar{
+  background:#075cae;
+  color:white;
+}
 
-            <div style="
-                background:#02050b;
-                padding:16px;
-                border-radius:12px;
-                color:#00e6ad;
-                font-weight:bold;
-                word-break:break-all;
-                text-align:center;
-            ">
-                ${chavePix}
-            </div>
+.pagar{
+  background:#00a982;
+  color:white;
+}
 
-            <button
-                onclick="copiarPix()"
-                style="
-                    width:100%;
-                    margin-top:15px;
-                    padding:16px;
-                    border:0;
-                    border-radius:15px;
-                    background:#00a982;
-                    color:white;
-                    font-weight:bold;
-                    font-size:16px;
-                "
-            >
-                📋 Copiar chave Pix
-            </button>
+.remover{
+  width:auto;
+  padding:7px 11px;
+  background:#9d2020;
+  color:white;
+  margin:0;
+}
 
-            <p id="pixCopiado"
-               style="
-                   text-align:center;
-                   color:#00e6ad;
-                   font-weight:bold;
-               ">
-            </p>
+.copiar{
+  background:#00a982;
+  color:white;
+}
 
-        </div>
-    `;
+#pagamento{
+  display:none;
+}
 
-    pagamento.style.display = "block";
+.pix{
+  background:#02070d;
+  border:1px solid #185075;
+  border-radius:16px;
+  padding:18px;
+  text-align:center;
+}
 
-    pagamento.scrollIntoView({
-        behavior:"smooth"
-    });
+.chave{
+  background:#071321;
+  padding:16px;
+  border-radius:12px;
+  color:#00e6ad;
+  font-weight:bold;
+  word-break:break-all;
+}
+
+.sucesso{
+  color:#00e6ad;
+  font-weight:bold;
+  min-height:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>⚡ FUSION XIT STORE</h1>
+  <p>Loja oficial</p>
+</header>
+
+<div class="container">
+
+  <!-- PRODUTOS -->
+  <div class="box">
+
+    <h2>🛍️ Produtos</h2>
+
+    <div class="produto">
+      <h3>Licença 7 Dias</h3>
+      <p>Produto digital</p>
+      <div class="preco">R$ 3,00</div>
+
+      <button class="comprar"
+        onclick="adicionar('Licença 7 Dias',3)">
+        🛒 Comprar
+      </button>
+    </div>
+
+    <div class="produto">
+      <h3>Licença 30 Dias</h3>
+      <p>Produto digital</p>
+      <div class="preco">R$ 5,00</div>
+
+      <button class="comprar"
+        onclick="adicionar('Licença 30 Dias',5)">
+        🛒 Comprar
+      </button>
+    </div>
+
+  </div>
+
+
+  <!-- CARRINHO -->
+  <div class="box">
+
+    <h2>🛒 Carrinho</h2>
+
+    <div id="carrinho">
+      <p>Seu carrinho está vazio.</p>
+    </div>
+
+    <hr>
+
+    <h2>
+      Total:
+      <span id="total">R$ 0,00</span>
+    </h2>
+
+    <button class="pagar" onclick="abrirPagamento()">
+      💳 Continuar para pagamento
+    </button>
+
+  </div>
+
+
+  <!-- PAGAMENTO -->
+  <div class="box" id="pagamento">
+
+    <h2>💠 Pagamento via Pix</h2>
+
+    <p>Valor da compra:</p>
+
+    <h1 id="valor" class="preco">
+      R$ 0,00
+    </h1>
+
+    <div class="pix">
+
+      <h3>🔑 Chave Pix</h3>
+
+      <div class="chave" id="chave">
+        05942249261
+      </div>
+
+      <button class="copiar" onclick="copiarPix()">
+        📋 COPIAR CHAVE PIX
+      </button>
+
+      <p id="mensagem" class="sucesso"></p>
+
+    </div>
+
+    <p>
+      Depois de pagar, envie o comprovante para o vendedor.
+    </p>
+
+  </div>
+
+</div>
+
+
+<script>
+
+let produtos = [];
+
+/* ADICIONAR */
+function adicionar(nome,preco){
+
+  produtos.push({
+    nome:nome,
+    preco:preco
+  });
+
+  atualizar();
+
 }
 
 
-function copiarPix() {
+/* ATUALIZAR CARRINHO */
+function atualizar(){
 
-    const chave = "05942249261";
+  const area =
+    document.getElementById("carrinho");
+
+  if(produtos.length === 0){
+
+    area.innerHTML =
+      "<p>Seu carrinho está vazio.</p>";
+
+    document.getElementById("total")
+      .innerText = "R$ 0,00";
+
+    return;
+  }
+
+  let html = "";
+  let total = 0;
+
+  produtos.forEach(function(item,index){
+
+    total += item.preco;
+
+    html += `
+      <div style="
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin:12px 0;
+      ">
+
+        <span style="flex:1">
+          ${item.nome}
+        </span>
+
+        <b>
+          R$ ${item.preco.toFixed(2).replace(".",",")}
+        </b>
+
+        <button
+          class="remover"
+          onclick="remover(${index})">
+          X
+        </button>
+
+      </div>
+    `;
+  });
+
+  area.innerHTML = html;
+
+  document.getElementById("total")
+    .innerText =
+    "R$ " + total.toFixed(2).replace(".",",");
+}
+
+
+/* REMOVER */
+function remover(index){
+
+  produtos.splice(index,1);
+
+  atualizar();
+
+}
+
+
+/* ABRIR PAGAMENTO */
+function abrirPagamento(){
+
+  if(produtos.length === 0){
+
+    alert("Adicione um produto ao carrinho primeiro.");
+
+    return;
+  }
+
+  let total = 0;
+
+  produtos.forEach(function(item){
+    total += item.preco;
+  });
+
+  document.getElementById("valor")
+    .innerText =
+    "R$ " + total.toFixed(2).replace(".",",");
+
+  document.getElementById("pagamento")
+    .style.display = "block";
+
+  document.getElementById("pagamento")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* COPIAR PIX */
+function copiarPix(){
+
+  const chave =
+    document.getElementById("chave")
+      .innerText.trim();
+
+  if(navigator.clipboard){
 
     navigator.clipboard.writeText(chave)
-    .then(function() {
+      .then(function(){
 
-        document.getElementById("pixCopiado").innerText =
-            "✅ Chave Pix copiada!";
+        document.getElementById("mensagem")
+          .innerText =
+          "✅ Chave Pix copiada!";
 
-    })
-    .catch(function() {
+      })
+      .catch(function(){
 
-        alert("Chave Pix: " + chave);
+        copiarAlternativo(chave);
 
-    });
+      });
+
+  }else{
+
+    copiarAlternativo(chave);
+
+  }
+
 }
+
+
+/* COPIAR ALTERNATIVO */
+function copiarAlternativo(chave){
+
+  const campo =
+    document.createElement("textarea");
+
+  campo.value = chave;
+
+  document.body.appendChild(campo);
+
+  campo.select();
+
+  document.execCommand("copy");
+
+  document.body.removeChild(campo);
+
+  document.getElementById("mensagem")
+    .innerText =
+    "✅ Chave Pix copiada!";
+
+}
+
+</script>
+
+</body>
+</html>
