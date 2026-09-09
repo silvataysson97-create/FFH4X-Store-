@@ -1,9 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fusion XIT — Loja Demo</title>
+<meta name="theme-color" content="#050817">
+
+<title>Fusion XIT — Loja</title>
 
 <style>
 *{
@@ -16,17 +19,24 @@
 body{
   background:#050817;
   color:#fff;
+  min-height:100vh;
 }
 
 header{
   padding:22px 16px;
-  background:linear-gradient(135deg,#07102d,#101b4d);
   text-align:center;
+  background:linear-gradient(135deg,#07102d,#101b4d);
   border-bottom:1px solid #26315c;
 }
 
-header h1{font-size:27px}
-header p{color:#9ca8d8;margin-top:7px}
+header h1{
+  font-size:28px;
+}
+
+header p{
+  margin-top:7px;
+  color:#9ca8d8;
+}
 
 .banner{
   margin:15px;
@@ -37,20 +47,21 @@ header p{color:#9ca8d8;margin-top:7px}
 }
 
 .banner img{
-  width:100%;
   display:block;
+  width:100%;
   max-height:240px;
   object-fit:cover;
 }
 
 .demo{
   margin:15px;
-  padding:13px;
+  padding:14px;
   border-radius:14px;
   background:#151d38;
   color:#aeb9e5;
   text-align:center;
   font-size:13px;
+  line-height:1.5;
 }
 
 .grid{
@@ -69,12 +80,12 @@ header p{color:#9ca8d8;margin-top:7px}
 }
 
 .icon{
-  height:95px;
+  height:105px;
   border-radius:14px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:43px;
+  font-size:44px;
   background:linear-gradient(135deg,#111b40,#17245a);
   margin-bottom:11px;
 }
@@ -88,6 +99,7 @@ header p{color:#9ca8d8;margin-top:7px}
   color:#7884ad;
   font-size:12px;
   min-height:30px;
+  line-height:1.4;
 }
 
 .stars{
@@ -111,6 +123,11 @@ header p{color:#9ca8d8;margin-top:7px}
   color:white;
   font-size:15px;
   font-weight:bold;
+  cursor:pointer;
+}
+
+.buy:active{
+  transform:scale(.97);
 }
 
 .pix{
@@ -124,24 +141,26 @@ header p{color:#9ca8d8;margin-top:7px}
 }
 
 .pix h2{
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
 .pix p{
   color:#9ca8d8;
   font-size:13px;
+  line-height:1.5;
   margin-bottom:12px;
 }
 
 .pix input{
   width:100%;
-  padding:12px;
+  padding:13px;
   border-radius:10px;
   border:1px solid #303b68;
   background:#050817;
   color:#fff;
   text-align:center;
   margin-bottom:10px;
+  font-size:16px;
 }
 
 .pix button{
@@ -152,6 +171,7 @@ header p{color:#9ca8d8;margin-top:7px}
   background:#168b55;
   color:#fff;
   font-weight:bold;
+  cursor:pointer;
 }
 
 .features{
@@ -176,6 +196,7 @@ header p{color:#9ca8d8;margin-top:7px}
 .feature span{
   color:#7884ad;
   font-size:13px;
+  line-height:1.4;
 }
 
 footer{
@@ -197,6 +218,7 @@ footer{
   color:white;
   font-size:24px;
   box-shadow:0 8px 30px rgba(0,0,0,.5);
+  cursor:pointer;
 }
 
 #count{
@@ -217,15 +239,18 @@ footer{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.75);
+  background:rgba(0,0,0,.78);
   align-items:center;
   justify-content:center;
   padding:20px;
+  z-index:100;
 }
 
 .modal-box{
   width:100%;
   max-width:390px;
+  max-height:85vh;
+  overflow:auto;
   background:#0c1229;
   border:1px solid #303b68;
   border-radius:20px;
@@ -238,7 +263,7 @@ footer{
 
 .modal-box p{
   color:#9aa6d0;
-  line-height:1.5;
+  line-height:1.6;
   white-space:pre-line;
 }
 
@@ -250,10 +275,18 @@ footer{
   border-radius:12px;
   background:#202a4c;
   color:white;
+  font-size:15px;
+  cursor:pointer;
 }
 
 @media(max-width:360px){
-  .grid{grid-template-columns:1fr}
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -262,16 +295,18 @@ footer{
 
 <header>
   <h1>🔥 FUSION XIT</h1>
-  <p>Loja de produtos digitais — DEMONSTRAÇÃO</p>
+  <p>Loja de produtos digitais</p>
 </header>
 
 <div class="banner">
-  <img src="loja.png" alt="Imagem da loja">
+  <img src="loja.png" alt="Imagem da loja"
+       onerror="this.style.display='none'">
 </div>
 
 <div class="demo">
   ⚠️ <b>LOJA DE SIMULAÇÃO</b><br>
-  Os produtos relacionados a XIT, HS e Proxy são demonstrativos e não possuem funções de cheat.
+  Os produtos relacionados a XIT, HS e Proxy são demonstrativos
+  e não possuem funções de cheat.
 </div>
 
 <section class="grid" id="products"></section>
@@ -281,7 +316,8 @@ footer{
   <h2>💳 Pagamento via Pix</h2>
 
   <p>
-    Produto selecionado: <b id="selectedProduct"></b>
+    Produto selecionado:
+    <b id="selectedProduct">Nenhum</b>
   </p>
 
   <input
@@ -295,8 +331,8 @@ footer{
   </button>
 
   <p style="margin-top:12px">
-    Após o pagamento, a confirmação deve ser feita manualmente.
-    Esta é uma área demonstrativa.
+    Faça o pagamento usando sua instituição financeira.
+    A confirmação deste pagamento é manual.
   </p>
 
 </section>
@@ -304,23 +340,27 @@ footer{
 <section class="features">
 
   <div class="feature">
-    🛡️ <b>Compra segura</b>
+    🛡️
+    <b>Compra segura</b>
     <span>Área demonstrativa da loja.</span>
   </div>
 
   <div class="feature">
-    💳 <b>Pagamento Pix</b>
-    <span>Pagamento manual demonstrativo.</span>
+    💳
+    <b>Pagamento Pix</b>
+    <span>Pagamento via chave Pix.</span>
   </div>
 
   <div class="feature">
-    🎧 <b>Suporte</b>
+    🎧
+    <b>Suporte</b>
     <span>Atendimento ao cliente.</span>
   </div>
 
   <div class="feature">
-    ✅ <b>Garantia</b>
-    <span>Garantia demonstrativa.</span>
+    ✅
+    <b>Garantia</b>
+    <span>Garantia demonstrativa de 7 dias.</span>
   </div>
 
 </section>
@@ -329,15 +369,16 @@ footer{
   © 2026 Fusion XIT — Loja de demonstração
 </footer>
 
-<button class="cart" onclick="openCart()">
+<button class="cart" onclick="openCart()" aria-label="Abrir carrinho">
   🛒
   <span id="count">0</span>
 </button>
 
 <div class="modal" id="modal">
+
   <div class="modal-box">
 
-    <h2 id="modalTitle">Carrinho</h2>
+    <h2 id="modalTitle">🛒 Carrinho</h2>
 
     <p id="modalText"></p>
 
@@ -346,9 +387,12 @@ footer{
     </button>
 
   </div>
+
 </div>
 
 <script>
+
+const PIX_KEY = "05942249261";
 
 const products = [
 
@@ -390,7 +434,7 @@ const products = [
   {
     icon:"🍷",
     name:"Como criar XIT",
-    desc:"Conteúdo demonstrativo",
+    desc:"Conteúdo digital demonstrativo",
     price:"R$ 80,00"
   },
 
@@ -442,7 +486,7 @@ let cart = [];
 
 const container = document.getElementById("products");
 
-products.forEach((p,index)=>{
+products.forEach((product,index)=>{
 
   const card = document.createElement("div");
 
@@ -450,17 +494,18 @@ products.forEach((p,index)=>{
 
   card.innerHTML = `
 
-    <div class="icon">${p.icon}</div>
+    <div class="icon">${product.icon}</div>
 
-    <h2>${p.name}</h2>
+    <h2>${product.name}</h2>
 
-    <div class="desc">${p.desc}</div>
+    <div class="desc">${product.desc}</div>
 
     <div class="stars">
-      ★★★★★ <span style="color:#7884ad">4.8</span>
+      ★★★★★
+      <span style="color:#7884ad">4.8</span>
     </div>
 
-    <div class="price">${p.price}</div>
+    <div class="price">${product.price}</div>
 
     <button class="buy" onclick="addCart(${index})">
       🛒 Comprar
@@ -474,38 +519,50 @@ products.forEach((p,index)=>{
 
 function addCart(index){
 
-  cart.push(products[index]);
+  const product = products[index];
+
+  cart.push(product);
 
   document.getElementById("count").innerText = cart.length;
 
   document.getElementById("selectedProduct").innerText =
-    products[index].name + " — " + products[index].price;
+    product.name + " — " + product.price;
 
   document.getElementById("pixArea").style.display = "block";
 
   document.getElementById("pixArea").scrollIntoView({
-    behavior:"smooth"
+    behavior:"smooth",
+    block:"center"
   });
 
 }
 
 function copiarPix(){
 
-  const chave = document.getElementById("pixKey").value;
+  const chave = PIX_KEY;
 
-  navigator.clipboard.writeText(chave)
-    .then(()=>{
-      alert("✅ Chave Pix copiada!");
-    })
-    .catch(()=>{
-      alert("Copie a chave manualmente: " + chave);
-    });
+  if(navigator.clipboard){
+
+    navigator.clipboard.writeText(chave)
+      .then(()=>{
+        alert("✅ Chave Pix copiada!");
+      })
+      .catch(()=>{
+        alert("Chave Pix: " + chave);
+      });
+
+  }else{
+
+    alert("Chave Pix: " + chave);
+
+  }
 
 }
 
 function openCart(){
 
-  document.getElementById("modalTitle").innerText = "🛒 Carrinho";
+  document.getElementById("modalTitle").innerText =
+    "🛒 Carrinho";
 
   if(cart.length === 0){
 
@@ -516,13 +573,24 @@ function openCart(){
 
     let text = "Produtos selecionados:\n\n";
 
-    cart.forEach((p,i)=>{
-      text += `${i + 1}. ${p.name} — ${p.price}\n`;
+    cart.forEach((product,index)=>{
+
+      text +=
+        (index + 1) +
+        ". " +
+        product.name +
+        " — " +
+        product.price +
+        "\n";
+
     });
 
     text +=
-      "\n💳 Pagamento via Pix demonstrativo.\n" +
-      "Nenhuma confirmação automática de pagamento está configurada.";
+      "\n💳 Pagamento via Pix.\n" +
+      "Chave: " +
+      PIX_KEY +
+      "\n\n" +
+      "A confirmação do pagamento é manual.";
 
     document.getElementById("modalText").innerText = text;
 
@@ -537,6 +605,14 @@ function closeModal(){
   document.getElementById("modal").style.display = "none";
 
 }
+
+document.getElementById("modal").addEventListener("click",function(event){
+
+  if(event.target === this){
+    closeModal();
+  }
+
+});
 
 </script>
 
