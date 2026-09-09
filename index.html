@@ -6,7 +6,9 @@
 <title>FFH4X STORE</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
@@ -19,7 +21,7 @@ header{
     padding:35px 20px;
     text-align:center;
     background:
-      radial-gradient(circle at top,#35105c 0,#120b1d 42%,#07070b 75%);
+        radial-gradient(circle at top,#35105c 0,#120b1d 42%,#07070b 75%);
     border-bottom:1px solid #30213c;
 }
 
@@ -27,7 +29,9 @@ header{
     margin:0;
     font-size:42px;
     color:#c66cff;
-    text-shadow:0 0 10px #9b36ff,0 0 30px #7622c5;
+    text-shadow:
+        0 0 10px #9b36ff,
+        0 0 30px #7622c5;
 }
 
 .subtitle{
@@ -69,13 +73,15 @@ header{
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
     gap:18px;
     margin-top:20px;
 }
 
 .card{
-    background:linear-gradient(145deg,#121119,#0d0d13);
+    background:
+        linear-gradient(145deg,#121119,#0d0d13);
     border:1px solid #30243a;
     border-radius:18px;
     padding:18px;
@@ -124,7 +130,8 @@ header{
 
 .buy{
     width:100%;
-    background:linear-gradient(90deg,#8d35ff,#d23cff);
+    background:
+        linear-gradient(90deg,#8d35ff,#d23cff);
     color:#fff;
 }
 
@@ -178,7 +185,8 @@ header{
     margin:12px 0;
 }
 
-input,textarea{
+input,
+textarea{
     width:100%;
     padding:12px;
     margin:5px 0 12px;
@@ -189,7 +197,8 @@ input,textarea{
     outline:none;
 }
 
-input:focus,textarea:focus{
+input:focus,
+textarea:focus{
     border-color:#a23cff;
 }
 
@@ -219,6 +228,17 @@ input:focus,textarea:focus{
     background:#541e2b;
 }
 
+.error{
+    color:#ff657d;
+    font-size:14px;
+    min-height:20px;
+}
+
+.success{
+    color:#6dffae;
+    font-size:14px;
+}
+
 footer{
     text-align:center;
     color:#666;
@@ -230,57 +250,94 @@ footer{
 <body>
 
 <header>
-    <h1 class="logo">FFH4X STORE</h1>
-    <p class="subtitle">Loja digital • catálogo online</p>
+
+    <h1 class="logo">
+        FFH4X STORE
+    </h1>
+
+    <p class="subtitle">
+        Loja digital • catálogo online
+    </p>
+
 </header>
+
 
 <div class="container">
 
     <div class="topbar">
-        <h2>🔥 Produtos</h2>
-        <button class="btn btn-admin" onclick="abrirAdmin()">
+
+        <h2>
+            🔥 Produtos
+        </h2>
+
+        <button
+            class="btn btn-admin"
+            onclick="abrirLoginADM()"
+        >
             ⚙️ Painel ADM
         </button>
+
     </div>
+
 
     <div id="products" class="grid"></div>
 
+
     <div class="notice">
-        Os nomes dos itens relacionados a jogos são apresentados apenas como
-        produtos de catálogo/demonstração. Esta página não implementa alteração,
-        exploração ou modificação de jogos.
+        Os nomes dos itens relacionados a jogos são
+        apresentados apenas como produtos de
+        catálogo/demonstração. Esta página não implementa
+        alteração, exploração ou modificação de jogos.
     </div>
 
 </div>
+
 
 <footer>
     FFH4X STORE © 2026
 </footer>
 
 
-<!-- PAGAMENTO -->
+<!-- =========================
+     PAGAMENTO PIX
+========================= -->
 
-<div id="paymentModal" class="modal">
+<div
+    id="paymentModal"
+    class="modal"
+>
 
     <div class="box">
 
-        <button class="btn close" onclick="fechar('paymentModal')">
+        <button
+            class="btn close"
+            onclick="fechar('paymentModal')"
+        >
             Fechar
         </button>
 
-        <h2>💳 Pagamento Pix</h2>
+        <h2>
+            💳 Pagamento Pix
+        </h2>
 
         <p id="paymentProduct"></p>
 
         <p>
-            Copie a chave Pix abaixo e faça o pagamento pelo seu banco.
+            Copie a chave Pix abaixo e faça o pagamento
+            pelo seu banco.
         </p>
 
-        <div class="pix" id="pixKey">
+        <div
+            class="pix"
+            id="pixKey"
+        >
             05942249261
         </div>
 
-        <button class="btn buy" onclick="copiarPix()">
+        <button
+            class="btn buy"
+            onclick="copiarPix()"
+        >
             📋 COPIAR CHAVE PIX
         </button>
 
@@ -291,50 +348,152 @@ footer{
 </div>
 
 
-<!-- PAINEL ADM -->
+<!-- =========================
+     LOGIN ADM
+========================= -->
 
-<div id="adminModal" class="modal">
+<div
+    id="loginModal"
+    class="modal"
+>
 
     <div class="box">
 
-        <button class="btn close" onclick="fechar('adminModal')">
+        <button
+            class="btn close"
+            onclick="fechar('loginModal')"
+        >
             Fechar
         </button>
 
-        <h2>⚙️ Painel ADM</h2>
+        <h2>
+            🔐 Acesso ADM
+        </h2>
 
-        <p style="color:#999;font-size:13px">
-            Aqui você pode editar os produtos, preços, estoque e chave Pix.
+        <p style="color:#999">
+            Digite a senha para entrar no painel.
         </p>
 
-        <h3>Adicionar produto</h3>
+        <input
+            id="adminPassword"
+            type="password"
+            placeholder="Senha do ADM"
+            onkeydown="teclaLogin(event)"
+        >
 
-        <input id="newName" placeholder="Nome do produto">
+        <p
+            id="loginError"
+            class="error"
+        ></p>
+
+        <button
+            class="btn buy"
+            onclick="entrarADM()"
+        >
+            🔓 ENTRAR NO ADM
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     PAINEL ADM
+========================= -->
+
+<div
+    id="adminModal"
+    class="modal"
+>
+
+    <div class="box">
+
+        <button
+            class="btn close"
+            onclick="fechar('adminModal')"
+        >
+            Fechar
+        </button>
+
+        <h2>
+            ⚙️ Painel ADM
+        </h2>
+
+        <p style="color:#999;font-size:13px">
+            Você pode editar produtos, preços, estoque
+            e chave Pix.
+        </p>
+
+
+        <h3>
+            ➕ Adicionar produto
+        </h3>
+
+        <input
+            id="newName"
+            placeholder="Nome do produto"
+        >
 
         <div class="form-grid">
-            <input id="newPrice" type="number" step="0.01" placeholder="Preço">
-            <input id="newStock" type="number" placeholder="Estoque">
+
+            <input
+                id="newPrice"
+                type="number"
+                step="0.01"
+                placeholder="Preço"
+            >
+
+            <input
+                id="newStock"
+                type="number"
+                placeholder="Estoque"
+            >
+
         </div>
 
-        <button class="btn buy" onclick="adicionarProduto()">
+        <button
+            class="btn buy"
+            onclick="adicionarProduto()"
+        >
             + ADICIONAR PRODUTO
         </button>
 
+
         <h3 style="margin-top:25px">
-            Produtos
+            📦 Produtos
         </h3>
 
         <div id="adminProducts"></div>
 
+
         <h3 style="margin-top:25px">
-            Chave Pix
+            💳 Chave Pix
         </h3>
 
-        <input id="adminPix" placeholder="Chave Pix">
+        <input
+            id="adminPix"
+            placeholder="Chave Pix"
+        >
 
-        <button class="btn buy" onclick="salvarPix()">
+        <button
+            class="btn buy"
+            onclick="salvarPix()"
+        >
             💾 SALVAR CHAVE PIX
         </button>
+
+
+        <p
+            style="
+                color:#777;
+                font-size:12px;
+                margin-top:20px;
+            "
+        >
+            As alterações deste painel ficam salvas
+            neste navegador.
+        </p>
 
     </div>
 
@@ -343,9 +502,16 @@ footer{
 
 <script>
 
-/* =========================
-   PRODUTOS INICIAIS
-========================= */
+/* =====================================================
+   SENHA DO ADM
+===================================================== */
+
+const SENHA_ADM = "FFH4X2026";
+
+
+/* =====================================================
+   PRODUTOS PADRÃO
+===================================================== */
 
 const produtosPadrao = [
 
@@ -354,7 +520,8 @@ const produtosPadrao = [
         nome:"Aimbot",
         preco:10,
         estoque:10,
-        descricao:"Produto de catálogo/demonstração."
+        descricao:
+            "Produto de catálogo/demonstração."
     },
 
     {
@@ -362,7 +529,8 @@ const produtosPadrao = [
         nome:"Auto-Aim",
         preco:10,
         estoque:10,
-        descricao:"Produto de catálogo/demonstração."
+        descricao:
+            "Produto de catálogo/demonstração."
     },
 
     {
@@ -370,7 +538,8 @@ const produtosPadrao = [
         nome:"Wallhack",
         preco:22,
         estoque:12,
-        descricao:"Produto de catálogo/demonstração."
+        descricao:
+            "Produto de catálogo/demonstração."
     },
 
     {
@@ -378,7 +547,8 @@ const produtosPadrao = [
         nome:"Speed Hack",
         preco:10,
         estoque:10,
-        descricao:"Produto de catálogo/demonstração."
+        descricao:
+            "Produto de catálogo/demonstração."
     },
 
     {
@@ -386,7 +556,8 @@ const produtosPadrao = [
         nome:"Regedit",
         preco:10,
         estoque:10,
-        descricao:"Produto de catálogo/demonstração."
+        descricao:
+            "Produto de catálogo/demonstração."
     },
 
     {
@@ -394,7 +565,8 @@ const produtosPadrao = [
         nome:"Proxy",
         preco:10,
         estoque:10,
-        descricao:"Produto de catálogo/demonstração."
+        descricao:
+            "Produto de catálogo/demonstração."
     },
 
     {
@@ -402,7 +574,8 @@ const produtosPadrao = [
         nome:"No Recoil",
         preco:20,
         estoque:14,
-        descricao:"Produto de catálogo/demonstração."
+        descricao:
+            "Produto de catálogo/demonstração."
     },
 
     {
@@ -410,7 +583,8 @@ const produtosPadrao = [
         nome:"Painel HS",
         preco:10,
         estoque:10,
-        descricao:"Painel visual de demonstração."
+        descricao:
+            "Painel visual de demonstração."
     },
 
     {
@@ -418,7 +592,8 @@ const produtosPadrao = [
         nome:"Painel PRO",
         preco:10,
         estoque:10,
-        descricao:"Painel visual de demonstração."
+        descricao:
+            "Painel visual de demonstração."
     },
 
     {
@@ -426,7 +601,8 @@ const produtosPadrao = [
         nome:"Painel Boot",
         preco:10,
         estoque:10,
-        descricao:"Painel visual de demonstração."
+        descricao:
+            "Painel visual de demonstração."
     },
 
     {
@@ -434,28 +610,38 @@ const produtosPadrao = [
         nome:"Painel Neon",
         preco:9.90,
         estoque:10,
-        descricao:"Painel visual com tema neon."
+        descricao:
+            "Painel visual com tema neon."
     }
 
 ];
 
 
-/* =========================
-   CARREGAR DADOS
-========================= */
+/* =====================================================
+   CARREGAR PRODUTOS
+===================================================== */
 
 let produtos =
-    JSON.parse(localStorage.getItem("ffh4x_produtos")) ||
-    produtosPadrao;
+    JSON.parse(
+        localStorage.getItem(
+            "ffh4x_produtos"
+        )
+    ) || produtosPadrao;
+
+
+/* =====================================================
+   CARREGAR PIX
+===================================================== */
 
 let chavePix =
-    localStorage.getItem("ffh4x_pix") ||
-    "05942249261";
+    localStorage.getItem(
+        "ffh4x_pix"
+    ) || "05942249261";
 
 
-/* =========================
-   FORMATAR PREÇO
-========================= */
+/* =====================================================
+   FORMATAR DINHEIRO
+===================================================== */
 
 function dinheiro(valor){
 
@@ -470,9 +656,9 @@ function dinheiro(valor){
 }
 
 
-/* =========================
+/* =====================================================
    ESCAPAR HTML
-========================= */
+===================================================== */
 
 function escapar(texto){
 
@@ -486,27 +672,35 @@ function escapar(texto){
 }
 
 
-/* =========================
-   MOSTRAR PRODUTOS
-========================= */
+/* =====================================================
+   RENDERIZAR PRODUTOS
+===================================================== */
 
 function renderizarProdutos(){
 
     const area =
-        document.getElementById("products");
+        document.getElementById(
+            "products"
+        );
 
     area.innerHTML = "";
+
 
     produtos.forEach(produto => {
 
         const card =
-            document.createElement("article");
+            document.createElement(
+                "article"
+            );
 
         card.className = "card";
 
+
         card.innerHTML = `
 
-            <div class="icon">🎮</div>
+            <div class="icon">
+                🎮
+            </div>
 
             <h3>
                 ${escapar(produto.nome)}
@@ -519,7 +713,8 @@ function renderizarProdutos(){
             <p class="stock">
                 ${
                     produto.estoque > 0
-                    ? produto.estoque + " em estoque"
+                    ? produto.estoque +
+                      " em estoque"
                     : "Sem estoque"
                 }
             </p>
@@ -530,8 +725,14 @@ function renderizarProdutos(){
 
             <button
                 class="btn buy"
-                ${produto.estoque <= 0 ? "disabled" : ""}
-                onclick="comprar(${produto.id})"
+                ${
+                    produto.estoque <= 0
+                    ? "disabled"
+                    : ""
+                }
+                onclick="
+                    comprar(${produto.id})
+                "
             >
                 ${
                     produto.estoque > 0
@@ -542,6 +743,7 @@ function renderizarProdutos(){
 
         `;
 
+
         area.appendChild(card);
 
     });
@@ -549,66 +751,94 @@ function renderizarProdutos(){
 }
 
 
-/* =========================
+/* =====================================================
    COMPRAR
-========================= */
+===================================================== */
 
 function comprar(id){
 
     const produto =
-        produtos.find(p => p.id === id);
+        produtos.find(
+            p => p.id === id
+        );
 
-    if(!produto) return;
 
-    if(produto.estoque <= 0){
-
-        alert("Produto sem estoque.");
+    if(!produto){
 
         return;
 
     }
 
-    document.getElementById("paymentProduct")
-        .textContent =
+
+    if(produto.estoque <= 0){
+
+        alert(
+            "Produto sem estoque."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "paymentProduct"
+    ).textContent =
         produto.nome +
         " • " +
-        dinheiro(produto.preco);
+        dinheiro(
+            produto.preco
+        );
 
-    document.getElementById("pixKey")
-        .textContent = chavePix;
 
-    document.getElementById("copyMessage")
-        .textContent = "";
+    document.getElementById(
+        "pixKey"
+    ).textContent =
+        chavePix;
 
-    document.getElementById("paymentModal")
-        .style.display = "flex";
+
+    document.getElementById(
+        "copyMessage"
+    ).textContent = "";
+
+
+    document.getElementById(
+        "paymentModal"
+    ).style.display = "flex";
 
 }
 
 
-/* =========================
+/* =====================================================
    COPIAR PIX
-========================= */
+===================================================== */
 
 function copiarPix(){
 
     const mensagem =
-        document.getElementById("copyMessage");
+        document.getElementById(
+            "copyMessage"
+        );
 
-    if(navigator.clipboard){
 
-        navigator.clipboard.writeText(chavePix)
-        .then(() => {
+    if(
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ){
 
-            mensagem.textContent =
-                "✅ Chave Pix copiada!";
+        navigator.clipboard
+            .writeText(chavePix)
+            .then(() => {
 
-        })
-        .catch(() => {
+                mensagem.textContent =
+                    "✅ Chave Pix copiada!";
 
-            copiarManual();
+            })
+            .catch(() => {
 
-        });
+                copiarManual();
+
+            });
 
     }else{
 
@@ -619,62 +849,156 @@ function copiarPix(){
 }
 
 
+/* =====================================================
+   COPIAR MANUALMENTE
+===================================================== */
+
 function copiarManual(){
 
     const campo =
-        document.createElement("textarea");
+        document.createElement(
+            "textarea"
+        );
+
 
     campo.value = chavePix;
 
-    document.body.appendChild(campo);
+    document.body.appendChild(
+        campo
+    );
 
     campo.select();
 
-    document.execCommand("copy");
+    document.execCommand(
+        "copy"
+    );
 
     campo.remove();
 
-    document.getElementById("copyMessage")
-        .textContent =
+
+    document.getElementById(
+        "copyMessage"
+    ).textContent =
         "✅ Chave Pix copiada!";
 
 }
 
 
-/* =========================
-   ABRIR ADM
-========================= */
+/* =====================================================
+   ABRIR LOGIN
+===================================================== */
 
-function abrirAdmin(){
+function abrirLoginADM(){
 
-    document.getElementById("adminPix")
-        .value = chavePix;
+    document.getElementById(
+        "adminPassword"
+    ).value = "";
 
-    renderizarAdmin();
+    document.getElementById(
+        "loginError"
+    ).textContent = "";
 
-    document.getElementById("adminModal")
-        .style.display = "flex";
+
+    document.getElementById(
+        "loginModal"
+    ).style.display = "flex";
+
+
+    setTimeout(() => {
+
+        document.getElementById(
+            "adminPassword"
+        ).focus();
+
+    },100);
 
 }
 
 
-/* =========================
-   RENDERIZAR ADM
-========================= */
+/* =====================================================
+   TECLA ENTER NO LOGIN
+===================================================== */
+
+function teclaLogin(event){
+
+    if(event.key === "Enter"){
+
+        entrarADM();
+
+    }
+
+}
+
+
+/* =====================================================
+   ENTRAR NO ADM
+===================================================== */
+
+function entrarADM(){
+
+    const senha =
+        document.getElementById(
+            "adminPassword"
+        ).value;
+
+
+    if(senha === SENHA_ADM){
+
+        document.getElementById(
+            "loginModal"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "adminPix"
+        ).value = chavePix;
+
+
+        renderizarAdmin();
+
+
+        document.getElementById(
+            "adminModal"
+        ).style.display = "flex";
+
+
+    }else{
+
+        document.getElementById(
+            "loginError"
+        ).textContent =
+            "❌ Senha incorreta.";
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDERIZAR PRODUTOS NO ADM
+===================================================== */
 
 function renderizarAdmin(){
 
     const area =
-        document.getElementById("adminProducts");
+        document.getElementById(
+            "adminProducts"
+        );
+
 
     area.innerHTML = "";
+
 
     produtos.forEach(produto => {
 
         const div =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        div.className = "admin-product";
+        div.className =
+            "admin-product";
+
 
         div.innerHTML = `
 
@@ -714,19 +1038,24 @@ function renderizarAdmin(){
 
             <button
                 class="btn small-btn"
-                onclick="salvarProduto(${produto.id})"
+                onclick="
+                    salvarProduto(${produto.id})
+                "
             >
                 💾 Salvar
             </button>
 
             <button
                 class="btn small-btn delete"
-                onclick="excluirProduto(${produto.id})"
+                onclick="
+                    excluirProduto(${produto.id})
+                "
             >
                 🗑 Excluir
             </button>
 
         `;
+
 
         area.appendChild(div);
 
@@ -735,21 +1064,30 @@ function renderizarAdmin(){
 }
 
 
-/* =========================
+/* =====================================================
    SALVAR PRODUTO
-========================= */
+===================================================== */
 
 function salvarProduto(id){
 
     const produto =
-        produtos.find(p => p.id === id);
+        produtos.find(
+            p => p.id === id
+        );
 
-    if(!produto) return;
+
+    if(!produto){
+
+        return;
+
+    }
+
 
     const nome =
         document.getElementById(
             "name_" + id
         ).value.trim();
+
 
     const preco =
         Number(
@@ -758,6 +1096,7 @@ function salvarProduto(id){
             ).value
         );
 
+
     const estoque =
         Number(
             document.getElementById(
@@ -765,34 +1104,43 @@ function salvarProduto(id){
             ).value
         );
 
+
     const descricao =
         document.getElementById(
             "desc_" + id
         ).value.trim();
 
+
     if(!nome){
 
-        alert("Digite o nome do produto.");
+        alert(
+            "Digite o nome do produto."
+        );
 
         return;
 
     }
 
+
     produto.nome = nome;
+
 
     produto.preco =
         Number.isFinite(preco)
         ? preco
         : 0;
 
+
     produto.estoque =
         Number.isFinite(estoque)
         ? Math.max(0,estoque)
         : 0;
 
+
     produto.descricao =
         descricao ||
         "Produto de catálogo/demonstração.";
+
 
     salvarDados();
 
@@ -803,9 +1151,9 @@ function salvarProduto(id){
 }
 
 
-/* =========================
+/* =====================================================
    ADICIONAR PRODUTO
-========================= */
+===================================================== */
 
 function adicionarProduto(){
 
@@ -814,12 +1162,14 @@ function adicionarProduto(){
             "newName"
         ).value.trim();
 
+
     const preco =
         Number(
             document.getElementById(
                 "newPrice"
             ).value
         );
+
 
     const estoque =
         Number(
@@ -828,21 +1178,28 @@ function adicionarProduto(){
             ).value
         );
 
+
     if(!nome){
 
-        alert("Digite o nome do produto.");
+        alert(
+            "Digite o nome do produto."
+        );
 
         return;
 
     }
+
 
     if(!Number.isFinite(preco)){
 
-        alert("Digite um preço válido.");
+        alert(
+            "Digite um preço válido."
+        );
 
         return;
 
     }
+
 
     produtos.push({
 
@@ -862,38 +1219,54 @@ function adicionarProduto(){
 
     });
 
+
     salvarDados();
 
     renderizarProdutos();
 
     renderizarAdmin();
 
-    document.getElementById("newName").value = "";
 
-    document.getElementById("newPrice").value = "";
+    document.getElementById(
+        "newName"
+    ).value = "";
 
-    document.getElementById("newStock").value = "";
+
+    document.getElementById(
+        "newPrice"
+    ).value = "";
+
+
+    document.getElementById(
+        "newStock"
+    ).value = "";
 
 }
 
 
-/* =========================
-   EXCLUIR
-========================= */
+/* =====================================================
+   EXCLUIR PRODUTO
+===================================================== */
 
 function excluirProduto(id){
 
-    if(!confirm("Excluir este produto?")){
+    if(
+        !confirm(
+            "Excluir este produto?"
+        )
+    ){
 
         return;
 
     }
+
 
     produtos =
         produtos.filter(
             p => p.id !== id
         );
 
+
     salvarDados();
 
     renderizarProdutos();
@@ -903,9 +1276,9 @@ function excluirProduto(id){
 }
 
 
-/* =========================
+/* =====================================================
    SALVAR PIX
-========================= */
+===================================================== */
 
 function salvarPix(){
 
@@ -914,32 +1287,43 @@ function salvarPix(){
             "adminPix"
         ).value.trim();
 
+
     if(!novaChave){
 
-        alert("Digite uma chave Pix.");
+        alert(
+            "Digite uma chave Pix."
+        );
 
         return;
 
     }
 
+
     chavePix = novaChave;
+
 
     localStorage.setItem(
         "ffh4x_pix",
         chavePix
     );
 
-    document.getElementById("pixKey")
-        .textContent = chavePix;
 
-    alert("✅ Chave Pix salva.");
+    document.getElementById(
+        "pixKey"
+    ).textContent =
+        chavePix;
+
+
+    alert(
+        "✅ Chave Pix salva."
+    );
 
 }
 
 
-/* =========================
-   SALVAR TUDO
-========================= */
+/* =====================================================
+   SALVAR PRODUTOS
+===================================================== */
 
 function salvarDados(){
 
@@ -951,31 +1335,35 @@ function salvarDados(){
 }
 
 
-/* =========================
-   FECHAR MODAL
-========================= */
+/* =====================================================
+   FECHAR JANELAS
+===================================================== */
 
 function fechar(id){
 
-    document.getElementById(id)
-        .style.display = "none";
+    document.getElementById(
+        id
+    ).style.display = "none";
 
 }
 
 
-/* =========================
+/* =====================================================
    FECHAR CLICANDO FORA
-========================= */
+===================================================== */
 
 window.addEventListener(
     "click",
     function(event){
 
         if(
-            event.target.classList.contains("modal")
+            event.target.classList.contains(
+                "modal"
+            )
         ){
 
-            event.target.style.display = "none";
+            event.target.style.display =
+                "none";
 
         }
 
@@ -983,9 +1371,9 @@ window.addEventListener(
 );
 
 
-/* =========================
-   INICIAR
-========================= */
+/* =====================================================
+   INICIAR LOJA
+===================================================== */
 
 renderizarProdutos();
 
