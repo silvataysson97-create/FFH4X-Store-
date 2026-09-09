@@ -1,609 +1,99 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FFH4X Store</title>
-
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:Arial,sans-serif;
-background:radial-gradient(circle at top,#35105f,#12091d 40%,#050509 80%);
-color:white;
-min-height:100vh;
-}
-
-header{
-text-align:center;
-padding:35px 15px;
-border-bottom:1px solid #762cff;
-box-shadow:0 0 30px #761cff55;
-}
-
-.logo{
-font-size:38px;
-font-weight:900;
-color:#d58aff;
-text-shadow:0 0 10px #9b2cff,0 0 30px #7b19ff;
-}
-
-.subtitle{
-margin-top:8px;
-color:#c9b7d8;
-}
-
-.support{
-display:inline-block;
-margin-top:20px;
-padding:13px 22px;
-border-radius:12px;
-background:#8d21ff;
-color:white;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 0 20px #8d21ff88;
-}
-
-.container{
-max-width:1150px;
-margin:auto;
-padding:25px 15px 50px;
-}
-
-.trust{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
-margin-bottom:30px;
-}
-
-.trust-card{
-background:#100c18dd;
-border:1px solid #6320a8;
-border-radius:15px;
-padding:18px 10px;
-text-align:center;
-}
-
-.trust-card strong{
-display:block;
-color:#d28aff;
-margin-bottom:5px;
-}
-
-h2{
-text-align:center;
-margin:25px 0;
-color:#e4c7ff;
-}
-
-.products{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:18px;
-}
-
-.product{
-background:linear-gradient(145deg,#181020,#0b0810);
-border:1px solid #7225b7;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 0 20px #651bd733;
-transition:.25s;
-}
-
-.product:hover{
-transform:translateY(-5px);
-border-color:#c04dff;
-box-shadow:0 0 30px #962cff66;
-}
-
-.product-art{
-height:150px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:58px;
-background:radial-gradient(circle,#8c2aff55,#160d22 65%,#07050a);
-border-bottom:1px solid #6c20a5;
-}
-
-.info{
-padding:16px;
-}
-
-.info h3{
-color:#e8caff;
-margin-bottom:6px;
-}
-
-.tag{
-display:inline-block;
-font-size:11px;
-background:#7020a8;
-padding:4px 8px;
-border-radius:20px;
-margin-bottom:10px;
-}
-
-.price{
-font-size:22px;
-font-weight:bold;
-color:#c77cff;
-margin:10px 0;
-}
-
-.stock{
-font-size:13px;
-color:#4dff91;
-margin-bottom:12px;
-}
-
-.buy{
-width:100%;
-border:0;
-padding:12px;
-border-radius:10px;
-background:linear-gradient(90deg,#7c18ff,#b52cff);
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-
-.checkout{
-display:none;
-margin-top:35px;
-padding:25px;
-border:1px solid #9a2cff;
-border-radius:20px;
-background:#0d0914ee;
-box-shadow:0 0 30px #8c27ff33;
-}
-
-.selected{
-text-align:center;
-margin-bottom:20px;
-}
-
-.pix-box{
-background:#17101f;
-border:1px solid #8b2cff;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-.pix-title{
-font-size:20px;
-font-weight:bold;
-color:#d38aff;
-}
-
-.pix-key{
-display:block;
-margin:15px 0;
-padding:14px;
-background:#09070d;
-border-radius:10px;
-color:#fff;
-font-weight:bold;
-font-size:18px;
-word-break:break-all;
-}
-
-.action{
-display:block;
-width:100%;
-padding:13px;
-margin-top:10px;
-border:0;
-border-radius:10px;
-color:white;
-font-weight:bold;
-text-decoration:none;
-text-align:center;
-cursor:pointer;
-}
-
-.copy{
-background:#6f1b9d;
-}
-
-.whatsapp{
-background:#16a34a;
-}
-
-.qr{
-margin:20px auto 10px;
-width:180px;
-height:180px;
-background:white;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#111;
-font-size:13px;
-padding:10px;
-border-radius:10px;
-}
-
-.note{
-color:#aaa;
-font-size:12px;
-text-align:center;
-margin-top:15px;
-line-height:1.5;
-}
-
-footer{
-text-align:center;
-padding:30px 15px;
-color:#887c91;
-border-top:1px solid #251a2d;
-}
-
-@media(max-width:900px){
-.products{grid-template-columns:repeat(2,1fr)}
-.trust{grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:500px){
-.products{grid-template-columns:1fr}
-.logo{font-size:30px}
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="logo">⚡ FFH4X STORE ⚡</div>
-<div class="subtitle">Produtos digitais • Painéis • Packs • Simulações</div>
-
-<a class="support"
-href="https://wa.me/556992275174"
-target="_blank">
-📲 Falar com o Suporte
-</a>
-</header>
-
-<div class="container">
-
-<div class="trust">
-
-<div class="trust-card">
-<strong>🔐 Compra segura</strong>
-Pagamento via Pix
-</div>
-
-<div class="trust-card">
-<strong>⚡ Entrega digital</strong>
-Atendimento rápido
-</div>
-
-<div class="trust-card">
-<strong>💬 Suporte</strong>
-WhatsApp
-</div>
-
-<div class="trust-card">
-<strong>🎮 Produtos digitais</strong>
-Catálogo online
-</div>
-
-</div>
-
-<h2>🔥 Produtos disponíveis</h2>
-
-<div class="products">
-
-<!-- PRODUTOS -->
-
-<div class="product">
-<div class="product-art">🌌</div>
-<div class="info">
-<span class="tag">DIGITAL</span>
-<h3>Painel Neon</h3>
-<p>Interface gamer neon.</p>
-<div class="price">R$ 9,90</div>
-<div class="stock">🟢 10 em estoque</div>
-<button class="buy" onclick="comprar('Painel Neon','9,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">🎯</div>
-<div class="info">
-<span class="tag">PACK</span>
-<h3>Pack de HUD</h3>
-<p>Elementos visuais para HUD.</p>
-<div class="price">R$ 12,90</div>
-<div class="stock">🟢 20 em estoque</div>
-<button class="buy" onclick="comprar('Pack de HUD','12,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">🖼️</div>
-<div class="info">
-<span class="tag">PACK</span>
-<h3>Pack de Capas</h3>
-<p>Capas digitais gamer.</p>
-<div class="price">R$ 7,90</div>
-<div class="stock">🟢 15 em estoque</div>
-<button class="buy" onclick="comprar('Pack de Capas','7,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">🎮</div>
-<div class="info">
-<span class="tag">KIT</span>
-<h3>Kit Gamer</h3>
-<p>Kit visual para jogador.</p>
-<div class="price">R$ 19,90</div>
-<div class="stock">🟢 10 em estoque</div>
-<button class="buy" onclick="comprar('Kit Gamer','19,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">🌑</div>
-<div class="info">
-<span class="tag">TEMA</span>
-<h3>Tema Dark</h3>
-<p>Tema preto e roxo.</p>
-<div class="price">R$ 8,90</div>
-<div class="stock">🟢 20 em estoque</div>
-<button class="buy" onclick="comprar('Tema Dark','8,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">⚡</div>
-<div class="info">
-<span class="tag">DESIGN</span>
-<h3>Banner Pro</h3>
-<p>Banner digital personalizado.</p>
-<div class="price">R$ 14,90</div>
-<div class="stock">🟢 8 em estoque</div>
-<button class="buy" onclick="comprar('Banner Pro','14,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">🔷</div>
-<div class="info">
-<span class="tag">PACK</span>
-<h3>Pack Ícones</h3>
-<p>Ícones para projetos digitais.</p>
-<div class="price">R$ 6,90</div>
-<div class="stock">🟢 25 em estoque</div>
-<button class="buy" onclick="comprar('Pack Ícones','6,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">💎</div>
-<div class="info">
-<span class="tag">COMPLETO</span>
-<h3>Kit Completo</h3>
-<p>Pacote digital completo.</p>
-<div class="price">R$ 29,90</div>
-<div class="stock">🟢 5 em estoque</div>
-<button class="buy" onclick="comprar('Kit Completo','29,90')">Comprar</button>
-</div>
-</div>
-
-<!-- SIMULAÇÕES -->
-
-<div class="product">
-<div class="product-art">🎯</div>
-<div class="info">
-<span class="tag">SIMULAÇÃO</span>
-<h3>Aimbot</h3>
-<p>Interface fictícia de demonstração.</p>
-<div class="price">R$ 9,90</div>
-<div class="stock">🟢 10 em estoque</div>
-<button class="buy" onclick="comprar('Aimbot — Simulação','9,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">👻</div>
-<div class="info">
-<span class="tag">SIMULAÇÃO</span>
-<h3>Holograma</h3>
-<p>Interface holográfica fictícia.</p>
-<div class="price">R$ 9,90</div>
-<div class="stock">🟢 20 em estoque</div>
-<button class="buy" onclick="comprar('Holograma — Simulação','9,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">👁️</div>
-<div class="info">
-<span class="tag">SIMULAÇÃO</span>
-<h3>ESP Vision</h3>
-<p>Interface visual fictícia.</p>
-<div class="price">R$ 9,90</div>
-<div class="stock">🟢 10 em estoque</div>
-<button class="buy" onclick="comprar('ESP Vision — Simulação','9,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">🧱</div>
-<div class="info">
-<span class="tag">SIMULAÇÃO</span>
-<h3>Wallhack</h3>
-<p>Interface fictícia para demonstração.</p>
-<div class="price">R$ 9,90</div>
-<div class="stock">🟢 20 em estoque</div>
-<button class="buy" onclick="comprar('Wallhack — Simulação','9,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">💥</div>
-<div class="info">
-<span class="tag">SIMULAÇÃO</span>
-<h3>Auto Headshot</h3>
-<p>Conceito visual fictício.</p>
-<div class="price">R$ 9,90</div>
-<div class="stock">🟢 10 em estoque</div>
-<button class="buy" onclick="comprar('Auto Headshot — Simulação','9,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">🎮</div>
-<div class="info">
-<span class="tag">SIMULAÇÃO</span>
-<h3>No Recoil</h3>
-<p>Interface conceitual fictícia.</p>
-<div class="price">R$ 9,90</div>
-<div class="stock">🟢 20 em estoque</div>
-<button class="buy" onclick="comprar('No Recoil — Simulação','9,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">📡</div>
-<div class="info">
-<span class="tag">SIMULAÇÃO</span>
-<h3>Radar</h3>
-<p>Interface radar fictícia.</p>
-<div class="price">R$ 9,90</div>
-<div class="stock">🟢 15 em estoque</div>
-<button class="buy" onclick="comprar('Radar — Simulação','9,90')">Comprar</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-art">⚙️</div>
-<div class="info">
-<span class="tag">SIMULAÇÃO</span>
-<h3>Triggerbot</h3>
-<p>Conceito visual fictício.</p>
-<div class="price">R$ 9,90</div>
-<div class="stock">🟢 10 em estoque</div>
-<button class="buy" onclick="comprar('Triggerbot — Simulação','9,90')">Comprar</button>
-</div>
-</div>
-
-</div>
-
-<!-- PAGAMENTO -->
-
+<!-- PAGAMENTO PIX -->
 <div class="checkout" id="checkout">
 
-<h2>💜 Finalizar pagamento</h2>
+  <h2>💜 PAGAMENTO</h2>
 
-<div class="selected">
-Produto: <strong id="produtoSelecionado"></strong><br>
-Valor: <strong>R$ <span id="valorSelecionado"></span></strong>
-</div>
+  <div class="selected">
+    Você selecionou:
+    <strong id="produtoSelecionado"></strong>
+    <br><br>
+    Valor:
+    <strong>R$ <span id="valorSelecionado"></span></strong>
+  </div>
 
-<div class="pix-box">
+  <div class="pix-box">
 
-<div class="pix-title">
-💠 PAGAMENTO VIA PIX
-</div>
+    <div class="pix-title">
+      💠 PAGUE AGORA VIA PIX
+    </div>
 
-<p style="margin-top:10px;color:#aaa">
-Copie a chave Pix abaixo e faça o pagamento pelo seu banco:
-</p>
+    <p style="margin-top:12px;color:#aaa">
+      Copie a chave Pix abaixo:
+    </p>
 
-<span class="pix-key" id="pix">
-05942249261
-</span>
+    <div class="pix-key" id="pix">
+      05942249261
+    </div>
 
-<button class="action copy" onclick="copiarPix()">
-📋 COPIAR CHAVE PIX
-</button>
+    <button class="action copy" onclick="copiarPix()">
+      📋 COPIAR CHAVE PIX
+    </button>
 
-<div class="qr">
-📱<br>
-QR CODE PIX<br>
-<br>
-Use a chave acima para pagar
-</div>
+  </div>
 
-</div>
+  <a
+    class="action whatsapp"
+    id="comprovante"
+    href="#"
+    target="_blank">
+    📲 JÁ PAGUEI — ENVIAR COMPROVANTE
+  </a>
 
-<a
-class="action whatsapp"
-id="comprovante"
-href="#"
-target="_blank">
-📲 ENVIAR COMPROVANTE NO WHATSAPP
-</a>
-
-<p class="note">
-Depois de fazer o Pix, envie o comprovante pelo WhatsApp
-para confirmar o pedido.<br><br>
-⚠️ O site não confirma pagamentos automaticamente.
-</p>
+  <p class="note">
+    Depois de fazer o Pix, envie o comprovante pelo WhatsApp
+    para confirmar seu pedido.
+  </p>
 
 </div>
-
-</div>
-
-<footer>
-© 2026 FFH4X Store • Produtos digitais
-</footer>
 
 <script>
 
-function comprar(nome,preco){
+function comprar(nome, preco){
 
-document.getElementById("produtoSelecionado").innerText=nome;
+  // Mostra o produto escolhido
+  document.getElementById("produtoSelecionado").innerText = nome;
 
-document.getElementById("valorSelecionado").innerText=preco;
+  // Mostra o preço
+  document.getElementById("valorSelecionado").innerText = preco;
 
-let mensagem=
-"Olá! Quero comprar: "+
-nome+
-" por R$ "+
-preco+
-". Vou enviar o comprovante do Pix.";
+  // Mensagem automática para o WhatsApp
+  const mensagem =
+    "Olá! Quero comprar " +
+    nome +
+    " por R$ " +
+    preco +
+    ". Já fiz o pagamento via Pix e vou enviar o comprovante.";
 
-let link=
-"https://wa.me/556992275174?text="+
-encodeURIComponent(mensagem);
+  const whatsapp =
+    "https://wa.me/556992275175?text=" +
+    encodeURIComponent(mensagem);
 
-document.getElementById("comprovante").href=link;
+  document.getElementById("comprovante").href = whatsapp;
 
-let checkout=document.getElementById("checkout");
+  // ABRE A ÁREA DO PIX
+  const checkout = document.getElementById("checkout");
 
-checkout.style.display="block";
+  checkout.style.display = "block";
 
-checkout.scrollIntoView({
-behavior:"smooth",
-block:"center"
-});
-
+  checkout.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
 }
 
 function copiarPix(){
 
-let pix=document.getElementById("pix").innerText.trim();
+  const chavePix =
+    "05942249261";
 
-navigator.clipboard.writeText(pix)
-.then(function(){
-alert("✅ Chave Pix copiada!");
-})
-.catch(function(){
-alert("Copie manualmente: "+pix);
-});
+  navigator.clipboard.writeText(chavePix)
+    .then(function(){
+      alert("✅ Chave Pix copiada!");
+    })
+    .catch(function(){
+      alert("Chave Pix: " + chavePix);
+    });
 
 }
 
 </script>
-
-</body>
-</html>
