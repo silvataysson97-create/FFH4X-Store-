@@ -7,37 +7,71 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
   margin:0;
-  background:#09090f;
-  color:white;
-  font-family:Arial,sans-serif
+  background:#07050d;
+  color:#fff;
+  font-family:Arial,sans-serif;
 }
+
 header{
   text-align:center;
-  padding:35px 20px;
-  border-bottom:1px solid #252535
+  padding:45px 20px;
+  background:radial-gradient(circle at top,#4b0875,#11051c 55%,#07050d);
+  border-bottom:1px solid #7c2cff;
 }
-h1{font-size:38px;margin:0}
-.sub{color:#aaa;font-size:18px;margin-top:8px}
+
+h1{
+  margin:0;
+  font-size:42px;
+  text-shadow:0 0 18px #b84cff;
+}
+
+.sub{
+  color:#d8baff;
+  margin-top:10px;
+  font-size:18px;
+}
+
+.support-top{
+  display:inline-block;
+  margin-top:20px;
+  padding:13px 22px;
+  border-radius:12px;
+  background:#7b2cff;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 0 18px #7b2cff;
+}
 
 .trust{
   max-width:1100px;
-  margin:20px auto;
+  margin:25px auto;
   padding:0 15px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:12px
+  gap:14px;
 }
+
 .trust div{
-  background:#13131e;
-  border:1px solid #29293b;
-  border-radius:14px;
-  padding:15px;
-  text-align:center
+  background:#120d1c;
+  border:1px solid #52208c;
+  border-radius:16px;
+  padding:18px;
+  text-align:center;
+  box-shadow:0 0 12px #2d124c;
 }
-.trust b{display:block;margin-top:6px}
-.trust small{color:#999}
+
+.trust b{
+  display:block;
+  margin:7px 0;
+}
+
+.trust small{
+  color:#aaa;
+}
 
 .products{
   max-width:1100px;
@@ -45,26 +79,63 @@ h1{font-size:38px;margin:0}
   padding:0 15px;
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:18px
+  gap:20px;
 }
+
 .card{
-  background:#13131e;
-  border:1px solid #2d2d40;
-  border-radius:18px;
-  padding:22px
+  background:linear-gradient(145deg,#171021,#0e0a14);
+  border:1px solid #6425a8;
+  border-radius:20px;
+  padding:18px;
+  overflow:hidden;
+  box-shadow:0 0 18px #28103f;
 }
-.card .tag{
-  color:#aaa;
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 25px #7028b8;
+}
+
+.card-img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:14px;
+  margin-bottom:15px;
+  border:1px solid #7132ad;
+}
+
+.tag{
+  color:#b875ff;
   font-size:12px;
-  font-weight:bold
-}
-.card h2{margin:12px 0 8px}
-.card p{color:#aaa;line-height:1.5}
-.price{
-  font-size:28px;
   font-weight:bold;
-  margin:18px 0
 }
+
+.card h2{
+  margin:10px 0 7px;
+}
+
+.card p{
+  color:#aaa;
+  line-height:1.5;
+}
+
+.price{
+  font-size:27px;
+  font-weight:bold;
+  margin:16px 0 8px;
+}
+
+.stock{
+  color:#65ff9a;
+  font-weight:bold;
+  margin-bottom:14px;
+}
+
+.stock.out{
+  color:#ff5555;
+}
+
 button{
   width:100%;
   padding:15px;
@@ -72,70 +143,76 @@ button{
   border-radius:12px;
   font-size:16px;
   font-weight:bold;
-  cursor:pointer
+  cursor:pointer;
 }
-.buy{background:white;color:#111}
+
+.buy{
+  background:linear-gradient(90deg,#7025d7,#a23cff);
+  color:white;
+  box-shadow:0 0 12px #7025d7;
+}
+
+.buy:disabled{
+  background:#333;
+  color:#888;
+  box-shadow:none;
+  cursor:not-allowed;
+}
 
 .checkout{
   max-width:700px;
   margin:40px auto;
-  padding:20px
+  padding:20px;
 }
+
 .box{
-  background:#13131e;
-  border:1px solid #2d2d40;
-  border-radius:18px;
-  padding:25px
+  background:#120d1c;
+  border:1px solid #6425a8;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 0 20px #28103f;
 }
+
 .pix{
-  background:#20202d;
+  background:#21132f;
+  border:1px solid #7132ad;
   padding:18px;
   border-radius:12px;
   text-align:center;
-  font-size:22px;
+  font-size:21px;
   font-weight:bold;
-  word-break:break-all
+  word-break:break-all;
 }
+
 .copy{
   margin-top:10px;
   background:#eee;
-  color:#111
-}
-.paid{
-  margin-top:12px;
-  background:#25d366;
-  color:#071b0e
+  color:#111;
 }
 
-.delivery{
-  display:none;
-  max-width:700px;
-  margin:40px auto;
-  padding:20px
-}
-.delivery .box{text-align:center}
-.link{
+.whatsapp{
   display:block;
-  background:white;
-  color:#111;
+  margin-top:12px;
   padding:15px;
+  background:#25d366;
+  color:#071b0e;
   border-radius:12px;
+  text-align:center;
   text-decoration:none;
   font-weight:bold;
-  margin-top:20px
 }
+
 .note{
-  color:#777;
+  color:#888;
   font-size:12px;
   line-height:1.5;
-  margin-top:18px
 }
 
 footer{
   text-align:center;
-  padding:30px 15px;
+  padding:35px 15px;
   color:#777;
-  border-top:1px solid #222
+  border-top:1px solid #2b173b;
 }
 
 @media(max-width:700px){
@@ -150,179 +227,253 @@ footer{
 
 <header>
   <h1>FFH4X Store</h1>
-  <div class="sub">Produtos digitais</div>
+  <div class="sub">Produtos digitais • Visual Gamer Neon</div>
+
+  <a class="support-top"
+     href="https://wa.me/556992275174?text=Olá%2C%20preciso%20de%20suporte%20na%20FFH4X%20Store."
+     target="_blank">
+    📲 Falar com o Suporte
+  </a>
 </header>
 
 <section class="trust">
   <div>🔒<b>Compra segura</b><small>Pagamento via Pix</small></div>
   <div>⚡<b>Entrega digital</b><small>Rápida e prática</small></div>
-  <div>💬<b>Suporte</b><small>Atendimento ao cliente</small></div>
-  <div>✅<b>Produtos digitais</b><small>Informações claras</small></div>
+  <div>💬<b>Suporte</b><small>WhatsApp</small></div>
+  <div>✨<b>Visual Premium</b><small>Produtos digitais</small></div>
 </section>
 
-<section class="products">
-
-<div class="card">
-<span class="tag">PRODUTO DIGITAL</span>
-<h2>Painel Neon</h2>
-<p>Painel visual com tema neon para personalização.</p>
-<div class="price">R$ 9,90</div>
-<button class="buy" onclick="comprar('Painel Neon','9,90')">Comprar</button>
-</div>
-
-<div class="card">
-<span class="tag">PRODUTO DIGITAL</span>
-<h2>Pack de HUD</h2>
-<p>Pacote de elementos visuais para seu projeto.</p>
-<div class="price">R$ 12,90</div>
-<button class="buy" onclick="comprar('Pack de HUD','12,90')">Comprar</button>
-</div>
-
-<div class="card">
-<span class="tag">PRODUTO DIGITAL</span>
-<h2>Pack de Capas</h2>
-<p>Capas digitais com visual gamer.</p>
-<div class="price">R$ 7,90</div>
-<button class="buy" onclick="comprar('Pack de Capas','7,90')">Comprar</button>
-</div>
-
-<div class="card">
-<span class="tag">PRODUTO DIGITAL</span>
-<h2>Kit Gamer</h2>
-<p>Pacote completo de elementos digitais.</p>
-<div class="price">R$ 19,90</div>
-<button class="buy" onclick="comprar('Kit Gamer','19,90')">Comprar</button>
-</div>
-
-<div class="card">
-<span class="tag">PRODUTO DIGITAL</span>
-<h2>Tema Dark</h2>
-<p>Tema escuro para personalização.</p>
-<div class="price">R$ 8,90</div>
-<button class="buy" onclick="comprar('Tema Dark','8,90')">Comprar</button>
-</div>
-
-<div class="card">
-<span class="tag">PRODUTO DIGITAL</span>
-<h2>Banner Pro</h2>
-<p>Banner digital para divulgação.</p>
-<div class="price">R$ 14,90</div>
-<button class="buy" onclick="comprar('Banner Pro','14,90')">Comprar</button>
-</div>
-
-<div class="card">
-<span class="tag">PRODUTO DIGITAL</span>
-<h2>Pack Ícones</h2>
-<p>Pacote de ícones para projetos digitais.</p>
-<div class="price">R$ 6,90</div>
-<button class="buy" onclick="comprar('Pack Ícones','6,90')">Comprar</button>
-</div>
-
-<div class="card">
-<span class="tag">PRODUTO DIGITAL</span>
-<h2>Kit Completo</h2>
-<p>Pacote completo com vários recursos digitais.</p>
-<div class="price">R$ 29,90</div>
-<button class="buy" onclick="comprar('Kit Completo','29,90')">Comprar</button>
-</div>
-
-</section>
+<section class="products" id="produtos"></section>
 
 <section class="checkout" id="checkout">
-<div class="box">
+  <div class="box">
+    <h2>💜 Finalizar compra</h2>
 
-<h2>💰 Finalizar compra</h2>
+    <p id="produto">
+      Escolha um produto acima.
+    </p>
 
-<p id="produto">Escolha um produto acima.</p>
+    <p><b>Pagamento via Pix</b></p>
 
-<p><b>Pagamento via Pix</b></p>
+    <div class="pix" id="pix">05942249261</div>
 
-<div class="pix" id="pix">05942249261</div>
+    <button class="copy" onclick="copiarPix()">
+      📋 Copiar chave Pix
+    </button>
 
-<button class="copy" onclick="copiarPix()">
-📋 Copiar chave Pix
-</button>
+    <p class="note">
+      Confira o nome e o valor antes de confirmar o pagamento.
+      Depois envie o comprovante pelo WhatsApp.
+    </p>
 
-<p class="note">
-Faça o pagamento no seu banco e confira o valor antes de confirmar.
-</p>
-
-<button class="paid" onclick="jaPaguei()">
-✅ Já paguei
-</button>
-
-<p class="note">
-Nesta versão, o botão “Já paguei” é apenas demonstrativo.
-O acesso só deve ser liberado depois da confirmação real do pagamento.
-</p>
-
-</div>
-</section>
-
-<section class="delivery" id="delivery">
-<div class="box">
-
-<h2>🎉 Pedido recebido!</h2>
-
-<p>Obrigado pela compra.</p>
-
-<p>
-Após a confirmação do pagamento,
-o acesso ao produto poderá ser liberado aqui.
-</p>
-
-<a class="link" href="#" onclick="return false">
-🔗 Link do produto
-</a>
-
-<p class="note">
-Área de entrega demonstrativa.
-O link definitivo será configurado posteriormente.
-</p>
-
-</div>
+    <a class="whatsapp"
+       id="whatsappPagamento"
+       href="https://wa.me/556992275174?text=Olá%2C%20quero%20enviar%20o%20comprovante%20da%20minha%20compra."
+       target="_blank">
+      📲 Enviar comprovante pelo WhatsApp
+    </a>
+  </div>
 </section>
 
 <footer>
-FFH4X Store © 2026<br>
-Produtos digitais • Atendimento ao cliente
+  FFH4X Store © 2026<br>
+  Produtos digitais • Atendimento ao cliente
 </footer>
 
 <script>
 
-function comprar(nome,preco){
+const produtos = [
 
-document.getElementById("produto").innerHTML =
-"Você escolheu: <b>"+nome+"</b><br>Valor: <b>R$ "+preco+"</b>";
+  {
+    nome:"Painel Neon",
+    preco:"9,90",
+    estoque:10,
+    imagem:"https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80",
+    descricao:"Painel visual com tema neon para personalização."
+  },
 
-document.getElementById("checkout").scrollIntoView({
-behavior:"smooth"
-});
+  {
+    nome:"Pack de HUD",
+    preco:"12,90",
+    estoque:20,
+    imagem:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
+    descricao:"Pacote de elementos visuais para seu projeto."
+  },
+
+  {
+    nome:"Pack de Capas",
+    preco:"7,90",
+    estoque:15,
+    imagem:"https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80",
+    descricao:"Capas digitais com visual gamer."
+  },
+
+  {
+    nome:"Kit Gamer",
+    preco:"19,90",
+    estoque:10,
+    imagem:"https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=80",
+    descricao:"Pacote completo de elementos digitais."
+  },
+
+  {
+    nome:"Tema Dark",
+    preco:"8,90",
+    estoque:20,
+    imagem:"https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80",
+    descricao:"Tema escuro para personalização."
+  },
+
+  {
+    nome:"Banner Pro",
+    preco:"14,90",
+    estoque:8,
+    imagem:"https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=900&q=80",
+    descricao:"Banner digital para divulgação."
+  },
+
+  {
+    nome:"Pack Ícones",
+    preco:"6,90",
+    estoque:25,
+    imagem:"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80",
+    descricao:"Pacote de ícones para projetos digitais."
+  },
+
+  {
+    nome:"Kit Completo",
+    preco:"29,90",
+    estoque:5,
+    imagem:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
+    descricao:"Pacote completo com vários recursos digitais."
+  },
+
+  {
+    nome:"Aimbot — Simulação",
+    preco:"14,90",
+    estoque:10,
+    imagem:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
+    descricao:"Demonstração visual fictícia de interface de mira."
+  },
+
+  {
+    nome:"Holograma — Simulação",
+    preco:"14,90",
+    estoque:20,
+    imagem:"https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=900&q=80",
+    descricao:"Efeito visual holográfico para demonstração."
+  },
+
+  {
+    nome:"ESP Vision — Simulação",
+    preco:"12,90",
+    estoque:10,
+    imagem:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+    descricao:"Interface visual fictícia para demonstração."
+  },
+
+  {
+    nome:"Wallhack — Simulação",
+    preco:"12,90",
+    estoque:20,
+    imagem:"https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80",
+    descricao:"Efeito visual fictício para demonstração."
+  },
+
+  {
+    nome:"Auto Headshot — Simulação",
+    preco:"12,90",
+    estoque:10,
+    imagem:"https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=900&q=80",
+    descricao:"Interface fictícia de demonstração."
+  },
+
+  {
+    nome:"No Recoil — Simulação",
+    preco:"12,90",
+    estoque:20,
+    imagem:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80",
+    descricao:"Demonstração visual fictícia."
+  },
+
+  {
+    nome:"Radar — Simulação",
+    preco:"12,90",
+    estoque:15,
+    imagem:"https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80",
+    descricao:"Interface de radar fictícia para demonstração."
+  },
+
+  {
+    nome:"Triggerbot — Simulação",
+    preco:"12,90",
+    estoque:10,
+    imagem:"https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=900&q=80",
+    descricao:"Interface fictícia para demonstração."
+  }
+
+];
+
+function mostrarProdutos(){
+
+  const area=document.getElementById("produtos");
+
+  area.innerHTML="";
+
+  produtos.forEach((p,index)=>{
+
+    const esgotado=p.estoque<=0;
+
+    area.innerHTML += `
+
+      <div class="card">
+
+        <img
+          class="card-img"
+          src="${p.imagem}"
+          alt="${p.nome}"
+        >
+
+        <span class="tag">PRODUTO DIGITAL</span>
+
+        <h2>${p.nome}</h2>
+
+        <p>${p.descricao}</p>
+
+        <div class="price">
+          R$ ${p.preco}
+        </div>
+
+        <div class="stock ${esgotado ? "out" : ""}">
+          ${esgotado
+            ? "🔴 Esgotado"
+            : "🟢 " + p.estoque + " em estoque"}
+        </div>
+
+        <button
+          class="buy"
+          ${esgotado ? "disabled" : ""}
+          onclick="comprar(${index})">
+          ${esgotado ? "Esgotado" : "Comprar"}
+        </button>
+
+      </div>
+
+    `;
+
+  });
 
 }
 
-function copiarPix(){
+function comprar(index){
 
-navigator.clipboard.writeText("05942249261");
+  const p=produtos[index];
 
-alert("Chave Pix copiada!");
+  if(p.estoque<=0){
+    alert("Produto esgotado.");
+    return;
+  }
 
-}
-
-function jaPaguei(){
-
-document.getElementById("checkout").style.display="none";
-
-document.getElementById("delivery").style.display="block";
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-</script>
-
-</body>
-</html>
+  document.getElementById("produto").innerHTML=
+    "Você escolheu: <b>"+p.nome+
+    "</b><br>
