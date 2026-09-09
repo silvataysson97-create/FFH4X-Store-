@@ -10,12 +10,12 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
 }
 
 body{
   background:#050817;
-  color:white;
+  color:#fff;
 }
 
 header{
@@ -25,14 +25,8 @@ header{
   border-bottom:1px solid #26315c;
 }
 
-header h1{
-  font-size:27px;
-}
-
-header p{
-  color:#9ca8d8;
-  margin-top:7px;
-}
+header h1{font-size:27px}
+header p{color:#9ca8d8;margin-top:7px}
 
 .banner{
   margin:15px;
@@ -117,11 +111,47 @@ header p{
   color:white;
   font-size:15px;
   font-weight:bold;
-  cursor:pointer;
 }
 
-.buy:active{
-  transform:scale(.97);
+.pix{
+  display:none;
+  margin:15px;
+  padding:18px;
+  background:#0c1229;
+  border:1px solid #29335c;
+  border-radius:18px;
+  text-align:center;
+}
+
+.pix h2{
+  margin-bottom:8px;
+}
+
+.pix p{
+  color:#9ca8d8;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.pix input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #303b68;
+  background:#050817;
+  color:#fff;
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.pix button{
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:10px;
+  background:#168b55;
+  color:#fff;
+  font-weight:bold;
 }
 
 .features{
@@ -155,7 +185,6 @@ footer{
   font-size:12px;
 }
 
-/* carrinho */
 .cart{
   position:fixed;
   right:16px;
@@ -184,7 +213,6 @@ footer{
   justify-content:center;
 }
 
-/* janela */
 .modal{
   display:none;
   position:fixed;
@@ -211,6 +239,7 @@ footer{
 .modal-box p{
   color:#9aa6d0;
   line-height:1.5;
+  white-space:pre-line;
 }
 
 .close{
@@ -224,9 +253,7 @@ footer{
 }
 
 @media(max-width:360px){
-  .grid{
-    grid-template-columns:1fr;
-  }
+  .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -244,31 +271,56 @@ footer{
 
 <div class="demo">
   ⚠️ <b>LOJA DE SIMULAÇÃO</b><br>
-  Todos os produtos abaixo são demonstrativos e não possuem funções de cheat.
+  Os produtos relacionados a XIT, HS e Proxy são demonstrativos e não possuem funções de cheat.
 </div>
 
 <section class="grid" id="products"></section>
+
+<section class="pix" id="pixArea">
+
+  <h2>💳 Pagamento via Pix</h2>
+
+  <p>
+    Produto selecionado: <b id="selectedProduct"></b>
+  </p>
+
+  <input
+    id="pixKey"
+    value="05942249261"
+    readonly
+  >
+
+  <button onclick="copiarPix()">
+    📋 Copiar chave Pix
+  </button>
+
+  <p style="margin-top:12px">
+    Após o pagamento, a confirmação deve ser feita manualmente.
+    Esta é uma área demonstrativa.
+  </p>
+
+</section>
 
 <section class="features">
 
   <div class="feature">
     🛡️ <b>Compra segura</b>
-    <span>Ambiente protegido do início ao fim.</span>
+    <span>Área demonstrativa da loja.</span>
   </div>
 
   <div class="feature">
-    💳 <b>Pagamento protegido</b>
-    <span>Área de pagamento somente demonstrativa.</span>
+    💳 <b>Pagamento Pix</b>
+    <span>Pagamento manual demonstrativo.</span>
   </div>
 
   <div class="feature">
-    🎧 <b>Suporte ao cliente</b>
-    <span>Atendimento rápido quando precisar.</span>
+    🎧 <b>Suporte</b>
+    <span>Atendimento ao cliente.</span>
   </div>
 
   <div class="feature">
     ✅ <b>Garantia</b>
-    <span>Garantia demonstrativa de 7 dias.</span>
+    <span>Garantia demonstrativa.</span>
   </div>
 
 </section>
@@ -284,9 +336,15 @@ footer{
 
 <div class="modal" id="modal">
   <div class="modal-box">
+
     <h2 id="modalTitle">Carrinho</h2>
+
     <p id="modalText"></p>
-    <button class="close" onclick="closeModal()">Fechar</button>
+
+    <button class="close" onclick="closeModal()">
+      Fechar
+    </button>
+
   </div>
 </div>
 
@@ -294,89 +352,89 @@ footer{
 
 const products = [
 
- {
-  icon:"🟢",
-  name:"Painel Neon",
-  desc:"Painel digital demonstrativo",
-  price:"R$ 25,00"
- },
+  {
+    icon:"🟢",
+    name:"Painel Neon",
+    desc:"Painel digital demonstrativo",
+    price:"R$ 25,00"
+  },
 
- {
-  icon:"🔵",
-  name:"Painel Boot",
-  desc:"Painel digital demonstrativo",
-  price:"R$ 25,00"
- },
+  {
+    icon:"🔵",
+    name:"Painel Boot",
+    desc:"Painel digital demonstrativo",
+    price:"R$ 25,00"
+  },
 
- {
-  icon:"🟣",
-  name:"Painel VIP",
-  desc:"Produto digital demonstrativo",
-  price:"R$ 35,00"
- },
+  {
+    icon:"🟣",
+    name:"Painel VIP",
+    desc:"Produto digital demonstrativo",
+    price:"R$ 35,00"
+  },
 
- {
-  icon:"🟠",
-  name:"Painel Pro",
-  desc:"Produto digital demonstrativo",
-  price:"R$ 40,00"
- },
+  {
+    icon:"🟠",
+    name:"Painel Pro",
+    desc:"Produto digital demonstrativo",
+    price:"R$ 40,00"
+  },
 
- {
-  icon:"😈",
-  name:"Painel HS",
-  desc:"Simulação de painel",
-  price:"R$ 45,00"
- },
+  {
+    icon:"😈",
+    name:"Painel HS",
+    desc:"Simulação de painel",
+    price:"R$ 45,00"
+  },
 
- {
-  icon:"🍷",
-  name:"Como criar XIT",
-  desc:"Curso digital demonstrativo",
-  price:"R$ 80,00"
- },
+  {
+    icon:"🍷",
+    name:"Como criar XIT",
+    desc:"Conteúdo demonstrativo",
+    price:"R$ 80,00"
+  },
 
- {
-  icon:"😶‍🌫️",
-  name:"HS Peito Android",
-  desc:"Simulação com holograma",
-  price:"R$ 30,00"
- },
+  {
+    icon:"😶‍🌫️",
+    name:"HS Peito Android",
+    desc:"Simulação com holograma",
+    price:"R$ 30,00"
+  },
 
- {
-  icon:"😶‍🌫️",
-  name:"HS Peito iOS",
-  desc:"Simulação para iOS",
-  price:"R$ 30,00"
- },
+  {
+    icon:"😶‍🌫️",
+    name:"HS Peito iOS",
+    desc:"Simulação para iOS",
+    price:"R$ 30,00"
+  },
 
- {
-  icon:"😈",
-  name:"Proxy Android",
-  desc:"Produto demonstrativo",
-  price:"R$ 25,00"
- },
+  {
+    icon:"😈",
+    name:"Proxy Android",
+    desc:"Produto demonstrativo",
+    price:"R$ 25,00"
+  },
 
- {
-  icon:"🗿",
-  name:"Proxy iOS",
-  desc:"Produto demonstrativo",
-  price:"R$ 25,00"
- },
+  {
+    icon:"🗿",
+    name:"Proxy iOS",
+    desc:"Produto demonstrativo",
+    price:"R$ 25,00"
+  },
 
- {
-  icon:"🟡",
-  name:"Licença 7 dias",
-  desc:"Licença demonstrativa",
-  price:"R$ 15,00"
- },
+  {
+    icon:"🟡",
+    name:"Licença 7 dias",
+    desc:"Licença demonstrativa",
+    price:"R$ 15,00"
+  },
 
- {
-  icon:"🟡",
-  name:"Licença 30 dias",
-  desc:"Licença demonstrativa",
-  price:"R$ 40,00"
- }
+  {
+    icon:"🟡",
+    name:"Licença 30 dias",
+    desc:"Licença demonstrativa",
+    price:"R$ 40,00"
+  }
 
 ];
 
@@ -388,9 +446,9 @@ products.forEach((p,index)=>{
 
   const card = document.createElement("div");
 
-  card.className="card";
+  card.className = "card";
 
-  card.innerHTML=`
+  card.innerHTML = `
 
     <div class="icon">${p.icon}</div>
 
@@ -398,7 +456,9 @@ products.forEach((p,index)=>{
 
     <div class="desc">${p.desc}</div>
 
-    <div class="stars">★★★★★ <span style="color:#7884ad">4.8</span></div>
+    <div class="stars">
+      ★★★★★ <span style="color:#7884ad">4.8</span>
+    </div>
 
     <div class="price">${p.price}</div>
 
@@ -416,46 +476,66 @@ function addCart(index){
 
   cart.push(products[index]);
 
-  document.getElementById("count").innerText=cart.length;
+  document.getElementById("count").innerText = cart.length;
 
-  document.getElementById("modalTitle").innerText="Produto adicionado!";
+  document.getElementById("selectedProduct").innerText =
+    products[index].name + " — " + products[index].price;
 
-  document.getElementById("modalText").innerText=
-    products[index].name +
-    " foi adicionado ao carrinho de demonstração.";
+  document.getElementById("pixArea").style.display = "block";
 
-  document.getElementById("modal").style.display="flex";
+  document.getElementById("pixArea").scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+function copiarPix(){
+
+  const chave = document.getElementById("pixKey").value;
+
+  navigator.clipboard.writeText(chave)
+    .then(()=>{
+      alert("✅ Chave Pix copiada!");
+    })
+    .catch(()=>{
+      alert("Copie a chave manualmente: " + chave);
+    });
+
 }
 
 function openCart(){
 
-  document.getElementById("modalTitle").innerText="🛒 Carrinho";
+  document.getElementById("modalTitle").innerText = "🛒 Carrinho";
 
-  if(cart.length===0){
+  if(cart.length === 0){
 
-    document.getElementById("modalText").innerText=
+    document.getElementById("modalText").innerText =
       "Seu carrinho está vazio.";
 
   }else{
 
-    let text="Produtos selecionados:\\n\\n";
+    let text = "Produtos selecionados:\n\n";
 
     cart.forEach((p,i)=>{
-      text += (i+1)+". "+p.name+" — "+p.price+"\\n";
+      text += `${i + 1}. ${p.name} — ${p.price}\n`;
     });
 
     text +=
-      "\\n💳 Pagamento de demonstração.\\n"+
-      "Nenhuma cobrança real será realizada.";
+      "\n💳 Pagamento via Pix demonstrativo.\n" +
+      "Nenhuma confirmação automática de pagamento está configurada.";
 
-    document.getElementById("modalText").innerText=text;
+    document.getElementById("modalText").innerText = text;
+
   }
 
-  document.getElementById("modal").style.display="flex";
+  document.getElementById("modal").style.display = "flex";
+
 }
 
 function closeModal(){
-  document.getElementById("modal").style.display="none";
+
+  document.getElementById("modal").style.display = "none";
+
 }
 
 </script>
