@@ -6,174 +6,187 @@
 <title>FUSION XIT</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#050b18;
+  color:white;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #050b18;
-  color: white;
+header{
+  text-align:center;
+  padding:35px 15px;
+  background:#102957;
+  border-bottom:1px solid #1683ff;
 }
 
-header {
-  text-align: center;
-  padding: 35px 15px;
-  background: #102957;
-  border-bottom: 1px solid #1683ff;
+.logo{
+  font-size:38px;
+  font-weight:bold;
+  color:#1595ff;
 }
 
-.logo {
-  font-size: 38px;
-  font-weight: bold;
-  color: #1595ff;
+.subtitle{
+  margin-top:8px;
+  color:#aebbd1;
 }
 
-.subtitle {
-  margin-top: 8px;
-  color: #aebbd1;
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:25px;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 25px;
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 25px;
+button{
+  border:0;
+  border-radius:14px;
+  padding:14px 20px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-button {
-  border: 0;
-  border-radius: 14px;
-  padding: 15px 22px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
+.primary{background:#1388ff;color:white}
+.green{background:#00b982;color:white}
+.red{background:#e53935;color:white}
+
+.card{
+  background:#0c1529;
+  border:1px solid #1b477a;
+  border-radius:22px;
+  padding:25px;
+  margin:20px 0;
 }
 
-.primary {
-  background: #1388ff;
-  color: white;
+.product-name{
+  font-size:25px;
+  font-weight:bold;
 }
 
-.green {
-  background: #00b982;
-  color: white;
+.description{
+  color:#aebbd1;
+  margin:12px 0;
 }
 
-.red {
-  background: #e53935;
-  color: white;
+.price{
+  color:#00d99a;
+  font-size:28px;
+  font-weight:bold;
+  margin:15px 0;
 }
 
-.card {
-  background: #0c1529;
-  border: 1px solid #1b477a;
-  border-radius: 22px;
-  padding: 25px;
-  margin-bottom: 20px;
+.stock{
+  color:#9aaac0;
+  margin-bottom:20px;
 }
 
-.product-name {
-  font-size: 25px;
-  font-weight: bold;
+.buy{
+  width:100%;
+  background:#1388ff;
+  color:white;
 }
 
-.description {
-  color: #aebbd1;
-  margin: 12px 0;
+.cart{
+  background:#0c1529;
+  border:1px solid #1b477a;
+  border-radius:22px;
+  padding:25px;
+  margin-top:30px;
 }
 
-.price {
-  color: #00d99a;
-  font-size: 28px;
-  font-weight: bold;
-  margin: 15px 0;
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid #243653;
 }
 
-.stock {
-  color: #9aaac0;
-  margin-bottom: 20px;
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-size:24px;
+  font-weight:bold;
+  margin:22px 0;
 }
 
-.buy {
-  width: 100%;
-  background: #1388ff;
-  color: white;
+input,textarea{
+  width:100%;
+  padding:15px;
+  margin:8px 0 18px;
+  border-radius:12px;
+  border:1px solid #294c77;
+  background:#071020;
+  color:white;
+  font-size:16px;
 }
 
-.cart {
-  background: #0c1529;
-  border: 1px solid #1b477a;
-  border-radius: 22px;
-  padding: 25px;
-  margin-top: 30px;
+textarea{
+  min-height:100px;
+  resize:vertical;
 }
 
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #243653;
+.hidden{
+  display:none!important;
 }
 
-.total {
-  display: flex;
-  justify-content: space-between;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 22px 0;
+.admin-panel{
+  background:#090f1d;
+  border:1px solid #875cff;
+  border-radius:22px;
+  padding:25px;
+  margin:25px 0;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 8px 0 18px;
-  border-radius: 12px;
-  border: 1px solid #294c77;
-  background: #071020;
-  color: white;
-  font-size: 16px;
+.admin-badge{
+  display:inline-block;
+  background:#875cff;
+  padding:8px 14px;
+  border-radius:20px;
+  margin-bottom:15px;
 }
 
-textarea {
-  min-height: 100px;
-  resize: vertical;
+.notice{
+  background:#10233d;
+  border-left:4px solid #1388ff;
+  padding:15px;
+  border-radius:10px;
+  margin:15px 0;
 }
 
-.hidden {
-  display: none;
+#loginBox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:999;
 }
 
-.admin-panel {
-  background: #090f1d;
-  border: 1px solid #875cff;
-  border-radius: 22px;
-  padding: 25px;
-  margin-bottom: 25px;
+.login-card{
+  width:100%;
+  max-width:400px;
 }
 
-.admin-badge {
-  display: inline-block;
-  background: #875cff;
-  padding: 8px 14px;
-  border-radius: 20px;
-  margin-bottom: 15px;
-}
-
-.notice {
-  background: #10233d;
-  border-left: 4px solid #1388ff;
-  padding: 15px;
-  border-radius: 10px;
-  margin: 15px 0;
+.free-badge{
+  display:inline-block;
+  background:#00b982;
+  padding:7px 12px;
+  border-radius:15px;
+  font-size:13px;
+  margin-bottom:10px;
 }
 </style>
 </head>
@@ -181,13 +194,12 @@ textarea {
 <body>
 
 <header>
-  <div class="logo">⚡ FUSION XIT</div>
-  <div class="subtitle">Produtos digitais</div>
+  <div class="logo" id="logo">⚡ FUSION XIT</div>
+  <div class="subtitle" id="subtitle">Produtos digitais</div>
 </header>
 
 <div class="container">
 
-  <!-- TOPO -->
   <div class="topbar">
     <h2>🛒 Loja</h2>
 
@@ -197,20 +209,23 @@ textarea {
       </button>
 
       <button class="primary" onclick="mostrarCarrinho()">
-        Carrinho (<span id="cartCount">0</span>)
+        🛒 Carrinho (<span id="cartCount">0</span>)
       </button>
     </div>
   </div>
 
-  <!-- PAINEL ADMIN -->
+  <!-- PAINEL DO DONO -->
   <div id="adminPanel" class="admin-panel hidden">
 
-    <span class="admin-badge">👑 ADMINISTRADOR</span>
+    <span class="admin-badge">
+      👑 ADMINISTRADOR
+    </span>
 
     <h2>Área do Dono</h2>
 
     <div class="notice">
-      Compras feitas por contas autorizadas de administrador são gratuitas.
+      Você está conectado como administrador.
+      Suas compras serão liberadas gratuitamente.
     </div>
 
     <h3>🎨 Aparência</h3>
@@ -230,18 +245,18 @@ textarea {
     <div id="adminProducts"></div>
 
     <button class="red" onclick="logout()">
-      🚪 Sair do painel
+      🚪 Sair
     </button>
 
   </div>
 
-  <!-- PRODUTOS -->
+  <!-- LOJA -->
   <div id="products"></div>
 
   <!-- CARRINHO -->
   <div id="cart" class="cart hidden">
 
-    <h2>🛒 Seu carrinho</h2>
+    <h2>🛒 Carrinho</h2>
 
     <div id="cartItems"></div>
 
@@ -250,13 +265,20 @@ textarea {
       <span id="cartTotal">R$ 0,00</span>
     </div>
 
-    <button class="primary" style="width:100%" onclick="finalizarCompra()">
-      💳 Continuar para pagamento
+    <button
+      id="checkoutButton"
+      class="primary"
+      style="width:100%"
+      onclick="finalizarCompra()">
+      💳 Continuar
     </button>
 
     <br><br>
 
-    <button class="red" style="width:100%" onclick="limparCarrinho()">
+    <button
+      class="red"
+      style="width:100%"
+      onclick="limparCarrinho()">
       🗑️ Limpar carrinho
     </button>
 
@@ -266,181 +288,212 @@ textarea {
 
 
 <!-- LOGIN -->
-<div id="loginBox" class="hidden"
-style="
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.8);
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-">
+<div id="loginBox">
 
-  <div class="card" style="width:100%;max-width:400px">
+  <div class="card login-card">
 
     <h2>🔐 Área do Dono</h2>
 
     <label>Usuário</label>
-    <input id="loginUser" placeholder="Digite o usuário">
+
+    <input
+      id="loginUser"
+      placeholder="Usuário">
 
     <label>Senha</label>
-    <input id="loginPass" type="password" placeholder="Digite a senha">
 
-    <button class="primary" style="width:100%" onclick="login()">
+    <input
+      id="loginPass"
+      type="password"
+      placeholder="Senha">
+
+    <button
+      class="primary"
+      style="width:100%"
+      onclick="login()">
       Entrar
     </button>
 
     <br><br>
 
-    <button class="red" style="width:100%" onclick="fecharLogin()">
+    <button
+      class="red"
+      style="width:100%"
+      onclick="fecharLogin()">
       Fechar
     </button>
 
   </div>
+
 </div>
 
 
 <script>
 
-/* =====================================================
-   CONFIGURAÇÃO DOS ADMINISTRADORES
-   =====================================================
-
-   TROQUE ESTES USUÁRIOS E SENHAS.
-
-   O "dono" também é administrador.
-*/
+/* ==================================================
+   ADMINISTRADORES
+   ================================================== */
 
 const ADMINS = {
+
   dono: "123456",
+
   admin1: "admin123",
+
   admin2: "admin456"
+
 };
 
 
-/* =====================================================
+/* ==================================================
    PRODUTOS
-   ===================================================== */
+   ================================================== */
 
-let produtos = JSON.parse(localStorage.getItem("fusionProdutos")) || [
+let produtos =
+JSON.parse(
+  localStorage.getItem("fusionProdutos")
+) || [
 
   {
-    id: 1,
-    nome: "🟢 Painel Neon",
-    descricao: "Painel digital demonstrativo.",
-    preco: 5,
-    estoque: 10
+    id:1,
+    nome:"🟢 Painel Neon",
+    descricao:"Painel digital demonstrativo.",
+    preco:5,
+    estoque:10
   },
 
   {
-    id: 2,
-    nome: "🔵 Painel Boot",
-    descricao: "Painel digital demonstrativo.",
-    preco: 5,
-    estoque: 10
+    id:2,
+    nome:"🔵 Painel Boot",
+    descricao:"Painel digital demonstrativo.",
+    preco:5,
+    estoque:10
   },
 
   {
-    id: 3,
-    nome: "🟣 Painel VIP",
-    descricao: "Painel digital demonstrativo.",
-    preco: 7,
-    estoque: 10
+    id:3,
+    nome:"🟣 Painel VIP",
+    descricao:"Painel digital demonstrativo.",
+    preco:7,
+    estoque:10
   },
 
   {
-    id: 4,
-    nome: "🟠 Painel Pro",
-    descricao: "Painel digital demonstrativo.",
-    preco: 10,
-    estoque: 10
+    id:4,
+    nome:"🟠 Painel Pro",
+    descricao:"Painel digital demonstrativo.",
+    preco:10,
+    estoque:10
   },
 
   {
-    id: 5,
-    nome: "🟤 Proxy iOS",
-    descricao: "Produto digital demonstrativo.",
-    preco: 5,
-    estoque: 10
+    id:5,
+    nome:"🟤 Proxy iOS",
+    descricao:"Produto digital demonstrativo.",
+    preco:5,
+    estoque:10
   },
 
   {
-    id: 6,
-    nome: "🟡 Licença 7 dias",
-    descricao: "Licença digital demonstrativa.",
-    preco: 3,
-    estoque: 10
+    id:6,
+    nome:"🟡 Licença 7 dias",
+    descricao:"Licença digital demonstrativa.",
+    preco:3,
+    estoque:10
   },
 
   {
-    id: 7,
-    nome: "🟡 Licença 30 dias",
-    descricao: "Licença digital demonstrativa.",
-    preco: 8,
-    estoque: 10
+    id:7,
+    nome:"🟡 Licença 30 dias",
+    descricao:"Licença digital demonstrativa.",
+    preco:8,
+    estoque:10
   }
 
 ];
 
 
-/* =====================================================
-   VARIÁVEIS
-   ===================================================== */
+/* ==================================================
+   ESTADO
+   ================================================== */
 
 let carrinho =
-JSON.parse(localStorage.getItem("fusionCarrinho")) || [];
+JSON.parse(
+  localStorage.getItem("fusionCarrinho")
+) || [];
 
 let usuarioAtual =
 localStorage.getItem("fusionUsuario") || null;
 
 
-/* =====================================================
-   FORMATAÇÃO
-   ===================================================== */
+/* ==================================================
+   DINHEIRO
+   ================================================== */
 
-function dinheiro(valor) {
+function dinheiro(valor){
 
-  return valor.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL"
-  });
+  return Number(valor).toLocaleString(
+    "pt-BR",
+    {
+      style:"currency",
+      currency:"BRL"
+    }
+  );
 
 }
 
 
-/* =====================================================
+/* ==================================================
    VERIFICAR ADMIN
-   ===================================================== */
+   ================================================== */
 
-function usuarioEhAdmin() {
+function usuarioEhAdmin(){
 
-  if (!usuarioAtual) {
+  if(!usuarioAtual){
     return false;
   }
 
-  return ADMINS.hasOwnProperty(usuarioAtual);
+  return Object.prototype.hasOwnProperty.call(
+    ADMINS,
+    usuarioAtual
+  );
 
 }
 
 
-/* =====================================================
-   MOSTRAR PRODUTOS
-   ===================================================== */
+/* ==================================================
+   PRODUTOS NA LOJA
+   ================================================== */
 
-function renderizarProdutos() {
+function renderizarProdutos(){
 
-  const area = document.getElementById("products");
+  const area =
+    document.getElementById("products");
 
   area.innerHTML = "";
 
   produtos.forEach(produto => {
 
-    const card = document.createElement("div");
+    const card =
+      document.createElement("div");
 
     card.className = "card";
 
+    let badge = "";
+
+    if(usuarioEhAdmin()){
+
+      badge = `
+        <div class="free-badge">
+          👑 ADMIN — COMPRA GRÁTIS
+        </div>
+      `;
+
+    }
+
     card.innerHTML = `
+
+      ${badge}
 
       <div class="product-name">
         ${produto.nome}
@@ -475,19 +528,22 @@ function renderizarProdutos() {
 }
 
 
-/* =====================================================
+/* ==================================================
    CARRINHO
-   ===================================================== */
+   ================================================== */
 
-function adicionarCarrinho(id) {
+function adicionarCarrinho(id){
 
-  const produto = produtos.find(p => p.id === id);
+  const produto =
+    produtos.find(p => p.id === id);
 
-  if (!produto) return;
+  if(!produto){
+    return;
+  }
 
-  if (produto.estoque <= 0) {
+  if(produto.estoque <= 0){
 
-    alert("Produto sem estoque.");
+    alert("❌ Produto sem estoque.");
 
     return;
 
@@ -502,49 +558,50 @@ function adicionarCarrinho(id) {
 
   atualizarCarrinho();
 
-  alert("Produto adicionado ao carrinho!");
+  alert("✅ Produto adicionado ao carrinho!");
 
 }
 
 
-function atualizarCarrinho() {
+function atualizarCarrinho(){
 
-  document.getElementById("cartCount").textContent =
-  carrinho.length;
+  document.getElementById(
+    "cartCount"
+  ).textContent = carrinho.length;
 
   const area =
-  document.getElementById("cartItems");
+    document.getElementById("cartItems");
 
   area.innerHTML = "";
 
   let total = 0;
 
-  carrinho.forEach((produto, index) => {
+  carrinho.forEach((produto,index)=>{
 
     total += Number(produto.preco);
 
     const item =
-    document.createElement("div");
+      document.createElement("div");
 
     item.className = "cart-item";
 
     item.innerHTML = `
 
-      <span>${produto.nome}</span>
+      <span>
+        ${produto.nome}
+      </span>
 
       <span>
-
         ${dinheiro(produto.preco)}
 
         <button
           class="red"
-          style="padding:6px 10px;margin-left:5px"
+          style="padding:5px 9px"
           onclick="removerCarrinho(${index})">
 
           X
 
         </button>
-
       </span>
 
     `;
@@ -553,15 +610,42 @@ function atualizarCarrinho() {
 
   });
 
-  document.getElementById("cartTotal").textContent =
-  dinheiro(total);
+
+  /*
+     ADMIN SEMPRE VÊ R$ 0,00
+  */
+
+  if(usuarioEhAdmin()){
+
+    document.getElementById(
+      "cartTotal"
+    ).textContent = "R$ 0,00";
+
+    document.getElementById(
+      "checkoutButton"
+    ).textContent =
+      "👑 Comprar grátis";
+
+  }else{
+
+    document.getElementById(
+      "cartTotal"
+    ).textContent =
+      dinheiro(total);
+
+    document.getElementById(
+      "checkoutButton"
+    ).textContent =
+      "💳 Continuar para pagamento";
+
+  }
 
 }
 
 
-function removerCarrinho(index) {
+function removerCarrinho(index){
 
-  carrinho.splice(index, 1);
+  carrinho.splice(index,1);
 
   localStorage.setItem(
     "fusionCarrinho",
@@ -573,7 +657,7 @@ function removerCarrinho(index) {
 }
 
 
-function limparCarrinho() {
+function limparCarrinho(){
 
   carrinho = [];
 
@@ -587,53 +671,68 @@ function limparCarrinho() {
 }
 
 
-function mostrarCarrinho() {
+function mostrarCarrinho(){
 
   document
-  .getElementById("cart")
-  .classList.toggle("hidden");
+    .getElementById("cart")
+    .classList.toggle("hidden");
 
 }
 
 
-/* =====================================================
+/* ==================================================
    FINALIZAR COMPRA
-   ===================================================== */
+   ================================================== */
 
-function finalizarCompra() {
+function finalizarCompra(){
 
-  if (carrinho.length === 0) {
+  if(carrinho.length === 0){
 
-    alert("Seu carrinho está vazio.");
+    alert("🛒 O carrinho está vazio.");
 
     return;
 
   }
 
 
-  let total = 0;
-
-  carrinho.forEach(produto => {
-
-    total += Number(produto.preco);
-
-  });
-
-
   /*
-     AQUI ESTÁ A REGRA PRINCIPAL:
+     REGRA DO DONO/ADMIN
 
-     DONO/ADMIN = R$ 0
-     CLIENTE = preço normal
+     NÃO ABRE PIX
+     NÃO COBRA
+     TOTAL = R$ 0
   */
 
-  if (usuarioEhAdmin()) {
+  if(usuarioEhAdmin()){
+
+    const produtosComprados =
+      carrinho
+        .map(p => p.nome)
+        .join("\n");
 
     alert(
-      "👑 Compra gratuita liberada para administrador!"
+      "👑 COMPRA GRÁTIS DO ADMIN\n\n" +
+
+      "Administrador: " +
+      usuarioAtual +
+
+      "\n\nProdutos:\n" +
+
+      produtosComprados +
+
+      "\n\nTotal: R$ 0,00\n\n" +
+
+      "✅ Compra liberada!"
     );
 
-    entregarCompraGratis();
+    carrinho = [];
+
+    localStorage.setItem(
+      "fusionCarrinho",
+      JSON.stringify(carrinho)
+    );
+
+    atualizarCarrinho();
 
     return;
 
@@ -643,93 +742,88 @@ function finalizarCompra() {
   /*
      CLIENTE NORMAL
 
-     Aqui você coloca o seu sistema Pix.
+     Aqui permanece o pagamento.
   */
 
+  let total = 0;
+
+  carrinho.forEach(produto =>{
+
+    total += Number(produto.preco);
+
+  });
+
+
+  abrirPagamentoPix(total);
+
+}
+
+
+/* ==================================================
+   PIX
+   ================================================== */
+
+function abrirPagamentoPix(total){
+
   alert(
-    "💳 Cliente normal.\n\n" +
-    "Total: " + dinheiro(total) +
+    "💳 PAGAMENTO PIX\n\n" +
+
+    "Valor: " +
+    dinheiro(total) +
+
     "\n\n" +
-    "Aqui será aberto o pagamento Pix."
+
+    "Aqui você deve conectar " +
+    "seu sistema Pix real."
   );
 
 }
 
 
-/* =====================================================
-   ENTREGA GRATUITA DO ADMIN
-   ===================================================== */
-
-function entregarCompraGratis() {
-
-  let nomes = carrinho
-  .map(p => p.nome)
-  .join("\n");
-
-  alert(
-    "✅ COMPRA ADMINISTRATIVA\n\n" +
-    "Usuário: " + usuarioAtual +
-    "\n\n" +
-    "Produtos:\n" +
-    nomes +
-    "\n\n" +
-    "Total: R$ 0,00"
-  );
-
-  carrinho = [];
-
-  localStorage.setItem(
-    "fusionCarrinho",
-    JSON.stringify(carrinho)
-  );
-
-  atualizarCarrinho();
-
-}
-
-
-/* =====================================================
+/* ==================================================
    LOGIN
-   ===================================================== */
+   ================================================== */
 
-function abrirLogin() {
+function abrirLogin(){
 
-  const box =
-  document.getElementById("loginBox");
-
-  box.style.display = "flex";
-
-}
-
-
-function fecharLogin() {
-
-  document
-  .getElementById("loginBox")
-  .style.display = "none";
+  document.getElementById(
+    "loginBox"
+  ).style.display = "flex";
 
 }
 
 
-function login() {
+function fecharLogin(){
+
+  document.getElementById(
+    "loginBox"
+  ).style.display = "none";
+
+}
+
+
+function login(){
 
   const usuario =
-  document
-  .getElementById("loginUser")
-  .value
-  .trim()
-  .toLowerCase();
+    document.getElementById(
+      "loginUser"
+    ).value
+    .trim()
+    .toLowerCase();
 
   const senha =
-  document
-  .getElementById("loginPass")
-  .value;
+    document.getElementById(
+      "loginPass"
+    ).value;
 
 
-  if (
-    ADMINS[usuario] &&
+  if(
+    Object.prototype.hasOwnProperty.call(
+      ADMINS,
+      usuario
+    ) &&
     ADMINS[usuario] === senha
-  ) {
+  ){
 
     usuarioAtual = usuario;
 
@@ -742,11 +836,17 @@ function login() {
 
     abrirPainelAdmin();
 
+    renderizarProdutos();
+
+    atualizarCarrinho();
+
     alert(
-      "👑 Login de administrador realizado!"
+      "👑 Login realizado!\n\n" +
+      "Você está como administrador.\n" +
+      "Suas compras serão gratuitas."
     );
 
-  } else {
+  }else{
 
     alert(
       "❌ Usuário ou senha incorretos."
@@ -757,51 +857,50 @@ function login() {
 }
 
 
-/* =====================================================
-   PAINEL ADMIN
-   ===================================================== */
+/* ==================================================
+   PAINEL DO DONO
+   ================================================== */
 
-function abrirPainelAdmin() {
+function abrirPainelAdmin(){
 
-  if (!usuarioEhAdmin()) {
+  if(!usuarioEhAdmin()){
 
-    alert("Acesso negado.");
+    alert("❌ Acesso negado.");
 
     return;
 
   }
 
   document
-  .getElementById("adminPanel")
-  .classList.remove("hidden");
+    .getElementById("adminPanel")
+    .classList.remove("hidden");
 
   renderizarAdmin();
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
 
 }
 
 
-function renderizarAdmin() {
+function renderizarAdmin(){
 
   const area =
-  document.getElementById("adminProducts");
+    document.getElementById(
+      "adminProducts"
+    );
 
   area.innerHTML = "";
 
-  produtos.forEach((produto, index) => {
+  produtos.forEach(produto=>{
 
     const div =
-    document.createElement("div");
+      document.createElement("div");
 
     div.className = "card";
 
     div.innerHTML = `
 
-      <h3>Produto ${index + 1}</h3>
+      <h3>
+        ${produto.nome}
+      </h3>
 
       <label>Nome</label>
 
@@ -812,8 +911,7 @@ function renderizarAdmin() {
       <label>Descrição</label>
 
       <textarea
-        id="desc_${produto.id}">
-${produto.descricao}</textarea>
+        id="desc_${produto.id}">${produto.descricao}</textarea>
 
       <label>Preço</label>
 
@@ -846,40 +944,42 @@ ${produto.descricao}</textarea>
 }
 
 
-function salvarProduto(id) {
+/* ==================================================
+   SALVAR PRODUTO
+   ================================================== */
+
+function salvarProduto(id){
 
   const produto =
-  produtos.find(p => p.id === id);
+    produtos.find(p=>p.id===id);
 
-  if (!produto) return;
-
+  if(!produto){
+    return;
+  }
 
   produto.nome =
-  document.getElementById(
-    "nome_" + id
-  ).value;
-
+    document.getElementById(
+      "nome_"+id
+    ).value;
 
   produto.descricao =
-  document.getElementById(
-    "desc_" + id
-  ).value;
-
+    document.getElementById(
+      "desc_"+id
+    ).value;
 
   produto.preco =
-  Number(
-    document.getElementById(
-      "preco_" + id
-    ).value
-  );
-
+    Number(
+      document.getElementById(
+        "preco_"+id
+      ).value
+    );
 
   produto.estoque =
-  Number(
-    document.getElementById(
-      "estoque_" + id
-    ).value
-  );
+    Number(
+      document.getElementById(
+        "estoque_"+id
+      ).value
+    );
 
 
   localStorage.setItem(
@@ -887,31 +987,32 @@ function salvarProduto(id) {
     JSON.stringify(produtos)
   );
 
-
   renderizarProdutos();
 
   renderizarAdmin();
 
-  alert("✅ Produto atualizado!");
+  alert(
+    "✅ Produto atualizado!"
+  );
 
 }
 
 
-/* =====================================================
+/* ==================================================
    APARÊNCIA
-   ===================================================== */
+   ================================================== */
 
-function salvarAparencia() {
+function salvarAparencia(){
 
   const nome =
-  document
-  .getElementById("storeName")
-  .value;
+    document.getElementById(
+      "storeName"
+    ).value;
 
   const subtitle =
-  document
-  .getElementById("storeSubtitle")
-  .value;
+    document.getElementById(
+      "storeSubtitle"
+    ).value;
 
 
   localStorage.setItem(
@@ -925,31 +1026,43 @@ function salvarAparencia() {
   );
 
 
-  document.querySelector(".logo")
-  .textContent = "⚡ " + nome;
+  document.getElementById(
+    "logo"
+  ).textContent =
+    "⚡ " + nome;
 
-  document.querySelector(".subtitle")
-  .textContent = subtitle;
+  document.getElementById(
+    "subtitle"
+  ).textContent =
+    subtitle;
 
 
-  alert("🎨 Aparência salva!");
+  alert(
+    "🎨 Aparência salva!"
+  );
 
 }
 
 
-function carregarAparencia() {
+function carregarAparencia(){
 
   const nome =
-  localStorage.getItem("fusionNome");
+    localStorage.getItem(
+      "fusionNome"
+    );
 
   const subtitle =
-  localStorage.getItem("fusionSubtitle");
+    localStorage.getItem(
+      "fusionSubtitle"
+    );
 
 
-  if (nome) {
+  if(nome){
 
-    document.querySelector(".logo")
-    .textContent = "⚡ " + nome;
+    document.getElementById(
+      "logo"
+    ).textContent =
+      "⚡ " + nome;
 
     document.getElementById(
       "storeName"
@@ -958,10 +1071,12 @@ function carregarAparencia() {
   }
 
 
-  if (subtitle) {
+  if(subtitle){
 
-    document.querySelector(".subtitle")
-    .textContent = subtitle;
+    document.getElementById(
+      "subtitle"
+    ).textContent =
+      subtitle;
 
     document.getElementById(
       "storeSubtitle"
@@ -972,11 +1087,11 @@ function carregarAparencia() {
 }
 
 
-/* =====================================================
+/* ==================================================
    LOGOUT
-   ===================================================== */
+   ================================================== */
 
-function logout() {
+function logout(){
 
   usuarioAtual = null;
 
@@ -985,23 +1100,45 @@ function logout() {
   );
 
   document
-  .getElementById("adminPanel")
-  .classList.add("hidden");
+    .getElementById("adminPanel")
+    .classList.add("hidden");
 
-  alert("Você saiu da Área do Dono.");
+  renderizarProdutos();
+
+  atualizarCarrinho();
+
+  alert(
+    "🚪 Você saiu da Área do Dono."
+  );
 
 }
 
 
-/* =====================================================
-   INICIALIZAÇÃO
-   ===================================================== */
+/* ==================================================
+   INICIAR
+   ================================================== */
 
 renderizarProdutos();
 
 atualizarCarrinho();
 
 carregarAparencia();
+
+
+/*
+   Se já estiver logado como admin,
+   restaura o painel automaticamente.
+*/
+
+if(usuarioEhAdmin()){
+
+  abrirPainelAdmin();
+
+  renderizarProdutos();
+
+  atualizarCarrinho();
+
+}
 
 </script>
 
