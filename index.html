@@ -3,337 +3,306 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>FFH4X Store</title>
 
 <style>
+
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#07030d;
-  color:#fff;
-  min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at top,#26004d 0%,#0b0312 38%,#050207 100%);
+    color:white;
+    min-height:100vh;
 }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 20% 10%,#7b00ff33,transparent 35%),
-    radial-gradient(circle at 80% 80%,#c000ff22,transparent 35%);
-  pointer-events:none;
-  z-index:-1;
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 15% 20%,#a000ff25,transparent 30%),
+        radial-gradient(circle at 85% 70%,#d000ff18,transparent 30%);
+    z-index:-1;
 }
+
+/* HEADER */
 
 header{
-  padding:28px 16px;
-  text-align:center;
-  background:linear-gradient(180deg,#160025,#09000f);
-  border-bottom:1px solid #a100ff66;
-  box-shadow:0 0 30px #8a00ff44;
+    padding:35px 15px;
+    text-align:center;
+    background:
+        linear-gradient(180deg,#200034,#0b0312);
+    border-bottom:1px solid #a900ff66;
+    box-shadow:0 0 35px #8c00ff55;
 }
 
 .logo{
-  font-size:36px;
-  font-weight:900;
-  color:#d56aff;
-  text-shadow:0 0 10px #9d00ff,0 0 30px #9d00ff;
+    font-size:38px;
+    font-weight:900;
+    color:#e08aff;
+    text-shadow:
+        0 0 8px #a000ff,
+        0 0 20px #a000ff,
+        0 0 40px #8c00ff;
 }
 
 .subtitle{
-  color:#c9a9d8;
-  margin-top:8px;
+    margin-top:10px;
+    color:#c9a9d5;
+    font-size:15px;
 }
 
 .support{
-  display:inline-block;
-  margin-top:18px;
-  padding:12px 20px;
-  border-radius:12px;
-  background:#7200ff;
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 0 18px #8d00ff;
+    display:inline-block;
+    margin-top:20px;
+    padding:13px 22px;
+    background:linear-gradient(90deg,#6500d9,#b000ff);
+    border-radius:12px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 0 20px #8c00ff88;
 }
+
+/* CONTAINER */
 
 .container{
-  width:94%;
-  max-width:1100px;
-  margin:25px auto;
+    width:94%;
+    max-width:1150px;
+    margin:25px auto;
 }
+
+/* BENEFÍCIOS */
 
 .trust{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-bottom:25px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:30px;
 }
 
-.trust div{
-  padding:18px 10px;
-  text-align:center;
-  background:#110819;
-  border:1px solid #9b00ff55;
-  border-radius:14px;
-  box-shadow:0 0 15px #7800ff22;
+.trust-box{
+    background:#110817;
+    border:1px solid #9d00ff55;
+    border-radius:15px;
+    padding:18px 10px;
+    text-align:center;
+    box-shadow:0 0 18px #7d00ff22;
 }
 
-.trust b{
-  display:block;
-  color:#d879ff;
-  margin-bottom:5px;
+.trust-box strong{
+    display:block;
+    color:#d979ff;
+    margin-bottom:6px;
 }
 
-h2{
-  margin:25px 0 15px;
-  color:#e08aff;
-  text-shadow:0 0 10px #8d00ff;
+/* TITULOS */
+
+.title{
+    color:#df83ff;
+    margin:28px 0 18px;
+    font-size:25px;
+    text-shadow:0 0 12px #9700ff;
 }
+
+/* PRODUTOS */
 
 .products{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
 .card{
-  background:linear-gradient(145deg,#170b20,#0c0711);
-  border:1px solid #a500ff55;
-  border-radius:18px;
-  padding:16px;
-  box-shadow:0 0 20px #7700ff22;
-  transition:.2s;
+    background:
+        linear-gradient(145deg,#190b24,#09050d);
+    border:1px solid #a500ff55;
+    border-radius:18px;
+    padding:15px;
+    box-shadow:0 0 22px #7800ff22;
+    transition:.2s;
 }
 
 .card:hover{
-  transform:translateY(-4px);
-  border-color:#c000ff;
-  box-shadow:0 0 25px #8d00ff66;
+    transform:translateY(-5px);
+    border-color:#c000ff;
+    box-shadow:0 0 28px #8f00ff66;
 }
 
-.art{
-  height:130px;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:52px;
-  background:
-    radial-gradient(circle,#b900ff55,transparent 45%),
-    linear-gradient(135deg,#260044,#09000e);
-  border:1px solid #a900ff55;
-  margin-bottom:14px;
+.image{
+    height:140px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:55px;
+
+    background:
+        radial-gradient(circle,#b500ff55,transparent 45%),
+        linear-gradient(135deg,#300052,#09000e);
+
+    border:1px solid #b000ff55;
+    margin-bottom:15px;
 }
 
 .card h3{
-  color:#fff;
-  margin-bottom:7px;
+    font-size:19px;
+    margin-bottom:8px;
 }
 
-.desc{
-  color:#a995ae;
-  font-size:13px;
-  min-height:34px;
+.description{
+    color:#aa98b2;
+    font-size:13px;
+    min-height:38px;
+    line-height:1.4;
 }
 
 .price{
-  font-size:22px;
-  font-weight:bold;
-  color:#dc72ff;
-  margin:12px 0;
+    margin:12px 0 8px;
+    color:#dc75ff;
+    font-size:23px;
+    font-weight:bold;
 }
 
 .stock{
-  font-size:13px;
-  margin-bottom:12px;
+    font-size:13px;
+    margin-bottom:13px;
 }
 
-.available{
-  color:#55ff91;
+.stock-ok{
+    color:#55ff91;
 }
 
-.empty{
-  color:#ff4d6d;
-  font-weight:bold;
+.stock-out{
+    color:#ff4c6d;
 }
 
 .buy{
-  width:100%;
-  border:0;
-  padding:12px;
-  border-radius:10px;
-  background:linear-gradient(90deg,#7200ff,#b000ff);
-  color:#fff;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 0 15px #8d00ff55;
+    width:100%;
+    border:0;
+    border-radius:11px;
+    padding:13px;
+    background:linear-gradient(90deg,#6800dc,#b000ff);
+    color:white;
+    font-weight:bold;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:0 0 15px #8500ff55;
+}
+
+.buy:hover{
+    box-shadow:0 0 25px #a000ff99;
 }
 
 .buy:disabled{
-  background:#302733;
-  color:#777;
-  cursor:not-allowed;
-  box-shadow:none;
+    background:#29212d;
+    color:#777;
+    box-shadow:none;
+    cursor:not-allowed;
 }
+
+/* PIX */
 
 #checkout{
-  display:none;
-  margin:35px 0;
-  padding:25px;
-  border-radius:20px;
-  background:linear-gradient(145deg,#180722,#0b0610);
-  border:2px solid #a600ff;
-  box-shadow:0 0 30px #8d00ff55;
-  text-align:center;
+    display:none;
+    margin:40px 0;
+    padding:28px 18px;
+    text-align:center;
+    border-radius:20px;
+
+    background:
+        linear-gradient(145deg,#1b0826,#09050d);
+
+    border:2px solid #a900ff;
+    box-shadow:
+        0 0 20px #9d00ff55,
+        inset 0 0 20px #7300ff18;
 }
 
-#checkout.active{
-  display:block;
+#checkout.show{
+    display:block;
 }
 
-#produtoEscolhido{
-  color:#e38aff;
-  margin:10px 0;
-  font-size:18px;
+.pix-title{
+    color:#e28bff;
+    font-size:26px;
+    margin-bottom:10px;
+    text-shadow:0 0 12px #9900ff;
 }
 
-.pixBox{
-  margin:20px auto;
-  max-width:500px;
-  padding:18px;
-  border-radius:14px;
-  background:#08040c;
-  border:1px solid #9d00ff77;
+.selected{
+    margin:15px auto;
+    color:#d2bfd9;
 }
 
-.pixLabel{
-  color:#aaa;
-  font-size:13px;
-  margin-bottom:8px;
+.selected strong{
+    color:#e083ff;
 }
 
-.pixKey{
-  word-break:break-all;
-  font-size:20px;
-  font-weight:bold;
-  color:#fff;
-  margin-bottom:14px;
+.pix-box{
+    max-width:520px;
+    margin:20px auto;
+    padding:20px;
+    background:#060309;
+    border:1px solid #a400ff66;
+    border-radius:15px;
+}
+
+.pix-label{
+    color:#9e91a4;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.pix-key{
+    font-size:21px;
+    font-weight:bold;
+    word-break:break-all;
+    margin-bottom:15px;
 }
 
 .copy{
-  padding:11px 18px;
-  border:0;
-  border-radius:10px;
-  background:#8c00ff;
-  color:#fff;
-  font-weight:bold;
-  cursor:pointer;
+    border:0;
+    padding:12px 20px;
+    border-radius:10px;
+    background:#8d00ff;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .whatsapp{
-  display:inline-block;
-  margin-top:15px;
-  padding:13px 20px;
-  border-radius:10px;
-  background:#19b85a;
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
+    display:inline-block;
+    margin-top:15px;
+    padding:13px 20px;
+    border-radius:10px;
+    background:#19b957;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-.notice{
-  color:#aaa;
-  font-size:12px;
-  margin-top:15px;
+.warning{
+    color:#918795;
+    font-size:12px;
+    margin-top:18px;
 }
+
+/* FOOTER */
 
 footer{
-  text-align:center;
-  padding:30px 15px;
-  color:#777;
-}
-
-@media(max-width:800px){
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .trust{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:520px){
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .logo{
-    font-size:29px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">⚡ FFH4X STORE ⚡</div>
-  <div class="subtitle">Produtos digitais • Entrega online</div>
-
-  <a class="support"
-     href="https://wa.me/556992275174"
-     target="_blank">
-     📲 Falar com o Suporte
-  </a>
-</header>
-
-<div class="container">
-
-  <div class="trust">
-    <div>
-      <b>🔒 Compra</b>
-      Processo simples
-    </div>
-
-    <div>
-      <b>⚡ Digital</b>
-      Entrega online
-    </div>
-
-    <div>
-      <b>📲 Suporte</b>
-      Atendimento
-    </div>
-
-    <div>
-      <b>💜 FFH4X</b>
-      Loja oficial
-    </div>
-  </div>
-
-  <h2>🔥 Produtos</h2>
-
-  <div class="products">
-
-    <!-- PRODUTOS ANTIGOS -->
-
-    <div class="card">
-      <div class="art">🌈</div>
-      <h3>Painel Neon</h3>
-      <div class="desc">Painel digital em estilo neon.</div>
-      <div class="price">R$ 9,90</div>
-      <div class="stock available">● 10 em estoque</div>
-      <button class="buy" onclick="comprar('Painel Neon','9,90')">Comprar</button>
-    </div>
-
-    <div class="card">
-      <div class="art">🎮</div>
-      <h3>Pack de HUD</h3>
-      <div class="desc">Pack visual para personal
+    text-align:center;
+    padding:35px 15px;
+   
