@@ -11,29 +11,29 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial,sans-serif
+  font-family:Arial,sans-serif;
 }
 
 body{
   background:#050817;
   color:#fff;
-  min-height:100vh
+  min-height:100vh;
 }
 
 header{
   padding:22px 16px;
   text-align:center;
   background:linear-gradient(135deg,#07102d,#101b4d);
-  border-bottom:1px solid #26315c
+  border-bottom:1px solid #26315c;
 }
 
 header h1{
-  font-size:28px
+  font-size:28px;
 }
 
 header p{
   margin-top:7px;
-  color:#9ca8d8
+  color:#9ca8d8;
 }
 
 .banner{
@@ -41,21 +41,21 @@ header p{
   border-radius:20px;
   overflow:hidden;
   border:1px solid #29335c;
-  background:#0b1025
+  background:#0b1025;
 }
 
 .banner img{
   display:block;
   width:100%;
   max-height:240px;
-  object-fit:cover
+  object-fit:cover;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:12px;
-  padding:15px
+  padding:15px;
 }
 
 .card{
@@ -63,7 +63,7 @@ header p{
   border:1px solid #252e52;
   border-radius:18px;
   padding:12px;
-  box-shadow:0 8px 25px rgba(0,0,0,.25)
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
 .icon{
@@ -74,31 +74,41 @@ header p{
   justify-content:center;
   font-size:44px;
   background:linear-gradient(135deg,#111b40,#17245a);
-  margin-bottom:11px
+  margin-bottom:11px;
 }
 
 .card h2{
   font-size:17px;
-  margin-bottom:6px
+  margin-bottom:6px;
 }
 
 .desc{
   color:#7884ad;
   font-size:12px;
   min-height:30px;
-  line-height:1.4
+  line-height:1.4;
 }
 
 .stars{
   color:#20e6ed;
   margin:8px 0;
-  font-size:13px
+  font-size:13px;
 }
 
 .price{
   font-size:19px;
   font-weight:bold;
-  margin:8px 0 12px
+  margin:8px 0 6px;
+}
+
+.stock{
+  font-size:12px;
+  color:#76d69b;
+  margin-bottom:10px;
+}
+
+.stock.empty{
+  color:#ff6479;
 }
 
 .buy{
@@ -110,14 +120,18 @@ header p{
   color:#fff;
   font-size:15px;
   font-weight:bold;
-  cursor:pointer
+  cursor:pointer;
 }
 
-.buy:active{
-  transform:scale(.97)
+.buy:disabled{
+  background:#3b4052;
+  color:#999;
+  cursor:not-allowed;
 }
 
-/* AVISO DISCRETO */
+.buy:active:not(:disabled){
+  transform:scale(.97);
+}
 
 .info-small{
   margin:0 15px 15px;
@@ -127,202 +141,7 @@ header p{
   border:1px solid #202b4c;
   color:#7884ad;
   font-size:11px;
-  text-align:center
-}
-
-/* CARRINHO */
-
-.cart-area{
-  display:none;
-  margin:15px;
-  padding:18px;
-  background:#0c1229;
-  border:1px solid #303b68;
-  border-radius:18px
-}
-
-.cart-area h2{
-  margin-bottom:14px
-}
-
-.cart-list{
-  color:#c5cce5;
-  line-height:1.7;
-  white-space:pre-line;
-  margin-bottom:15px
-}
-
-.total{
-  font-size:19px;
-  font-weight:bold;
-  margin-bottom:15px
-}
-
-.pix-button{
-  width:100%;
-  padding:13px;
-  border:0;
-  border-radius:12px;
-  background:#168b55;
-  color:#fff;
-  font-size:15px;
-  font-weight:bold;
-  cursor:pointer
-}
-
-/* PIX */
-
-.pix{
-  display:none;
-  margin:15px;
-  padding:18px;
-  background:#0c1229;
-  border:1px solid #29335c;
-  border-radius:18px;
-  text-align:center
-}
-
-.pix h2{
-  margin-bottom:10px
-}
-
-.pix p{
-  color:#9ca8d8;
-  font-size:13px;
-  line-height:1.5;
-  margin-bottom:12px
-}
-
-.pix input{
-  width:100%;
-  padding:13px;
-  border-radius:10px;
-  border:1px solid #303b68;
-  background:#050817;
-  color:#fff;
   text-align:center;
-  margin-bottom:10px;
-  font-size:16px
-}
-
-.pix button{
-  width:100%;
-  padding:12px;
-  border:0;
-  border-radius:10px;
-  background:#168b55;
-  color:#fff;
-  font-weight:bold;
-  cursor:pointer
-}
-
-/* RECURSOS */
-
-.features{
-  padding:15px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px
-}
-
-.feature{
-  background:#0c1229;
-  border:1px solid #252e52;
-  padding:17px;
-  border-radius:15px
-}
-
-.feature b{
-  display:block;
-  margin-bottom:7px
-}
-
-.feature span{
-  color:#7884ad;
-  font-size:13px;
-  line-height:1.4
-}
-
-footer{
-  text-align:center;
-  padding:25px;
-  color:#68749e;
-  font-size:12px
-}
-
-/* BOTÃO CARRINHO */
-
-.cart{
-  position:fixed;
-  right:16px;
-  bottom:18px;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  border:0;
-  background:#2864ed;
-  color:#fff;
-  font-size:24px;
-  box-shadow:0 8px 30px rgba(0,0,0,.5);
-  cursor:pointer;
-  z-index:20
-}
-
-#count{
-  position:absolute;
-  top:-4px;
-  right:-2px;
-  background:#ff334f;
-  width:21px;
-  height:21px;
-  border-radius:50%;
-  font-size:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center
-}
-
-/* MODAL */
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.78);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:100
-}
-
-.modal-box{
-  width:100%;
-  max-width:390px;
-  background:#0c1229;
-  border:1px solid #303b68;
-  border-radius:20px;
-  padding:22px;
-  text-align:center
-}
-
-.modal-box h2{
-  margin-bottom:12px
-}
-
-.modal-box p{
-  color:#9aa6d0;
-  line-height:1.5
-}
-
-.close{
-  margin-top:15px;
-  width:100%;
-  padding:12px;
-  border:0;
-  border-radius:12px;
-  background:#202a4c;
-  color:#fff;
-  font-size:15px
 }
 
 /* PAINEL DO DONO */
@@ -337,7 +156,7 @@ footer{
   background:#111a39;
   color:#fff;
   font-weight:bold;
-  cursor:pointer
+  cursor:pointer;
 }
 
 .owner{
@@ -346,18 +165,18 @@ footer{
   padding:18px;
   background:#0c1229;
   border:1px solid #394a83;
-  border-radius:18px
+  border-radius:18px;
 }
 
 .owner h2{
-  margin-bottom:8px
+  margin-bottom:8px;
 }
 
 .owner-info{
   color:#8995bd;
   font-size:12px;
   line-height:1.5;
-  margin-bottom:15px
+  margin-bottom:15px;
 }
 
 .owner-product{
@@ -365,12 +184,12 @@ footer{
   border:1px solid #252e52;
   border-radius:14px;
   padding:14px;
-  margin-bottom:12px
+  margin-bottom:12px;
 }
 
 .owner-product strong{
   display:block;
-  margin-bottom:10px
+  margin-bottom:10px;
 }
 
 .owner-product input{
@@ -380,12 +199,12 @@ footer{
   border-radius:9px;
   border:1px solid #303b68;
   background:#050817;
-  color:#fff
+  color:#fff;
 }
 
 .owner-actions{
   display:flex;
-  gap:8px
+  gap:8px;
 }
 
 .save-product{
@@ -395,7 +214,7 @@ footer{
   border-radius:9px;
   background:#168b55;
   color:#fff;
-  font-weight:bold
+  font-weight:bold;
 }
 
 .delete-product{
@@ -404,7 +223,7 @@ footer{
   border-radius:9px;
   background:#a51d35;
   color:#fff;
-  font-weight:bold
+  font-weight:bold;
 }
 
 .add-product{
@@ -415,7 +234,7 @@ footer{
   background:#2864ed;
   color:#fff;
   font-weight:bold;
-  margin-top:5px
+  margin-top:5px;
 }
 
 .logout{
@@ -425,16 +244,211 @@ footer{
   border:0;
   border-radius:10px;
   background:#202a4c;
-  color:#fff
+  color:#fff;
+}
+
+/* CARRINHO */
+
+.cart-area{
+  display:none;
+  margin:15px;
+  padding:18px;
+  background:#0c1229;
+  border:1px solid #303b68;
+  border-radius:18px;
+}
+
+.cart-area h2{
+  margin-bottom:14px;
+}
+
+.cart-list{
+  color:#c5cce5;
+  line-height:1.7;
+  white-space:pre-line;
+  margin-bottom:15px;
+}
+
+.total{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.pix-button{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:12px;
+  background:#168b55;
+  color:#fff;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* PIX */
+
+.pix{
+  display:none;
+  margin:15px;
+  padding:18px;
+  background:#0c1229;
+  border:1px solid #29335c;
+  border-radius:18px;
+  text-align:center;
+}
+
+.pix h2{
+  margin-bottom:10px;
+}
+
+.pix p{
+  color:#9ca8d8;
+  font-size:13px;
+  line-height:1.5;
+  margin-bottom:12px;
+}
+
+.pix input{
+  width:100%;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid #303b68;
+  background:#050817;
+  color:#fff;
+  text-align:center;
+  margin-bottom:10px;
+  font-size:16px;
+}
+
+.pix button{
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:10px;
+  background:#168b55;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* RECURSOS */
+
+.features{
+  padding:15px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.feature{
+  background:#0c1229;
+  border:1px solid #252e52;
+  padding:17px;
+  border-radius:15px;
+}
+
+.feature b{
+  display:block;
+  margin-bottom:7px;
+}
+
+.feature span{
+  color:#7884ad;
+  font-size:13px;
+  line-height:1.4;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#68749e;
+  font-size:12px;
+}
+
+/* CARRINHO FLUTUANTE */
+
+.cart{
+  position:fixed;
+  right:16px;
+  bottom:18px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:0;
+  background:#2864ed;
+  color:#fff;
+  font-size:24px;
+  box-shadow:0 8px 30px rgba(0,0,0,.5);
+  cursor:pointer;
+  z-index:20;
+}
+
+#count{
+  position:absolute;
+  top:-4px;
+  right:-2px;
+  background:#ff334f;
+  width:21px;
+  height:21px;
+  border-radius:50%;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.78);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:100;
+}
+
+.modal-box{
+  width:100%;
+  max-width:390px;
+  background:#0c1229;
+  border:1px solid #303b68;
+  border-radius:20px;
+  padding:22px;
+  text-align:center;
+}
+
+.modal-box h2{
+  margin-bottom:12px;
+}
+
+.modal-box p{
+  color:#9aa6d0;
+  line-height:1.5;
+}
+
+.close{
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:12px;
+  background:#202a4c;
+  color:#fff;
+  font-size:15px;
 }
 
 @media(max-width:360px){
   .grid{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .features{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -453,11 +467,7 @@ footer{
        onerror="this.style.display='none'">
 </div>
 
-<!-- PRODUTOS -->
-
 <section class="grid" id="products"></section>
-
-<!-- AVISO DISCRETO -->
 
 <div class="info-small">
   ℹ️ Produtos digitais demonstrativos. Confira os detalhes antes da compra.
@@ -474,7 +484,7 @@ footer{
   <h2>⚙️ Painel do Dono</h2>
 
   <div class="owner-info">
-    Edite nome, descrição e preço dos produtos diretamente pelo celular.
+    Edite nome, descrição, preço e estoque diretamente pelo celular.
     As alterações ficam salvas neste navegador.
   </div>
 
@@ -537,8 +547,6 @@ footer{
 
 </section>
 
-<!-- RECURSOS -->
-
 <section class="features">
 
   <div class="feature">
@@ -560,9 +568,9 @@ footer{
   </div>
 
   <div class="feature">
-    ✅
-    <b>Garantia</b>
-    <span>Garantia demonstrativa.</span>
+    📦
+    <b>Estoque</b>
+    <span>Controle de estoque dos produtos.</span>
   </div>
 
 </section>
@@ -571,14 +579,11 @@ footer{
   © 2026 Fusion XIT — Loja de demonstração
 </footer>
 
-<!-- CARRINHO FLUTUANTE -->
-
 <button class="cart"
         onclick="openCart()"
         aria-label="Abrir carrinho">
 
   🛒
-
   <span id="count">0</span>
 
 </button>
@@ -610,12 +615,10 @@ footer{
 /* CONFIGURAÇÕES */
 
 const PIX_KEY = "05942249261";
-
-/* Senha do painel do dono */
 const OWNER_PASSWORD = "1234";
 
 
-/* PRODUTOS */
+/* PRODUTOS INICIAIS */
 
 const defaultProducts = [
 
@@ -623,100 +626,130 @@ const defaultProducts = [
     icon:"🟢",
     name:"Painel Neon",
     desc:"Painel digital demonstrativo",
-    price:5
+    price:5,
+    stock:10
   },
 
   {
     icon:"🔵",
     name:"Painel Boot",
     desc:"Painel digital demonstrativo",
-    price:5
+    price:5,
+    stock:10
   },
 
   {
     icon:"🟣",
     name:"Painel VIP",
     desc:"Produto digital demonstrativo",
-    price:7
+    price:7,
+    stock:10
   },
 
   {
     icon:"🟠",
     name:"Painel Pro",
     desc:"Produto digital demonstrativo",
-    price:10
+    price:10,
+    stock:10
   },
 
   {
     icon:"😈",
     name:"Painel HS",
     desc:"Simulação de painel",
-    price:8
+    price:8,
+    stock:10
   },
 
   {
     icon:"🍷",
     name:"Como criar XIT",
     desc:"Conteúdo digital demonstrativo",
-    price:12
+    price:12,
+    stock:10
   },
 
   {
     icon:"😶‍🌫️",
     name:"HS Peito Android",
     desc:"Simulação com holograma",
-    price:6
+    price:6,
+    stock:10
   },
 
   {
     icon:"😶‍🌫️",
     name:"HS Peito iOS",
     desc:"Simulação para iOS",
-    price:6
+    price:6,
+    stock:10
   },
 
   {
     icon:"😈",
     name:"Proxy Android",
     desc:"Produto demonstrativo",
-    price:5
+    price:5,
+    stock:10
   },
 
   {
     icon:"🗿",
     name:"Proxy iOS",
     desc:"Produto demonstrativo",
-    price:5
+    price:5,
+    stock:10
   },
 
   {
     icon:"🟡",
     name:"Licença 7 dias",
     desc:"Licença demonstrativa",
-    price:3
+    price:3,
+    stock:10
   },
 
   {
     icon:"🟡",
     name:"Licença 30 dias",
     desc:"Licença demonstrativa",
-    price:8
+    price:8,
+    stock:10
   }
 
 ];
 
 
-/* CARREGAR PRODUTOS SALVOS */
+/* CARREGAR */
 
 let products =
   JSON.parse(
     localStorage.getItem("fusionProducts")
   ) || defaultProducts;
 
+products.forEach(product=>{
+  if(typeof product.stock !== "number"){
+    product.stock = 10;
+  }
+});
+
 let cart = [];
 
 
-/* FORMATAÇÃO */
+/* SALVAR */
+
+function saveProducts(){
+
+  localStorage.setItem(
+    "fusionProducts",
+    JSON.stringify(products)
+  );
+
+}
+
+
+/* DINHEIRO */
 
 function money(value){
 
@@ -731,7 +764,7 @@ function money(value){
 }
 
 
-/* RENDERIZAR PRODUTOS */
+/* MOSTRAR PRODUTOS */
 
 function renderProducts(){
 
@@ -746,6 +779,9 @@ function renderProducts(){
       document.createElement("div");
 
     card.className = "card";
+
+    const semEstoque =
+      Number(product.stock) <= 0;
 
     card.innerHTML = `
 
@@ -772,10 +808,25 @@ function renderProducts(){
         ${money(product.price)}
       </div>
 
+      <div class="stock ${semEstoque ? "empty" : ""}">
+        ${
+          semEstoque
+          ? "❌ Esgotado"
+          : "📦 Estoque: " + product.stock
+        }
+      </div>
+
       <button
         class="buy"
+        ${semEstoque ? "disabled" : ""}
         onclick="addCart(${index})">
-        🛒 Comprar
+
+        ${
+          semEstoque
+          ? "❌ Esgotado"
+          : "🛒 Comprar"
+        }
+
       </button>
 
     `;
@@ -787,15 +838,36 @@ function renderProducts(){
 }
 
 
-/* ADICIONAR CARRINHO */
+/* COMPRAR */
 
 function addCart(index){
 
   const product =
     products[index];
 
-  cart.push(product);
+  if(Number(product.stock) <= 0){
 
+    alert(
+      "❌ Este produto está esgotado."
+    );
+
+    return;
+  }
+
+  /*
+    Reserva uma unidade no carrinho.
+  */
+
+  product.stock--;
+
+  cart.push({
+    name:product.name,
+    price:Number(product.price),
+    productIndex:index
+  });
+
+  saveProducts();
+  renderProducts();
   updateCart();
 
   document.getElementById(
@@ -816,13 +888,14 @@ function addCart(index){
 }
 
 
-/* ATUALIZAR CARRINHO */
+/* CARRINHO */
 
 function updateCart(){
 
   document.getElementById(
     "count"
-  ).innerText = cart.length;
+  ).innerText =
+    cart.length;
 
   if(cart.length === 0){
 
@@ -877,7 +950,8 @@ function openCart(){
   const area =
     document.getElementById("cartArea");
 
-  area.style.display = "block";
+  area.style.display =
+    "block";
 
   area.scrollIntoView({
     behavior:"smooth",
@@ -887,7 +961,7 @@ function openCart(){
 }
 
 
-/* MOSTRAR PIX */
+/* PIX */
 
 function showPix(){
 
@@ -908,15 +982,18 @@ function showPix(){
 
   document.getElementById(
     "pixTotal"
-  ).innerText = money(total);
+  ).innerText =
+    money(total);
 
   document.getElementById(
     "pixKey"
-  ).value = PIX_KEY;
+  ).value =
+    PIX_KEY;
 
   document.getElementById(
     "pixArea"
-  ).style.display = "block";
+  ).style.display =
+    "block";
 
   document.getElementById(
     "pixArea"
@@ -932,7 +1009,8 @@ function showPix(){
 
 function copiarPix(){
 
-  const chave = PIX_KEY;
+  const chave =
+    PIX_KEY;
 
   if(navigator.clipboard){
 
@@ -948,7 +1026,8 @@ function copiarPix(){
       .catch(()=>{
 
         alert(
-          "Chave Pix: " + chave
+          "Chave Pix: " +
+          chave
         );
 
       });
@@ -956,7 +1035,8 @@ function copiarPix(){
   }else{
 
     alert(
-      "Chave Pix: " + chave
+      "Chave Pix: " +
+      chave
     );
 
   }
@@ -970,7 +1050,8 @@ function closeModal(){
 
   document.getElementById(
     "modal"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 }
 
@@ -981,14 +1062,18 @@ document.getElementById(
   function(event){
 
     if(event.target === this){
+
       closeModal();
+
     }
 
   }
 );
 
 
-/* PAINEL DO DONO */
+/* =========================
+   PAINEL DO DONO
+========================= */
 
 function openOwner(){
 
@@ -1008,7 +1093,8 @@ function openOwner(){
 
   document.getElementById(
     "ownerArea"
-  ).style.display = "block";
+  ).style.display =
+    "block";
 
   renderOwner();
 
@@ -1022,18 +1108,17 @@ function openOwner(){
 }
 
 
-/* FECHAR PAINEL */
-
 function closeOwner(){
 
   document.getElementById(
     "ownerArea"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 }
 
 
-/* EDITOR DO DONO */
+/* EDITOR */
 
 function renderOwner(){
 
@@ -1077,6 +1162,14 @@ function renderOwner(){
         value="${product.price}"
         placeholder="Preço">
 
+      <input
+        id="stock-${index}"
+        type="number"
+        min="0"
+        step="1"
+        value="${product.stock}"
+        placeholder="Estoque">
+
       <div class="owner-actions">
 
         <button
@@ -1102,7 +1195,7 @@ function renderOwner(){
 }
 
 
-/* SALVAR PRODUTO */
+/* SALVAR */
 
 function saveProduct(index){
 
@@ -1123,6 +1216,13 @@ function saveProduct(index){
       ).value
     );
 
+  const stock =
+    Number(
+      document.getElementById(
+        "stock-" + index
+      ).value
+    );
+
   if(!name){
 
     alert(
@@ -1132,7 +1232,10 @@ function saveProduct(index){
     return;
   }
 
-  if(isNaN(price) || price < 0){
+  if(
+    isNaN(price) ||
+    price < 0
+  ){
 
     alert(
       "Digite um preço válido."
@@ -1141,14 +1244,32 @@ function saveProduct(index){
     return;
   }
 
-  products[index].name = name;
-  products[index].desc = desc;
-  products[index].price = price;
+  if(
+    isNaN(stock) ||
+    stock < 0 ||
+    !Number.isInteger(stock)
+  ){
 
-  localStorage.setItem(
-    "fusionProducts",
-    JSON.stringify(products)
-  );
+    alert(
+      "O estoque deve ser um número inteiro maior ou igual a zero."
+    );
+
+    return;
+  }
+
+  products[index].name =
+    name;
+
+  products[index].desc =
+    desc;
+
+  products[index].price =
+    price;
+
+  products[index].stock =
+    stock;
+
+  saveProducts();
 
   renderProducts();
   renderOwner();
@@ -1173,12 +1294,12 @@ function deleteProduct(index){
     return;
   }
 
-  products.splice(index,1);
-
-  localStorage.setItem(
-    "fusionProducts",
-    JSON.stringify(products)
+  products.splice(
+    index,
+    1
   );
+
+  saveProducts();
 
   renderProducts();
   renderOwner();
@@ -1202,20 +1323,19 @@ function addProduct(){
 
     desc:"Descrição do produto",
 
-    price:5
+    price:5,
+
+    stock:10
 
   });
 
-  localStorage.setItem(
-    "fusionProducts",
-    JSON.stringify(products)
-  );
+  saveProducts();
 
   renderProducts();
   renderOwner();
 
   alert(
-    "✅ Novo produto criado!"
+    "✅ Novo produto criado com 10 unidades!"
   );
 
 }
