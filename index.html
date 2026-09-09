@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Minha Loja</title>
+<title>Loja Neon</title>
 
 <style>
 * {
@@ -18,15 +18,16 @@ body {
 }
 
 header {
-  padding: 25px 20px;
   text-align: center;
-  background: #06101f;
-  border-bottom: 1px solid #12304f;
+  padding: 30px 15px;
+  background: #061326;
+  border-bottom: 1px solid #12375c;
 }
 
 header h1 {
   margin: 0;
-  color: #00d9a6;
+  color: #00e6ad;
+  font-size: 30px;
 }
 
 .container {
@@ -40,98 +41,99 @@ header h1 {
 .payment {
   background: #050b14;
   border: 1px solid #12243a;
-  border-radius: 25px;
-  padding: 25px;
-  margin-bottom: 25px;
-  box-shadow: 0 0 20px rgba(0, 150, 255, .08);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 22px;
 }
 
 .card h2 {
   margin-top: 0;
+  font-size: 24px;
 }
 
 .description {
-  color: #9ca7b5;
+  color: #9da8b6;
 }
 
 .price {
-  color: #00d9a6;
+  color: #00e6ad;
   font-size: 30px;
   font-weight: bold;
+  margin: 15px 0;
 }
 
 button {
   width: 100%;
-  border: 0;
-  border-radius: 18px;
+  border: none;
+  border-radius: 17px;
   padding: 17px;
+  margin-top: 12px;
   font-size: 17px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 12px;
 }
 
-.buy {
-  background: #075cae;
-  color: white;
-}
-
-.buy:active,
-.pay:active,
-.copy:active {
-  transform: scale(.98);
-}
-
-.cart h2 {
-  margin-top: 0;
-}
-
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #172638;
-  padding: 15px 0;
-}
-
-.total {
-  display: flex;
-  justify-content: space-between;
-  font-size: 22px;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
+.buy,
 .pay {
   background: #075cae;
   color: white;
 }
 
 .clear {
-  background: #8e1717;
+  background: #991b1b;
   color: white;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #182638;
+  padding: 14px 0;
+}
+
+.cart-name {
+  flex: 1;
+}
+
+.remove {
+  width: auto;
+  margin: 0;
+  padding: 8px 13px;
+  background: #9d2020;
+  color: white;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 23px;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
 .payment {
   display: none;
 }
 
-.pix-box {
+.pix {
   margin-top: 20px;
+  background: #081522;
+  border: 1px solid #17436b;
+  border-radius: 18px;
   padding: 20px;
-  border-radius: 20px;
-  background: #081321;
-  border: 1px solid #173452;
 }
 
 .pix-key {
-  word-break: break-all;
   background: #02050b;
-  padding: 15px;
+  border: 1px solid #24384d;
   border-radius: 12px;
-  margin: 12px 0;
-  color: #00d9a6;
+  padding: 16px;
+  color: #00e6ad;
   font-weight: bold;
+  font-size: 18px;
+  word-break: break-all;
+  text-align: center;
 }
 
 .copy {
@@ -141,9 +143,14 @@ button {
 
 .status {
   text-align: center;
-  color: #00d9a6;
+  color: #00e6ad;
   font-weight: bold;
   min-height: 22px;
+}
+
+.info {
+  color: #aab4c0;
+  line-height: 1.5;
 }
 </style>
 </head>
@@ -157,35 +164,39 @@ button {
 
 <div class="container">
 
-  <!-- PRODUTO -->
+  <!-- PRODUTO 1 -->
   <div class="card">
     <h2>🟡 Licença 7 dias</h2>
     <p class="description">Licença digital demonstrativa.</p>
     <div class="price">R$ 3,00</div>
     <p>Estoque: 10</p>
 
-    <button class="buy" onclick="adicionar('Licença 7 dias', 3)">
+    <button class="buy"
+      onclick="adicionarProduto('Licença 7 dias', 3)">
       🛒 Comprar
     </button>
   </div>
 
+  <!-- PRODUTO 2 -->
   <div class="card">
     <h2>🟡 Licença 30 dias</h2>
     <p class="description">Licença digital demonstrativa.</p>
     <div class="price">R$ 5,00</div>
     <p>Estoque: 10</p>
 
-    <button class="buy" onclick="adicionar('Licença 30 dias', 5)">
+    <button class="buy"
+      onclick="adicionarProduto('Licença 30 dias', 5)">
       🛒 Comprar
     </button>
   </div>
 
   <!-- CARRINHO -->
   <div class="cart">
+
     <h2>🛒 Seu carrinho</h2>
 
-    <div id="carrinho">
-      <p>Nenhum produto adicionado.</p>
+    <div id="listaCarrinho">
+      <p>Nenhum produto no carrinho.</p>
     </div>
 
     <div class="total">
@@ -193,45 +204,48 @@ button {
       <span id="total">R$ 0,00</span>
     </div>
 
-    <button class="pay" onclick="abrirPagamento()">
+    <button class="pay" onclick="irParaPagamento()">
       💳 Continuar para pagamento
     </button>
 
     <button class="clear" onclick="limparCarrinho()">
       🗑️ Limpar carrinho
     </button>
+
   </div>
 
-  <!-- PAGAMENTO PIX -->
+  <!-- PAGAMENTO -->
   <div class="payment" id="pagamento">
 
     <h2>💠 Pagamento via Pix</h2>
 
-    <p>Valor da compra:</p>
+    <p class="info">
+      Valor total da compra:
+    </p>
 
-    <div class="price" id="valorPagamento">
+    <div class="price" id="valorPix">
       R$ 0,00
     </div>
 
-    <div class="pix-box">
+    <div class="pix">
 
       <h3>🔑 Chave Pix</h3>
 
-      <div class="pix-key" id="pixKey">
+      <div class="pix-key" id="chavePix">
         05942249261
       </div>
 
-      <button class="copy" onclick="copiarPix()">
+      <button class="copy" onclick="copiarChavePix()">
         📋 Copiar chave Pix
       </button>
 
-      <p class="status" id="status"></p>
+      <div class="status" id="mensagemPix"></div>
 
     </div>
 
-    <p>
-      Depois de realizar o pagamento, envie o comprovante ao vendedor
-      para confirmação do pedido.
+    <p class="info">
+      Após realizar o pagamento, envie o comprovante ao vendedor
+      para que o pedido possa ser conferido.
     </p>
 
   </div>
@@ -242,7 +256,8 @@ button {
 
 let carrinho = [];
 
-function adicionar(nome, preco) {
+/* ADICIONAR PRODUTO */
+function adicionarProduto(nome, preco) {
 
   carrinho.push({
     nome: nome,
@@ -252,23 +267,23 @@ function adicionar(nome, preco) {
   atualizarCarrinho();
 
   alert(
-    "🛒 Produto adicionado!\n\n" +
-    nome +
-    "\nValor: R$ " +
-    preco.toFixed(2).replace(".", ",")
+    "✅ Produto adicionado ao carrinho!"
   );
 }
 
+
+/* ATUALIZAR CARRINHO */
 function atualizarCarrinho() {
 
-  const area = document.getElementById("carrinho");
+  const lista = document.getElementById("listaCarrinho");
+  const totalElemento = document.getElementById("total");
 
   if (carrinho.length === 0) {
 
-    area.innerHTML =
-      "<p>Nenhum produto adicionado.</p>";
+    lista.innerHTML =
+      "<p>Nenhum produto no carrinho.</p>";
 
-    document.getElementById("total").innerText =
+    totalElemento.innerText =
       "R$ 0,00";
 
     return;
@@ -277,28 +292,24 @@ function atualizarCarrinho() {
   let html = "";
   let total = 0;
 
-  carrinho.forEach((produto, index) => {
+  carrinho.forEach(function(produto, index) {
 
     total += produto.preco;
 
     html += `
       <div class="cart-item">
 
-        <span>${produto.nome}</span>
-
-        <span>
-          R$ ${produto.preco.toFixed(2).replace(".", ",")}
+        <span class="cart-name">
+          ${produto.nome}
         </span>
 
+        <strong>
+          R$ ${formatarValor(produto.preco)}
+        </strong>
+
         <button
-          style="
-            width:auto;
-            margin:0;
-            padding:8px 12px;
-            background:#a51d1d;
-            color:white;
-          "
-          onclick="remover(${index})">
+          class="remove"
+          onclick="removerProduto(${index})">
           X
         </button>
 
@@ -306,19 +317,23 @@ function atualizarCarrinho() {
     `;
   });
 
-  area.innerHTML = html;
+  lista.innerHTML = html;
 
-  document.getElementById("total").innerText =
-    "R$ " + total.toFixed(2).replace(".", ",");
+  totalElemento.innerText =
+    "R$ " + formatarValor(total);
 }
 
-function remover(index) {
+
+/* REMOVER PRODUTO */
+function removerProduto(index) {
 
   carrinho.splice(index, 1);
 
   atualizarCarrinho();
 }
 
+
+/* LIMPAR */
 function limparCarrinho() {
 
   carrinho = [];
@@ -329,54 +344,145 @@ function limparCarrinho() {
     "none";
 }
 
-function obterTotal() {
 
-  return carrinho.reduce(
-    (soma, produto) => soma + produto.preco,
-    0
-  );
+/* TOTAL */
+function calcularTotal() {
+
+  let total = 0;
+
+  carrinho.forEach(function(produto) {
+    total += produto.preco;
+  });
+
+  return total;
 }
 
-function abrirPagamento() {
+
+/* PAGAMENTO */
+function irParaPagamento() {
 
   if (carrinho.length === 0) {
 
-    alert("🛒 Adicione um produto ao carrinho primeiro.");
+    alert(
+      "🛒 Seu carrinho está vazio."
+    );
 
     return;
   }
 
-  const total = obterTotal();
+  const total = calcularTotal();
 
-  document.getElementById("valorPagamento").innerText =
-    "R$ " + total.toFixed(2).replace(".", ",");
+  document.getElementById("valorPix").innerText =
+    "R$ " + formatarValor(total);
 
   document.getElementById("pagamento").style.display =
     "block";
 
-  document.getElementById("pagamento").scrollIntoView({
-    behavior: "smooth"
-  });
+  document.getElementById("mensagemPix").innerText =
+    "";
+
+  setTimeout(function() {
+
+    document.getElementById("pagamento")
+      .scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+  }, 100);
 }
 
-function copiarPix() {
+
+/* COPIAR PIX */
+function copiarChavePix() {
 
   const chave =
-    document.getElementById("pixKey").innerText.trim();
+    document.getElementById("chavePix")
+      .innerText
+      .trim();
 
-  navigator.clipboard.writeText(chave)
-    .then(function() {
+  /* Método moderno */
+  if (
+    navigator.clipboard &&
+    window.isSecureContext
+  ) {
 
-      document.getElementById("status").innerText =
-        "✅ Chave Pix copiada!";
+    navigator.clipboard.writeText(chave)
+      .then(function() {
 
-    })
-    .catch(function() {
+        mostrarCopiado();
 
-      document.getElementById("status").innerText =
-        "❌ Não foi possível copiar automaticamente.";
+      })
+      .catch(function() {
 
-    });
+        copiarMetodoAlternativo(chave);
+
+      });
+
+  } else {
+
+    copiarMetodoAlternativo(chave);
+  }
+}
+
+
+/* MÉTODO ALTERNATIVO */
+function copiarMetodoAlternativo(chave) {
+
+  const campo =
+    document.createElement("textarea");
+
+  campo.value = chave;
+
+  campo.style.position = "fixed";
+  campo.style.left = "-9999px";
+
+  document.body.appendChild(campo);
+
+  campo.focus();
+  campo.select();
+
+  try {
+
+    document.execCommand("copy");
+
+    mostrarCopiado();
+
+  } catch (erro) {
+
+    document.getElementById("mensagemPix")
+      .innerText =
+      "Selecione e copie a chave manualmente.";
+
+  }
+
+  document.body.removeChild(campo);
+}
+
+
+/* MENSAGEM */
+function mostrarCopiado() {
+
+  const mensagem =
+    document.getElementById("mensagemPix");
+
+  mensagem.innerText =
+    "✅ Chave Pix copiada!";
+
+  setTimeout(function() {
+
+    mensagem.innerText = "";
+
+  }, 3000);
+}
+
+
+/* FORMATAÇÃO */
+function formatarValor(valor) {
+
+  return valor
+    .toFixed(2)
+    .replace(".", ",");
 }
 
 </script>
