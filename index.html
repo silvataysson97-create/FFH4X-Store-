@@ -2,223 +2,268 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FFH4X Store</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
-  margin:0;
-  background:#07050d;
-  color:#fff;
-  font-family:Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at top,#35105f 0%,#12091d 35%,#050509 75%);
+  color:white;
+  min-height:100vh;
 }
 
 header{
+  padding:35px 20px;
   text-align:center;
-  padding:45px 20px;
-  background:radial-gradient(circle at top,#4b0875,#11051c 55%,#07050d);
-  border-bottom:1px solid #7c2cff;
+  border-bottom:1px solid #762cff;
+  box-shadow:0 0 30px #761cff55;
 }
 
-h1{
-  margin:0;
-  font-size:42px;
-  text-shadow:0 0 18px #b84cff;
+.logo{
+  font-size:38px;
+  font-weight:900;
+  color:#d58aff;
+  text-shadow:0 0 10px #9b2cff,0 0 30px #7b19ff;
 }
 
-.sub{
-  color:#d8baff;
-  margin-top:10px;
-  font-size:18px;
+.subtitle{
+  margin-top:8px;
+  color:#c9b7d8;
 }
 
-.support-top{
+.support{
   display:inline-block;
   margin-top:20px;
   padding:13px 22px;
   border-radius:12px;
-  background:#7b2cff;
+  background:#8d21ff;
   color:white;
   text-decoration:none;
   font-weight:bold;
-  box-shadow:0 0 18px #7b2cff;
+  box-shadow:0 0 20px #8d21ff88;
+}
+
+.support:hover{
+  transform:scale(1.03);
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:25px 15px 50px;
 }
 
 .trust{
-  max-width:1100px;
-  margin:25px auto;
-  padding:0 15px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:14px;
+  gap:12px;
+  margin-bottom:30px;
 }
 
-.trust div{
-  background:#120d1c;
-  border:1px solid #52208c;
-  border-radius:16px;
-  padding:18px;
+.trust-card{
+  background:#100c18cc;
+  border:1px solid #6320a8;
+  border-radius:15px;
+  padding:18px 10px;
   text-align:center;
-  box-shadow:0 0 12px #2d124c;
+  box-shadow:0 0 18px #6b20a822;
 }
 
-.trust b{
+.trust-card strong{
   display:block;
-  margin:7px 0;
+  color:#d28aff;
+  margin-bottom:5px;
 }
 
-.trust small{
-  color:#aaa;
+h2{
+  text-align:center;
+  margin:25px 0;
+  color:#e4c7ff;
 }
 
 .products{
-  max-width:1100px;
-  margin:30px auto;
-  padding:0 15px;
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
-.card{
-  background:linear-gradient(145deg,#171021,#0e0a14);
-  border:1px solid #6425a8;
-  border-radius:20px;
-  padding:18px;
+.product{
+  background:linear-gradient(145deg,#181020,#0b0810);
+  border:1px solid #7225b7;
+  border-radius:18px;
   overflow:hidden;
-  box-shadow:0 0 18px #28103f;
+  box-shadow:0 0 20px #651bd733;
+  transition:.25s;
 }
 
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 25px #7028b8;
+.product:hover{
+  transform:translateY(-5px);
+  border-color:#c04dff;
+  box-shadow:0 0 30px #962cff66;
 }
 
-.card-img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  border-radius:14px;
-  margin-bottom:15px;
-  border:1px solid #7132ad;
+.product-art{
+  height:150px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:58px;
+  background:
+    radial-gradient(circle,#8c2aff55,#160d22 65%,#07050a);
+  border-bottom:1px solid #6c20a5;
+}
+
+.info{
+  padding:16px;
+}
+
+.info h3{
+  color:#e8caff;
+  margin-bottom:6px;
 }
 
 .tag{
-  color:#b875ff;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.card h2{
-  margin:10px 0 7px;
-}
-
-.card p{
-  color:#aaa;
-  line-height:1.5;
+  display:inline-block;
+  font-size:11px;
+  background:#7020a8;
+  padding:4px 8px;
+  border-radius:20px;
+  margin-bottom:10px;
 }
 
 .price{
-  font-size:27px;
+  font-size:22px;
   font-weight:bold;
-  margin:16px 0 8px;
+  color:#c77cff;
+  margin:10px 0;
 }
 
 .stock{
-  color:#65ff9a;
-  font-weight:bold;
-  margin-bottom:14px;
+  font-size:13px;
+  color:#4dff91;
+  margin-bottom:12px;
 }
 
-.stock.out{
+.stock.zero{
   color:#ff5555;
 }
 
-button{
+.buy{
   width:100%;
-  padding:15px;
   border:0;
-  border-radius:12px;
-  font-size:16px;
+  padding:12px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#7c18ff,#b52cff);
+  color:white;
   font-weight:bold;
   cursor:pointer;
 }
 
-.buy{
-  background:linear-gradient(90deg,#7025d7,#a23cff);
-  color:white;
-  box-shadow:0 0 12px #7025d7;
-}
-
 .buy:disabled{
-  background:#333;
+  background:#332d38;
   color:#888;
-  box-shadow:none;
   cursor:not-allowed;
 }
 
 .checkout{
-  max-width:700px;
-  margin:40px auto;
-  padding:20px;
-}
-
-.box{
-  background:#120d1c;
-  border:1px solid #6425a8;
-  border-radius:20px;
+  display:none;
+  margin-top:35px;
   padding:25px;
-  box-shadow:0 0 20px #28103f;
+  border:1px solid #9a2cff;
+  border-radius:20px;
+  background:#0d0914ee;
+  box-shadow:0 0 30px #8c27ff33;
 }
 
-.pix{
-  background:#21132f;
-  border:1px solid #7132ad;
-  padding:18px;
+.checkout h2{
+  margin-top:0;
+}
+
+.selected{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.pix-box{
+  background:#17101f;
+  border:1px solid #6c23a4;
+  padding:15px;
   border-radius:12px;
   text-align:center;
-  font-size:21px;
+  margin:15px 0;
+}
+
+.pix-key{
+  display:block;
+  margin:10px 0;
   font-weight:bold;
+  color:#d38aff;
   word-break:break-all;
 }
 
-.copy{
+.action{
+  display:block;
+  width:100%;
+  padding:13px;
   margin-top:10px;
-  background:#eee;
-  color:#111;
+  border:0;
+  border-radius:10px;
+  color:white;
+  font-weight:bold;
+  text-decoration:none;
+  text-align:center;
+  cursor:pointer;
+}
+
+.copy{
+  background:#6f1b9d;
 }
 
 .whatsapp{
-  display:block;
-  margin-top:12px;
-  padding:15px;
-  background:#25d366;
-  color:#071b0e;
-  border-radius:12px;
-  text-align:center;
-  text-decoration:none;
-  font-weight:bold;
+  background:#16a34a;
 }
 
 .note{
-  color:#888;
+  color:#aaa;
   font-size:12px;
+  text-align:center;
+  margin-top:15px;
   line-height:1.5;
 }
 
 footer{
   text-align:center;
-  padding:35px 15px;
-  color:#777;
-  border-top:1px solid #2b173b;
+  padding:30px 15px;
+  color:#887c91;
+  border-top:1px solid #251a2d;
 }
 
-@media(max-width:700px){
-  .products{grid-template-columns:1fr}
-  .trust{grid-template-columns:1fr 1fr}
-  h1{font-size:32px}
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .trust{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:500px){
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .logo{
+    font-size:30px;
+  }
 }
 </style>
 </head>
@@ -226,254 +271,175 @@ footer{
 <body>
 
 <header>
-  <h1>FFH4X Store</h1>
-  <div class="sub">Produtos digitais • Visual Gamer Neon</div>
+  <div class="logo">⚡ FFH4X STORE ⚡</div>
+  <div class="subtitle">Produtos digitais • Painéis • Packs • Simulações</div>
 
-  <a class="support-top"
-     href="https://wa.me/556992275174?text=Olá%2C%20preciso%20de%20suporte%20na%20FFH4X%20Store."
-     target="_blank">
+  <a
+    class="support"
+    href="https://wa.me/556992275174"
+    target="_blank">
     📲 Falar com o Suporte
   </a>
 </header>
 
-<section class="trust">
-  <div>🔒<b>Compra segura</b><small>Pagamento via Pix</small></div>
-  <div>⚡<b>Entrega digital</b><small>Rápida e prática</small></div>
-  <div>💬<b>Suporte</b><small>WhatsApp</small></div>
-  <div>✨<b>Visual Premium</b><small>Produtos digitais</small></div>
-</section>
+<div class="container">
 
-<section class="products" id="produtos"></section>
+  <div class="trust">
+    <div class="trust-card">
+      <strong>🔐 Compra segura</strong>
+      Pagamento via Pix
+    </div>
 
-<section class="checkout" id="checkout">
-  <div class="box">
-    <h2>💜 Finalizar compra</h2>
+    <div class="trust-card">
+      <strong>⚡ Entrega digital</strong>
+      Atendimento rápido
+    </div>
 
-    <p id="produto">
-      Escolha um produto acima.
-    </p>
+    <div class="trust-card">
+      <strong>💬 Suporte</strong>
+      WhatsApp
+    </div>
 
-    <p><b>Pagamento via Pix</b></p>
-
-    <div class="pix" id="pix">05942249261</div>
-
-    <button class="copy" onclick="copiarPix()">
-      📋 Copiar chave Pix
-    </button>
-
-    <p class="note">
-      Confira o nome e o valor antes de confirmar o pagamento.
-      Depois envie o comprovante pelo WhatsApp.
-    </p>
-
-    <a class="whatsapp"
-       id="whatsappPagamento"
-       href="https://wa.me/556992275174?text=Olá%2C%20quero%20enviar%20o%20comprovante%20da%20minha%20compra."
-       target="_blank">
-      📲 Enviar comprovante pelo WhatsApp
-    </a>
+    <div class="trust-card">
+      <strong>🎮 Produtos digitais</strong>
+      Catálogo online
+    </div>
   </div>
-</section>
 
-<footer>
-  FFH4X Store © 2026<br>
-  Produtos digitais • Atendimento ao cliente
-</footer>
+  <h2>🔥 Produtos disponíveis</h2>
 
-<script>
+  <div class="products">
 
-const produtos = [
-
-  {
-    nome:"Painel Neon",
-    preco:"9,90",
-    estoque:10,
-    imagem:"https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80",
-    descricao:"Painel visual com tema neon para personalização."
-  },
-
-  {
-    nome:"Pack de HUD",
-    preco:"12,90",
-    estoque:20,
-    imagem:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
-    descricao:"Pacote de elementos visuais para seu projeto."
-  },
-
-  {
-    nome:"Pack de Capas",
-    preco:"7,90",
-    estoque:15,
-    imagem:"https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80",
-    descricao:"Capas digitais com visual gamer."
-  },
-
-  {
-    nome:"Kit Gamer",
-    preco:"19,90",
-    estoque:10,
-    imagem:"https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=80",
-    descricao:"Pacote completo de elementos digitais."
-  },
-
-  {
-    nome:"Tema Dark",
-    preco:"8,90",
-    estoque:20,
-    imagem:"https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80",
-    descricao:"Tema escuro para personalização."
-  },
-
-  {
-    nome:"Banner Pro",
-    preco:"14,90",
-    estoque:8,
-    imagem:"https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=900&q=80",
-    descricao:"Banner digital para divulgação."
-  },
-
-  {
-    nome:"Pack Ícones",
-    preco:"6,90",
-    estoque:25,
-    imagem:"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80",
-    descricao:"Pacote de ícones para projetos digitais."
-  },
-
-  {
-    nome:"Kit Completo",
-    preco:"29,90",
-    estoque:5,
-    imagem:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
-    descricao:"Pacote completo com vários recursos digitais."
-  },
-
-  {
-    nome:"Aimbot — Simulação",
-    preco:"14,90",
-    estoque:10,
-    imagem:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
-    descricao:"Demonstração visual fictícia de interface de mira."
-  },
-
-  {
-    nome:"Holograma — Simulação",
-    preco:"14,90",
-    estoque:20,
-    imagem:"https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=900&q=80",
-    descricao:"Efeito visual holográfico para demonstração."
-  },
-
-  {
-    nome:"ESP Vision — Simulação",
-    preco:"12,90",
-    estoque:10,
-    imagem:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
-    descricao:"Interface visual fictícia para demonstração."
-  },
-
-  {
-    nome:"Wallhack — Simulação",
-    preco:"12,90",
-    estoque:20,
-    imagem:"https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80",
-    descricao:"Efeito visual fictício para demonstração."
-  },
-
-  {
-    nome:"Auto Headshot — Simulação",
-    preco:"12,90",
-    estoque:10,
-    imagem:"https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=900&q=80",
-    descricao:"Interface fictícia de demonstração."
-  },
-
-  {
-    nome:"No Recoil — Simulação",
-    preco:"12,90",
-    estoque:20,
-    imagem:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80",
-    descricao:"Demonstração visual fictícia."
-  },
-
-  {
-    nome:"Radar — Simulação",
-    preco:"12,90",
-    estoque:15,
-    imagem:"https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80",
-    descricao:"Interface de radar fictícia para demonstração."
-  },
-
-  {
-    nome:"Triggerbot — Simulação",
-    preco:"12,90",
-    estoque:10,
-    imagem:"https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=900&q=80",
-    descricao:"Interface fictícia para demonstração."
-  }
-
-];
-
-function mostrarProdutos(){
-
-  const area=document.getElementById("produtos");
-
-  area.innerHTML="";
-
-  produtos.forEach((p,index)=>{
-
-    const esgotado=p.estoque<=0;
-
-    area.innerHTML += `
-
-      <div class="card">
-
-        <img
-          class="card-img"
-          src="${p.imagem}"
-          alt="${p.nome}"
-        >
-
-        <span class="tag">PRODUTO DIGITAL</span>
-
-        <h2>${p.nome}</h2>
-
-        <p>${p.descricao}</p>
-
-        <div class="price">
-          R$ ${p.preco}
-        </div>
-
-        <div class="stock ${esgotado ? "out" : ""}">
-          ${esgotado
-            ? "🔴 Esgotado"
-            : "🟢 " + p.estoque + " em estoque"}
-        </div>
-
-        <button
-          class="buy"
-          ${esgotado ? "disabled" : ""}
-          onclick="comprar(${index})">
-          ${esgotado ? "Esgotado" : "Comprar"}
-        </button>
-
+    <div class="product">
+      <div class="product-art">🌌</div>
+      <div class="info">
+        <span class="tag">DIGITAL</span>
+        <h3>Painel Neon</h3>
+        <p>Interface gamer neon.</p>
+        <div class="price">R$ 9,90</div>
+        <div class="stock">🟢 10 em estoque</div>
+        <button class="buy" onclick="comprar('Painel Neon','9,90')">Comprar</button>
       </div>
+    </div>
 
-    `;
+    <div class="product">
+      <div class="product-art">🎯</div>
+      <div class="info">
+        <span class="tag">PACK</span>
+        <h3>Pack de HUD</h3>
+        <p>Elementos visuais para HUD.</p>
+        <div class="price">R$ 12,90</div>
+        <div class="stock">🟢 20 em estoque</div>
+        <button class="buy" onclick="comprar('Pack de HUD','12,90')">Comprar</button>
+      </div>
+    </div>
 
-  });
+    <div class="product">
+      <div class="product-art">🖼️</div>
+      <div class="info">
+        <span class="tag">PACK</span>
+        <h3>Pack de Capas</h3>
+        <p>Capas digitais gamer.</p>
+        <div class="price">R$ 7,90</div>
+        <div class="stock">🟢 15 em estoque</div>
+        <button class="buy" onclick="comprar('Pack de Capas','7,90')">Comprar</button>
+      </div>
+    </div>
 
-}
+    <div class="product">
+      <div class="product-art">🎮</div>
+      <div class="info">
+        <span class="tag">KIT</span>
+        <h3>Kit Gamer</h3>
+        <p>Kit visual para jogador.</p>
+        <div class="price">R$ 19,90</div>
+        <div class="stock">🟢 10 em estoque</div>
+        <button class="buy" onclick="comprar('Kit Gamer','19,90')">Comprar</button>
+      </div>
+    </div>
 
-function comprar(index){
+    <div class="product">
+      <div class="product-art">🌑</div>
+      <div class="info">
+        <span class="tag">TEMA</span>
+        <h3>Tema Dark</h3>
+        <p>Tema preto e roxo.</p>
+        <div class="price">R$ 8,90</div>
+        <div class="stock">🟢 20 em estoque</div>
+        <button class="buy" onclick="comprar('Tema Dark','8,90')">Comprar</button>
+      </div>
+    </div>
 
-  const p=produtos[index];
+    <div class="product">
+      <div class="product-art">⚡</div>
+      <div class="info">
+        <span class="tag">DESIGN</span>
+        <h3>Banner Pro</h3>
+        <p>Banner digital personalizado.</p>
+        <div class="price">R$ 14,90</div>
+        <div class="stock">🟢 8 em estoque</div>
+        <button class="buy" onclick="comprar('Banner Pro','14,90')">Comprar</button>
+      </div>
+    </div>
 
-  if(p.estoque<=0){
-    alert("Produto esgotado.");
-    return;
-  }
+    <div class="product">
+      <div class="product-art">🔷</div>
+      <div class="info">
+        <span class="tag">PACK</span>
+        <h3>Pack Ícones</h3>
+        <p>Ícones para projetos digitais.</p>
+        <div class="price">R$ 6,90</div>
+        <div class="stock">🟢 25 em estoque</div>
+        <button class="buy" onclick="comprar('Pack Ícones','6,90')">Comprar</button>
+      </div>
+    </div>
 
-  document.getElementById("produto").innerHTML=
-    "Você escolheu: <b>"+p.nome+
-    "</b><br>
+    <div class="product">
+      <div class="product-art">💎</div>
+      <div class="info">
+        <span class="tag">COMPLETO</span>
+        <h3>Kit Completo</h3>
+        <p>Pacote digital completo.</p>
+        <div class="price">R$ 29,90</div>
+        <div class="stock">🟢 5 em estoque</div>
+        <button class="buy" onclick="comprar('Kit Completo','29,90')">Comprar</button>
+      </div>
+    </div>
+
+    <!-- SIMULAÇÕES -->
+
+    <div class="product">
+      <div class="product-art">🎯</div>
+      <div class="info">
+        <span class="tag">SIMULAÇÃO</span>
+        <h3>Aimbot</h3>
+        <p>Produto visual de demonstração.</p>
+        <div class="price">R$ 9,90</div>
+        <div class="stock">🟢 10 em estoque</div>
+        <button class="buy" onclick="comprar('Aimbot — Simulação','9,90')">Comprar</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-art">👻</div>
+      <div class="info">
+        <span class="tag">SIMULAÇÃO</span>
+        <h3>Holograma</h3>
+        <p>Interface holográfica fictícia.</p>
+        <div class="price">R$ 9,90</div>
+        <div class="stock">🟢 20 em estoque</div>
+        <button class="buy" onclick="comprar('Holograma — Simulação','9,90')">Comprar</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-art">👁️</div>
+      <div class="info">
+        <span class="tag">SIMULAÇÃO</span>
+        <h3>ESP Vision</h3>
+        <p>Interface visual fictícia.</p>
+        <div class="price">R$ 9,90</div>
+        <div class="stock">🟢 10 em estoque</div>
+        <button class="buy" onclick="comprar('ESP Vision — Simulação','9,90')">Comprar</button>
+      </div>
+    </div>
